@@ -16,10 +16,15 @@ class FormVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        bind()
     }
     
     private func configure() {
         contentView.searchButton.addTarget(self, action: #selector(searchButtonPressed(sender:)), for: .touchUpInside)
+    }
+    
+    private func bind() {
+        contentView.accessTokenTextField.text = viewModel.accessToken
     }
     
     @objc

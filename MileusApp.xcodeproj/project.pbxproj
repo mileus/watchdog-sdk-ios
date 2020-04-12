@@ -17,6 +17,7 @@
 		18872BAB243B2D6E00A127D2 /* FormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872BAA243B2D6E00A127D2 /* FormVC.swift */; };
 		18872BAD243B2D7E00A127D2 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872BAC243B2D7E00A127D2 /* FormView.swift */; };
 		18872BB0243B2DB000A127D2 /* FormVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872BAF243B2DB000A127D2 /* FormVM.swift */; };
+		18EFBD702443276800C5BD5F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EFBD6F2443276800C5BD5F /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -45,6 +46,7 @@
 		18872BAA243B2D6E00A127D2 /* FormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormVC.swift; sourceTree = "<group>"; };
 		18872BAC243B2D7E00A127D2 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		18872BAF243B2DB000A127D2 /* FormVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormVM.swift; sourceTree = "<group>"; };
+		18EFBD6F2443276800C5BD5F /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 		18872BA7243B2C8000A127D2 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				18EFBD6E2443275A00C5BD5F /* Utilities */,
 				18872BA8243B2C8500A127D2 /* Screens */,
 			);
 			path = Sources;
@@ -122,6 +125,14 @@
 				18872BAC243B2D7E00A127D2 /* FormView.swift */,
 			);
 			path = Form;
+			sourceTree = "<group>";
+		};
+		18EFBD6E2443275A00C5BD5F /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				18EFBD6F2443276800C5BD5F /* Config.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +212,7 @@
 				18872BAD243B2D7E00A127D2 /* FormView.swift in Sources */,
 				18872B8F243B26E400A127D2 /* AppDelegate.swift in Sources */,
 				18872B91243B26E400A127D2 /* SceneDelegate.swift in Sources */,
+				18EFBD702443276800C5BD5F /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

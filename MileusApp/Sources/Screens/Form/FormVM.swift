@@ -15,8 +15,15 @@ class FormVM {
     
     var mileusSearch: MileusSearch?
     
+    private let config: Config
+    
     init() {
+        config = Config.shared
+        accessToken = config.accessToken
         
+#if DEBUG
+        accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhaSI6MTIzNDUsInBuIjoiZHVtbXktcGFydG5lciIsInBlaSI6ImV4dGVybmFsLXBhc3Nlbmdlci1pZCIsImlhdCI6MTU4NTE0MTAwNn0.0vyb_yjUH4RQ1lyhSiao3h6JdJagQBy_QZXyPWRr9NU"
+#endif
     }
     
     func getOrigin() -> MileusLocation {
@@ -28,16 +35,12 @@ class FormVM {
     }
     
     func search(from: UIViewController, delegate: MileusSearchFlowDelegate) -> UIViewController {
-        if accessToken?.isEmpty ?? true {
-            accessToken = "unknown-token-ios-test-app"
-        }
-        try! MileusKit.configure(partnerName: "ios-test-app", accessToken: accessToken!, environment: .staging)
+        config.accessToken = accessToken
+        
+        let token = (accessToken?.isEmpty ?? true) ? "unknown-token-ios-test-app" : accessToken!
+        try! MileusKit.configure(partnerName: "ios-test-app", accessToken: token, environment: .staging)
         mileusSearch = try! MileusSearch(delegate: delegate, origin: getOrigin(), destination: getDestination())
         
-        /*DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 12.0) {
-            self.originAddress = "Praha 1"
-            self.mileusSearch?.updateOrigin(location: self.getOrigin())
-        }*/
         return mileusSearch!.show(from: from)
     }
     
