@@ -30,10 +30,10 @@ class SearchVC: UIViewController {
     private func bind() {
         contentView.load(url: viewModel.getURL())
         viewModel.updateCoordinates = { [unowned self] in
-            if let origin = self.viewModel.search.origin {
+            if let origin = self.viewModel.getOrigin() {
                 self.contentView.updateOrigin(location: origin)
             }
-            if let destination = self.viewModel.search.destination {
+            if let destination = self.viewModel.getDestinatino() {
                 self.contentView.updateDestination(location: destination)
             }
         }

@@ -23,6 +23,20 @@ class SearchVM: NSObject {
         return urlHandler()
     }
     
+    func getOrigin() -> String? {
+        if let location = search.origin {
+            return formatLocation(location: location)
+        }
+        return nil
+    }
+    
+    func getDestinatino() -> String? {
+        if let location = search.destination {
+            return formatLocation(location: location)
+        }
+        return nil
+    }
+    
     func coordinatesUpdated() {
         updateCoordinates?()
     }
@@ -50,6 +64,10 @@ class SearchVM: NSObject {
         DispatchQueue.main.async {
             self.search?.delegate?.mileusShowTaxiRide(self.search)
         }
+    }
+    
+    private func formatLocation(location: MileusLocation) -> String {
+        return "{'lat': \(location.latitude), 'lon': \(location.longitude), 'address': '\(location.address)', 'accuracy': \(location.accuracy)}"
     }
     
 }

@@ -29,20 +29,15 @@ class SearchView: UIView {
         webView.load(URLRequest(url: url))
     }
     
-    func updateOrigin(location: MileusLocation) {
+    func updateOrigin(location: String) {
         DispatchQueue.main.async {
-            let data = "{'lat': \(location.latitude), 'lon': \(location.longitude), 'address': '\(location.address)', 'accuracy': \(location.accuracy)}"
-            self.webView.evaluateJavaScript("window.setOrigin(\(data));", completionHandler: { data, error in
-                print(data)
-                print(error)
-            })
+            self.webView.evaluateJavaScript("window.setOrigin(\(location));", completionHandler: nil)
         }
     }
     
-    func updateDestination(location: MileusLocation) {
+    func updateDestination(location: String) {
         DispatchQueue.main.async {
-            let data: [String : Any] = ["lat": location.latitude, "lon": location.longitude, "address": location.address, "accuracy": location.accuracy]
-            self.webView.evaluateJavaScript("window.setDestination(\(data));", completionHandler: nil)
+            self.webView.evaluateJavaScript("window.setDestination(\(location));", completionHandler: nil)
         }
     }
      
@@ -54,14 +49,15 @@ class SearchView: UIView {
         contentController.add(delegate, name: WebViewJSConstants.openTaxiRide)
         
         webView = WKWebView(frame: .zero, configuration: config)
+        
         webView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(webView)
-        webView.topAnchor.constraint(equalToSystemSpacingBelow: self.topAnchor, multiplier: 1.0).isActive = true
-        webView.leftAnchor.constraint(equalToSystemSpacingAfter: self.leftAnchor, multiplier: 1.0).isActive = true
-        webView.rightAnchor.constraint(equalToSystemSpacingAfter: self.rightAnchor, multiplier: 1.0).isActive = true
-        webView.bottomAnchor.constraint(equalToSystemSpacingBelow: self.bottomAnchor, multiplier: 1.0).isActive = true
+        webView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        webView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        webView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        webView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
         
-        webView.backgroundColor = UIColor.white
+        webView.backgroundColor = UIColor.clear
         webView.navigationDelegate = self
         
         insertSubview(loadingView, aboveSubview: webView)
