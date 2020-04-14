@@ -31,11 +31,11 @@ class FormVC: UIViewController {
     private func searchButtonPressed(sender: AnyObject) {
         viewModel.accessToken = contentView.accessTokenTextField.text ?? ""
         viewModel.originAddress = contentView.originAddressTextField.text
-        viewModel.originLatitude = contentView.originLatitudeTextField.text
-        viewModel.originLongitude = contentView.originLongitudeTextField.text
+        viewModel.originLatitude = viewModel.formatCoordinate(contentView.originLatitudeTextField.text)
+        viewModel.originLongitude = viewModel.formatCoordinate(contentView.originLongitudeTextField.text)
         viewModel.destinationAddress = contentView.destinationAddressTextField.text
-        viewModel.destinationLatitude = contentView.destinationLatitudeTextField.text
-        viewModel.destinationLongitude = contentView.destinationLongitudeTextField.text
+        viewModel.destinationLatitude = viewModel.formatCoordinate(contentView.destinationLatitudeTextField.text)
+        viewModel.destinationLongitude = viewModel.formatCoordinate(contentView.destinationLongitudeTextField.text)
         
         mileusVC = viewModel.search(from: self, delegate: self)
     }

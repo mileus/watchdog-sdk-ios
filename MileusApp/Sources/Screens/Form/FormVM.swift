@@ -44,4 +44,8 @@ class FormVM {
         return mileusSearch!.show(from: from)
     }
     
+    func formatCoordinate(_ string: String?) -> String? {
+        return string?.replacingOccurrences(of: ",", with: ".")
+    }
+    
 }

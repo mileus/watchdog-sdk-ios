@@ -84,11 +84,7 @@ extension FormView: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if (string == "," || string == ".") && textField.text?.contains(".") ?? false {
-            return false
-        }
-        if string == "," {
-            textField.text = textField.text! + "."
+        if (string == "," || string == ".") && ((textField.text?.contains(",") ?? false) || (textField.text?.contains(".") ?? false)) {
             return false
         }
         return true
