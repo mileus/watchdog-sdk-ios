@@ -4,6 +4,8 @@ import UIKit
 
 class FormView: UIView {
 
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var scrollContentView: UIView!
     @IBOutlet weak var accessTokenTextField: UITextField!
     @IBOutlet weak var originAddressTextField: UITextField!
     @IBOutlet weak var originLatitudeTextField: UITextField!
@@ -22,12 +24,16 @@ class FormView: UIView {
         ]
     }()
     
+    private var keyboardManager: KeyboardManager!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         configure()
     }
     
     private func configure() {
+        keyboardManager = KeyboardManager(scrollView: scrollView)
+        
         configureTextFields()
         
         setTextField(accessTokenTextField, text: "", placeholder: "Access Token")
@@ -74,6 +80,17 @@ extension FormView: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        return true
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (string == "," || string == ".") && textField.text?.contains(".") ?? false {
+            return false
+        }
+        if string == "," {
+            textField.text = textField.text! + "."
+            return false
+        }
         return true
     }
     

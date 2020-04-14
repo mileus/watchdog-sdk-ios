@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		18198124243EECB800150AE6 /* MileusKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18198123243EECB800150AE6 /* MileusKit.framework */; };
 		18198125243EECB800150AE6 /* MileusKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18198123243EECB800150AE6 /* MileusKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		186C7C0624457E16004E1D3F /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C7C0524457E16004E1D3F /* KeyboardManager.swift */; };
 		18872B8F243B26E400A127D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872B8E243B26E400A127D2 /* AppDelegate.swift */; };
 		18872B91243B26E400A127D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872B90243B26E400A127D2 /* SceneDelegate.swift */; };
 		18872B96243B26E400A127D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18872B94243B26E400A127D2 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		18198123243EECB800150AE6 /* MileusKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MileusKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		186C7C0524457E16004E1D3F /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		18872B8B243B26E400A127D2 /* MileusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MileusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18872B8E243B26E400A127D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18872B90243B26E400A127D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				18EFBD6F2443276800C5BD5F /* Config.swift */,
+				186C7C0524457E16004E1D3F /* KeyboardManager.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				18872BAD243B2D7E00A127D2 /* FormView.swift in Sources */,
 				18872B8F243B26E400A127D2 /* AppDelegate.swift in Sources */,
 				18872B91243B26E400A127D2 /* SceneDelegate.swift in Sources */,
+				186C7C0624457E16004E1D3F /* KeyboardManager.swift in Sources */,
 				18EFBD702443276800C5BD5F /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -301,6 +305,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = QK25HD76J7;
 				INFOPLIST_FILE = MileusApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -440,6 +445,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MileusApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -461,6 +467,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MileusApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
