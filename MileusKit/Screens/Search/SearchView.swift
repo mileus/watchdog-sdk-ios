@@ -22,6 +22,7 @@ class SearchView: UIView {
         super.awakeFromNib()
         
         loadingView.hidesWhenStopped = true
+        loadingView.color = .darkGray
     }
     
     func load(url: URL) {
