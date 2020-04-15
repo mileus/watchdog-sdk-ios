@@ -64,7 +64,8 @@ public final class MileusSearch {
         components.queryItems = [
             URLQueryItem(name: "access_token", value: MileusKit.accessToken),
             URLQueryItem(name: "environment", value: MileusKit.environment.key),
-            URLQueryItem(name: "partner_name", value: MileusKit.partnerName)
+            URLQueryItem(name: "partner_name", value: MileusKit.partnerName),
+            URLQueryItem(name: "platform", value: "ios")
         ]
         if let origin = self.origin {
             components.queryItems?.append(URLQueryItem(name: "origin_address", value: String(origin.address)))
