@@ -36,14 +36,13 @@ class FormView: UIView {
         
         configureTextFields()
         
-        setTextField(accessTokenTextField, text: "", placeholder: "Access Token")
-        setTextField(originAddressTextField, text: "Prague - Nové Město", placeholder: "Origin Address")
-        setTextField(originLatitudeTextField, text: "50.091266", placeholder: "Origin Latitude")
-        setTextField(originLongitudeTextField, text: "14.438927", placeholder: "Origin Longitude")
-        setTextField(destinationAddressTextField, text: "Holešovice", placeholder: "Destination Address")
-        setTextField(destinationLatitudeTextField, text: "50.121765629793295", placeholder: "Destination Latitude")
-        setTextField(destinationLongitudeTextField, text: "14.489431312606477", placeholder: "Destinatino Longitude")
-        
+        accessTokenTextField.placeholder = "Access Token"
+        originAddressTextField.placeholder = "Origin Address"
+        originLatitudeTextField.placeholder = "Origin Latitude"
+        originLongitudeTextField.placeholder = "Origin Longitude"
+        destinationAddressTextField.placeholder = "Destination Address"
+        destinationLatitudeTextField.placeholder = "Destination Latitude"
+        destinationLongitudeTextField.placeholder = "Destinatino Longitude"
         searchButton.setTitle("Search", for: .normal)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureSelected(sender:)))
@@ -60,11 +59,6 @@ class FormView: UIView {
         originLongitudeTextField.keyboardType = .decimalPad
         destinationLatitudeTextField.keyboardType = .decimalPad
         destinationLongitudeTextField.keyboardType = .decimalPad
-    }
-    
-    private func setTextField(_ textField: UITextField, text: String, placeholder: String) {
-        textField.text = text
-        textField.placeholder = placeholder
     }
     
     @objc

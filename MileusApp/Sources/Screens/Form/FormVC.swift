@@ -25,17 +25,23 @@ class FormVC: UIViewController {
     
     private func bind() {
         contentView.accessTokenTextField.text = viewModel.accessToken
+        contentView.originAddressTextField.text = viewModel.originAddress
+        contentView.originLatitudeTextField.text = viewModel.originLatitude
+        contentView.originLongitudeTextField.text = viewModel.originLongitude
+        contentView.destinationAddressTextField.text = viewModel.destinationAddress
+        contentView.destinationLatitudeTextField.text = viewModel.destinationLatitude
+        contentView.destinationLongitudeTextField.text = viewModel.destinationLongitude
     }
     
     @objc
     private func searchButtonPressed(sender: AnyObject) {
         viewModel.accessToken = contentView.accessTokenTextField.text ?? ""
         viewModel.originAddress = contentView.originAddressTextField.text
-        viewModel.originLatitude = viewModel.formatCoordinate(contentView.originLatitudeTextField.text)
-        viewModel.originLongitude = viewModel.formatCoordinate(contentView.originLongitudeTextField.text)
+        viewModel.originLatitude = contentView.originLatitudeTextField.text
+        viewModel.originLongitude = contentView.originLongitudeTextField.text
         viewModel.destinationAddress = contentView.destinationAddressTextField.text
-        viewModel.destinationLatitude = viewModel.formatCoordinate(contentView.destinationLatitudeTextField.text)
-        viewModel.destinationLongitude = viewModel.formatCoordinate(contentView.destinationLongitudeTextField.text)
+        viewModel.destinationLatitude = contentView.destinationLatitudeTextField.text
+        viewModel.destinationLongitude = contentView.destinationLongitudeTextField.text
         
         mileusVC = viewModel.search(from: self, delegate: self)
     }
