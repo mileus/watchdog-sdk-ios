@@ -86,9 +86,13 @@ extension SearchVM: WKScriptMessageHandler {
             guard let dic = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : String] else {
                 return
             }
-            openSearch(data: dic)
+            DispatchQueue.main.async {
+                self.openSearch(data: dic)
+            }
         } else if message.name == SearchView.WebViewJSConstants.openTaxiRide {
-            openTaxiRide()
+            DispatchQueue.main.async {
+                self.openTaxiRide()
+            }
         }
     }
     
