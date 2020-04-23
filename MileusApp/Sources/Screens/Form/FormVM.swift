@@ -7,13 +7,18 @@ class FormVM {
     
     var accessToken: String?
     var originAddress: String!
+    @LocationWrapper(value: "50.091266")
     var originLatitude: String!
+    @LocationWrapper(value: "14.438927")
     var originLongitude: String!
     var destinationAddress: String!
+    @LocationWrapper(value: "50.121765629793295")
     var destinationLatitude: String!
+    @LocationWrapper(value: "14.489431312606477")
     var destinationLongitude: String!
     
     var mileusSearch: MileusSearch?
+    var searchData: MileusSearchData?
     
     private let config: Config
     
@@ -26,24 +31,20 @@ class FormVM {
 #endif
         
         originAddress = "Prague - Nové Město"
-        originLatitude = formatCoordinateToView("50.091266")
-        originLongitude = formatCoordinateToView("14.438927")
         destinationAddress = "Holešovice"
-        destinationLatitude = formatCoordinateToView("50.121765629793295")
-        destinationLongitude = formatCoordinateToView("14.489431312606477")
     }
     
     func getOrigin() -> MileusLocation {
         return MileusLocation(address: originAddress,
-                              latitude: Double(formatCoordinateFromView(originLatitude)) ?? 0.0,
-                              longitude: Double(formatCoordinateFromView(originLongitude)) ?? 0.0
+                              latitude: $originLatitude,
+                              longitude: $originLongitude
         )
     }
     
     func getDestination() -> MileusLocation {
         return MileusLocation(address: destinationAddress,
-                              latitude: Double(formatCoordinateFromView(destinationLatitude)) ?? 0.0,
-                              longitude: Double(formatCoordinateFromView(destinationLongitude)) ?? 0.0
+                              latitude: $destinationLatitude,
+                              longitude: $destinationLongitude
         )
     }
     
@@ -57,13 +58,16 @@ class FormVM {
         return mileusSearch!.show(from: from)
     }
     
-    private func formatCoordinateToView(_ string: String) -> String {
-        let sep = Locale.current.decimalSeparator ?? "."
-        return string.replacingOccurrences(of: ".", with: sep)
-    }
-    
-    private func formatCoordinateFromView(_ string: String) -> String {
-        return string.replacingOccurrences(of: ",", with: ".")
+    func updateLocation(location: MileusLocation) {
+        guard let data = searchData else {
+            return
+        }
+        switch data.type {
+        case .origin:
+            mileusSearch?.updateOrigin(location: location)
+        case .destination:
+            mileusSearch?.updateDestination(location: location)
+        }
     }
     
 }

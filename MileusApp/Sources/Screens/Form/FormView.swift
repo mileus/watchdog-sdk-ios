@@ -34,31 +34,17 @@ class FormView: UIView {
     private func configure() {
         keyboardManager = KeyboardManager(scrollView: scrollView)
         
-        configureTextFields()
-        
-        accessTokenTextField.placeholder = "Access Token"
-        originAddressTextField.placeholder = "Origin Address"
-        originLatitudeTextField.placeholder = "Origin Latitude"
-        originLongitudeTextField.placeholder = "Origin Longitude"
-        destinationAddressTextField.placeholder = "Destination Address"
-        destinationLatitudeTextField.placeholder = "Destination Latitude"
-        destinationLongitudeTextField.placeholder = "Destinatino Longitude"
-        searchButton.setTitle("Search", for: .normal)
+        accessTokenTextField.placeholder = NSLocalizedString("Access Token", comment: "")
+        originAddressTextField.placeholder = NSLocalizedString("Origin Address", comment: "")
+        originLatitudeTextField.placeholder = NSLocalizedString("Origin Latitude", comment: "")
+        originLongitudeTextField.placeholder = NSLocalizedString("Origin Longitude", comment: "")
+        destinationAddressTextField.placeholder = NSLocalizedString("Destination Address", comment: "")
+        destinationLatitudeTextField.placeholder = NSLocalizedString("Destination Latitude", comment: "")
+        destinationLongitudeTextField.placeholder = NSLocalizedString("Destinatino Longitude", comment: "")
+        searchButton.setTitle(NSLocalizedString("Search", comment: ""), for: .normal)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureSelected(sender:)))
         addGestureRecognizer(tapGestureRecognizer)
-    }
-    
-    private func configureTextFields() {
-        textFields.forEach { (textField) in
-            textField.returnKeyType = .done
-            textField.delegate = self
-        }
-        
-        originLatitudeTextField.keyboardType = .decimalPad
-        originLongitudeTextField.keyboardType = .decimalPad
-        destinationLatitudeTextField.keyboardType = .decimalPad
-        destinationLongitudeTextField.keyboardType = .decimalPad
     }
     
     @objc
@@ -68,20 +54,4 @@ class FormView: UIView {
         }
     }
 
-}
-
-extension FormView: UITextFieldDelegate {
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if (string == "," || string == ".") && ((textField.text?.contains(",") ?? false) || (textField.text?.contains(".") ?? false)) {
-            return false
-        }
-        return true
-    }
-    
 }

@@ -10,6 +10,13 @@
 		18198124243EECB800150AE6 /* MileusKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18198123243EECB800150AE6 /* MileusKit.framework */; };
 		18198125243EECB800150AE6 /* MileusKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18198123243EECB800150AE6 /* MileusKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		186C7C0624457E16004E1D3F /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C7C0524457E16004E1D3F /* KeyboardManager.swift */; };
+		1880AAA024504DAA00E1DE88 /* LocationForm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1880AA9F24504DAA00E1DE88 /* LocationForm.storyboard */; };
+		1880AAA224504DBE00E1DE88 /* LocationFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880AAA124504DBE00E1DE88 /* LocationFormVC.swift */; };
+		1880AAA42450575400E1DE88 /* LocationFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880AAA32450575400E1DE88 /* LocationFormView.swift */; };
+		1880AAA62450577000E1DE88 /* LocationFormVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880AAA52450577000E1DE88 /* LocationFormVM.swift */; };
+		1880AAA924505B6D00E1DE88 /* TextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880AAA824505B6D00E1DE88 /* TextField.swift */; };
+		1880AAAB24505C7100E1DE88 /* LocationTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880AAAA24505C7100E1DE88 /* LocationTextField.swift */; };
+		1880AAAD2450620800E1DE88 /* LocationWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880AAAC2450620800E1DE88 /* LocationWrapper.swift */; };
 		18872B8F243B26E400A127D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872B8E243B26E400A127D2 /* AppDelegate.swift */; };
 		18872B91243B26E400A127D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872B90243B26E400A127D2 /* SceneDelegate.swift */; };
 		18872B96243B26E400A127D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18872B94243B26E400A127D2 /* Main.storyboard */; };
@@ -38,6 +45,13 @@
 /* Begin PBXFileReference section */
 		18198123243EECB800150AE6 /* MileusKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MileusKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		186C7C0524457E16004E1D3F /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
+		1880AA9F24504DAA00E1DE88 /* LocationForm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationForm.storyboard; sourceTree = "<group>"; };
+		1880AAA124504DBE00E1DE88 /* LocationFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormVC.swift; sourceTree = "<group>"; };
+		1880AAA32450575400E1DE88 /* LocationFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormView.swift; sourceTree = "<group>"; };
+		1880AAA52450577000E1DE88 /* LocationFormVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormVM.swift; sourceTree = "<group>"; };
+		1880AAA824505B6D00E1DE88 /* TextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextField.swift; sourceTree = "<group>"; };
+		1880AAAA24505C7100E1DE88 /* LocationTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTextField.swift; sourceTree = "<group>"; };
+		1880AAAC2450620800E1DE88 /* LocationWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationWrapper.swift; sourceTree = "<group>"; };
 		18872B8B243B26E400A127D2 /* MileusApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MileusApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18872B8E243B26E400A127D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18872B90243B26E400A127D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +77,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1880AA9E24504D8F00E1DE88 /* Location Form */ = {
+			isa = PBXGroup;
+			children = (
+				1880AAA52450577000E1DE88 /* LocationFormVM.swift */,
+				1880AAA124504DBE00E1DE88 /* LocationFormVC.swift */,
+				1880AAA32450575400E1DE88 /* LocationFormView.swift */,
+				1880AA9F24504DAA00E1DE88 /* LocationForm.storyboard */,
+			);
+			path = "Location Form";
+			sourceTree = "<group>";
+		};
+		1880AAA724505B5300E1DE88 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				1880AAA824505B6D00E1DE88 /* TextField.swift */,
+				1880AAAA24505C7100E1DE88 /* LocationTextField.swift */,
+				1880AAAC2450620800E1DE88 /* LocationWrapper.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		18872B82243B26E400A127D2 = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				18EFBD6E2443275A00C5BD5F /* Utilities */,
+				1880AAA724505B5300E1DE88 /* Views */,
 				18872BA8243B2C8500A127D2 /* Screens */,
 			);
 			path = Sources;
@@ -115,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				18872BA9243B2C9200A127D2 /* Form */,
+				1880AA9E24504D8F00E1DE88 /* Location Form */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -200,6 +237,7 @@
 				18872B9B243B26E800A127D2 /* LaunchScreen.storyboard in Resources */,
 				18872B98243B26E800A127D2 /* Assets.xcassets in Resources */,
 				18872B96243B26E400A127D2 /* Main.storyboard in Resources */,
+				1880AAA024504DAA00E1DE88 /* LocationForm.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,11 +249,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				18872BAB243B2D6E00A127D2 /* FormVC.swift in Sources */,
+				1880AAA924505B6D00E1DE88 /* TextField.swift in Sources */,
+				1880AAA62450577000E1DE88 /* LocationFormVM.swift in Sources */,
 				18872BB0243B2DB000A127D2 /* FormVM.swift in Sources */,
 				18872BAD243B2D7E00A127D2 /* FormView.swift in Sources */,
 				18872B8F243B26E400A127D2 /* AppDelegate.swift in Sources */,
 				18872B91243B26E400A127D2 /* SceneDelegate.swift in Sources */,
+				1880AAA224504DBE00E1DE88 /* LocationFormVC.swift in Sources */,
+				1880AAAB24505C7100E1DE88 /* LocationTextField.swift in Sources */,
 				186C7C0624457E16004E1D3F /* KeyboardManager.swift in Sources */,
+				1880AAAD2450620800E1DE88 /* LocationWrapper.swift in Sources */,
+				1880AAA42450575400E1DE88 /* LocationFormView.swift in Sources */,
 				18EFBD702443276800C5BD5F /* Config.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -305,7 +349,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = QK25HD76J7;
 				INFOPLIST_FILE = MileusApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -445,7 +489,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MileusApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -467,7 +511,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = MileusApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;

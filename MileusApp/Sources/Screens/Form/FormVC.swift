@@ -51,12 +51,11 @@ class FormVC: UIViewController {
 extension FormVC: MileusSearchFlowDelegate {
     
     func mileus(_ mileus: MileusSearch, showSearch data: MileusSearchData) {
-        debugPrint("mileusShowSearch")
-        showAlert(message: "Show Search")
+        viewModel.searchData = data
+        showLocationVC(data: data)
     }
     
     func mileusShowTaxiRide(_ mileus: MileusSearch) {
-        debugPrint("mileusShowTaxiRide")
         showAlert(message: "Show Taxi Ride")
     }
     
@@ -66,12 +65,28 @@ extension FormVC: MileusSearchFlowDelegate {
         viewModel.mileusSearch = nil
     }
     
+    private func showLocationVC(data: MileusSearchData) {
+        let vc = UIStoryboard(name: "LocationForm", bundle: nil).instantiateInitialViewController() as! LocationFormVC
+        vc.viewModel = LocationFormVM(searchData: data, delegate: self)
+        mileusVC?.present(vc, animated: true, completion: nil)
+    }
+    
     private func showAlert(message: String) {
         let alertVC = UIAlertController(title: "Action", message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             alertVC.dismiss(animated: true, completion: nil)
         }))
-        present(alertVC, animated: true, completion: nil)
+        mileusVC?.present(alertVC, animated: true, completion: nil)
+    }
+    
+}
+
+
+extension FormVC: LocationFormDelegate {
+    
+    func locationForm(_ locationForm: LocationFormVM, didFinish location: MileusLocation) {
+        viewModel.updateLocation(location: location)
+        mileusVC?.dismiss(animated: true, completion: nil)
     }
     
 }
