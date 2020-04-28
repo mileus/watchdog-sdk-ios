@@ -12,6 +12,7 @@ class SearchView: UIView {
 
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
     
+    private(set) var offlineView: OfflineView!
     private(set) var webView: WKWebView!
     
     deinit {
@@ -21,12 +22,15 @@ class SearchView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
+        offlineView = OfflineView()
+        
         loadingView.hidesWhenStopped = true
         loadingView.color = .darkGray
     }
     
     func load(url: URL) {
         loadingView.startAnimating()
+        offlineView.removeFromSuperview()
         webView.load(URLRequest(url: url))
     }
     
@@ -63,6 +67,22 @@ class SearchView: UIView {
         
         insertSubview(loadingView, aboveSubview: webView)
     }
+    
+    func resetWebView() {
+        webView.loadHTMLString("", baseURL: nil)
+    }
+    
+    private func showOfflineView() {
+        addSubview(offlineView)
+        offlineView.translatesAutoresizingMaskIntoConstraints = false
+        offlineView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20.0).isActive = true
+        offlineView.rightAnchor.constraint(equalTo: rightAnchor, constant: -20.0).isActive = true
+        offlineView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+    }
+    
+    private func hideOfflineView() {
+        offlineView.removeFromSuperview()
+    }
 
 }
 
@@ -78,10 +98,17 @@ extension SearchView: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         loadingView.stopAnimating()
+        hideOfflineView()
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         loadingView.stopAnimating()
+        showOfflineView()
+    }
+    
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        loadingView.stopAnimating()
+        showOfflineView()
     }
     
 }

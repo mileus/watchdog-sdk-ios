@@ -24,6 +24,8 @@ class SearchVC: UIViewController {
         let closeBarButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(closeButtonPressed(sender:)))
         navigationItem.leftBarButtonItem = closeBarButton
         
+        contentView.offlineView.tryAgainButton.addTarget(self, action: #selector(tryAgainButtonPressed), for: .touchUpInside)
+        
         contentView.setupWebView(delegate: viewModel)
     }
     
@@ -42,6 +44,12 @@ class SearchVC: UIViewController {
     @objc
     private func closeButtonPressed(sender: AnyObject) {
         viewModel.didFinish()
+    }
+    
+    @objc
+    private func tryAgainButtonPressed() {
+        contentView.resetWebView()
+        contentView.load(url: viewModel.getURL())
     }
 
 }
