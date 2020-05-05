@@ -35,7 +35,7 @@ class SearchVC: UIViewController {
             if let origin = self.viewModel.getOrigin() {
                 self.contentView.updateOrigin(location: origin)
             }
-            if let destination = self.viewModel.getDestinatino() {
+            if let destination = self.viewModel.getDestination() {
                 self.contentView.updateDestination(location: destination)
             }
         }

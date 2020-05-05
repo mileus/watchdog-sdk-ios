@@ -10,6 +10,8 @@ class SearchVM: NSObject {
     var updateCoordinates: (() -> Void)?
     let urlHandler: () -> URL
     
+    private let inputSanitizer = InputSanitizer()
+    
     init(search: MileusSearch, urlHandler: @escaping () -> URL) {
         self.search = search
         self.urlHandler = urlHandler
@@ -30,7 +32,7 @@ class SearchVM: NSObject {
         return nil
     }
     
-    func getDestinatino() -> String? {
+    func getDestination() -> String? {
         if let location = search.destination {
             return formatLocation(location: location)
         }
@@ -67,7 +69,7 @@ class SearchVM: NSObject {
     }
     
     private func formatLocation(location: MileusLocation) -> String {
-        return "{'lat': \(location.latitude), 'lon': \(location.longitude), 'address': '\(location.address)', 'accuracy': \(location.accuracy)}"
+        return "{'lat': \(location.latitude), 'lon': \(location.longitude), 'address': '\(inputSanitizer.sanitizeJS(location.address))', 'accuracy': \(location.accuracy)}"
     }
     
 }
