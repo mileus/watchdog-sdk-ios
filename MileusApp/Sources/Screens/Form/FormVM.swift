@@ -27,11 +27,11 @@ class FormVM {
         accessToken = config.accessToken
         
 #if DEBUG
-        accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhaSI6MTIzNDUsInBuIjoiZHVtbXktcGFydG5lciIsInBlaSI6ImV4dGVybmFsLXBhc3Nlbmdlci1pZCIsImlhdCI6MTU4NTE0MTAwNn0.0vyb_yjUH4RQ1lyhSiao3h6JdJagQBy_QZXyPWRr9NU"
+        accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhaSI6MTIzNDUsInBuIjoiZHVtbXktcGFydG5lciIsInBlaSI6ImV4dGVybmFsLXBhc3Nlbmdlci1ib3QiLCJpYXQiOjE1ODg3NjIyNjZ9.FnBB0IJLSa76h8zaTnbZ1qDCTnSlZbplnEq64TbY2FE"
 #endif
         
         originAddress = "Prague - Nové Město"
-        destinationAddress = "Holešovice"
+        destinationAddress = "Not Prague center"
     }
     
     func getOrigin() -> MileusLocation {

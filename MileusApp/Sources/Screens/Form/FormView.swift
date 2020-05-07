@@ -40,7 +40,7 @@ class FormView: UIView {
         originLongitudeTextField.placeholder = NSLocalizedString("Origin Longitude", comment: "")
         destinationAddressTextField.placeholder = NSLocalizedString("Destination Address", comment: "")
         destinationLatitudeTextField.placeholder = NSLocalizedString("Destination Latitude", comment: "")
-        destinationLongitudeTextField.placeholder = NSLocalizedString("Destinatino Longitude", comment: "")
+        destinationLongitudeTextField.placeholder = NSLocalizedString("Destination Longitude", comment: "")
         searchButton.setTitle(NSLocalizedString("Search", comment: ""), for: .normal)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureSelected(sender:)))

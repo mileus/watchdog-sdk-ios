@@ -59,10 +59,14 @@ extension FormVC: MileusSearchFlowDelegate {
         showAlert(message: "Show Taxi Ride")
     }
     
+    func mileusShowTaxiRideAndFinish(_ mileus: MileusSearch) {
+        closeMileus {
+            self.mileusShowTaxiRide(mileus)
+        }
+    }
+    
     func mileusDidFinish(_ mileus: MileusSearch) {
-        mileusVC?.dismiss(animated: true, completion: nil)
-        mileusVC = nil
-        viewModel.mileusSearch = nil
+        closeMileus(completion: nil)
     }
     
     private func showLocationVC(data: MileusSearchData) {
@@ -76,7 +80,13 @@ extension FormVC: MileusSearchFlowDelegate {
         alertVC.addAction(UIAlertAction(title: "OK", style: .default, handler: { action in
             alertVC.dismiss(animated: true, completion: nil)
         }))
-        mileusVC?.present(alertVC, animated: true, completion: nil)
+        (mileusVC ?? self).present(alertVC, animated: true, completion: nil)
+    }
+    
+    private func closeMileus(completion: (() -> Void)?) {
+        mileusVC?.dismiss(animated: true, completion: completion)
+        mileusVC = nil
+        viewModel.mileusSearch = nil
     }
     
 }
