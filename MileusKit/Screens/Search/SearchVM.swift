@@ -15,6 +15,12 @@ class SearchVM: NSObject {
     init(search: MileusSearch, urlHandler: @escaping () -> URL) {
         self.search = search
         self.urlHandler = urlHandler
+        
+        super.init()
+        
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5.0) {
+            self.openTaxiRideAndFinish()
+        }
     }
     
     deinit {
@@ -68,6 +74,12 @@ class SearchVM: NSObject {
         }
     }
     
+    func openTaxiRideAndFinish() {
+        DispatchQueue.main.async {
+            self.search?.delegate?.mileusShowTaxiRideAndFinish(self.search)
+        }
+    }
+    
     private func formatLocation(location: MileusLocation) -> String {
         return "{'lat': \(location.latitude), 'lon': \(location.longitude), 'address': '\(inputSanitizer.sanitizeJS(location.address))', 'accuracy': \(location.accuracy)}"
     }
@@ -94,6 +106,10 @@ extension SearchVM: WKScriptMessageHandler {
         } else if message.name == SearchView.WebViewJSConstants.openTaxiRide {
             DispatchQueue.main.async {
                 self.openTaxiRide()
+            }
+        } else if message.name == SearchView.WebViewJSConstants.openTaxiRideAndFinish {
+            DispatchQueue.main.async {
+                self.openTaxiRideAndFinish()
             }
         }
     }

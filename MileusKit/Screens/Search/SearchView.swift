@@ -8,6 +8,7 @@ class SearchView: UIView {
     enum WebViewJSConstants {
         static let openSearch = "openSearchScreen"
         static let openTaxiRide = "openTaxiRideScreen"
+        static let openTaxiRideAndFinish = "openTaxiRideScreenAndFinish"
     }
 
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
@@ -52,6 +53,7 @@ class SearchView: UIView {
         config.userContentController = contentController
         contentController.add(delegate, name: WebViewJSConstants.openSearch)
         contentController.add(delegate, name: WebViewJSConstants.openTaxiRide)
+        contentController.add(delegate, name: WebViewJSConstants.openTaxiRideAndFinish)
         
         webView = WKWebView(frame: .zero, configuration: config)
         
