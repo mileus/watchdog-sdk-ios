@@ -17,10 +17,6 @@ class SearchVM: NSObject {
         self.urlHandler = urlHandler
         
         super.init()
-        
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 5.0) {
-            self.openTaxiRideAndFinish()
-        }
     }
     
     deinit {
