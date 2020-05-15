@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'MileusKit'
   s.version          = '0.1.3'
-  s.summary          = 'A short description of MileusKit.'
+  s.summary          = 'Mileus Watchdog iOS SDK.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,25 +18,26 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-TODO: Add long description of the pod here.
+Mileus Watchdog iOS SDK with Example.
                        DESC
 
-  s.homepage         = 'https://github.com/Libor Polehna/MileusKit'
+  s.homepage         = 'https://github.com/mileus/watchdog-sdk-ios'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Libor Polehna' => 'polehna.libor@gmail.com' }
-  s.source           = { :git => 'https://github.com/mileus/watchdog-sdk-ios', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/mileus/watchdog-sdk-ios.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '11.0'
+  s.swift_versions = '5.0'
 
-  s.source_files = 'MileusKit/**/*'
+  s.source_files = 'MileusKit/**/*.{h,m,swift}'
   
   # s.resource_bundles = {
   #   'MileusKit' => ['MileusKit/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.frameworks = 'UIKit', 'Foundation'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
