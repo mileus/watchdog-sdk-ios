@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1Yd-gv-1lD">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--SearchVC-->
+        <scene sceneID="S0J-jT-1WP">
+            <objects>
+                <viewController storyboardIdentifier="SearchVC" id="1Yd-gv-1lD" customClass="SearchVC" customModule="MileusKit" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cVt-IP-A8t" customClass="SearchView" customModule="MileusKit" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="L5Q-dv-FpL">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="L5Q-dv-FpL" firstAttribute="centerX" secondItem="dz4-Pj-CN6" secondAttribute="centerX" id="JHC-tS-HW6"/>
+                            <constraint firstItem="L5Q-dv-FpL" firstAttribute="centerY" secondItem="dz4-Pj-CN6" secondAttribute="centerY" id="MBO-2O-1og"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dz4-Pj-CN6"/>
+                        <connections>
+                            <outlet property="loadingView" destination="L5Q-dv-FpL" id="5gF-Gv-Xxe"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8CI-XB-1Vp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.399999999999999" y="89.505247376311857"/>
+        </scene>
+    </scenes>
+</document>
