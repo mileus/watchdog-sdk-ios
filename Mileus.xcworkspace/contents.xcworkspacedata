@@ -5,6 +5,6 @@
       location = "group:../Mileus SDK/MileusKit.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:MileusApp.xcodeproj">
+      location = "group:Example App/MileusApp.xcodeproj">
    </FileRef>
 </Workspace>
