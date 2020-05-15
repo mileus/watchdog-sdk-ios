@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qim-rU-u47">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Location FormVC-->
+        <scene sceneID="XKh-oP-Uyr">
+            <objects>
+                <viewController storyboardIdentifier="LocationFormVC" id="Qim-rU-u47" customClass="LocationFormVC" customModule="MileusApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AKl-QW-2Pw" customClass="LocationFormView" customModule="MileusApp" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yfk-bB-4kt">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="496"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="idE-6t-bUy">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="215"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Si7-cV-ezD">
+                                                <rect key="frame" x="20" y="20" width="280" height="175"/>
+                                                <subviews>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="om1-WZ-HVt" customClass="TextField" customModule="MileusApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="280" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="45" id="cej-6B-bee"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qj5-An-WTR" customClass="LocationTextField" customModule="MileusApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="65" width="280" height="45"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O4Q-zu-u9M" customClass="LocationTextField" customModule="MileusApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="130" width="280" height="45"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                    </textField>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstItem="Qj5-An-WTR" firstAttribute="height" secondItem="om1-WZ-HVt" secondAttribute="height" id="Zsr-ZB-yFP"/>
+                                                    <constraint firstItem="O4Q-zu-u9M" firstAttribute="height" secondItem="om1-WZ-HVt" secondAttribute="height" id="yud-By-Yys"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Si7-cV-ezD" secondAttribute="trailing" constant="20" id="9rb-dE-VQQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="Si7-cV-ezD" secondAttribute="bottom" constant="20" id="AX2-qh-FmS"/>
+                                            <constraint firstItem="Si7-cV-ezD" firstAttribute="top" secondItem="idE-6t-bUy" secondAttribute="top" constant="20" id="XDY-b2-M7G"/>
+                                            <constraint firstItem="Si7-cV-ezD" firstAttribute="leading" secondItem="idE-6t-bUy" secondAttribute="leading" constant="20" id="gV7-9f-Djf"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="idE-6t-bUy" firstAttribute="leading" secondItem="yfk-bB-4kt" secondAttribute="leading" id="0Zt-aq-vOg"/>
+                                    <constraint firstItem="idE-6t-bUy" firstAttribute="width" secondItem="yfk-bB-4kt" secondAttribute="width" id="EM6-vr-1eQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="idE-6t-bUy" secondAttribute="trailing" id="PPg-UV-eQC"/>
+                                    <constraint firstAttribute="bottom" secondItem="idE-6t-bUy" secondAttribute="bottom" id="dyV-YT-GYf"/>
+                                    <constraint firstItem="idE-6t-bUy" firstAttribute="top" secondItem="yfk-bB-4kt" secondAttribute="top" id="xY5-rv-mfb"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="eiF-7E-0Ba"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="bwZ-9t-jAX"/>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKw-8V-xMq">
+                                <rect key="frame" x="80" y="504" width="160" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dXk-zC-kOm"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="yso-JV-Xoh"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="yfk-bB-4kt" firstAttribute="top" secondItem="wQZ-1Z-b4z" secondAttribute="top" id="Etz-eQ-Eer"/>
+                            <constraint firstItem="wQZ-1Z-b4z" firstAttribute="bottom" secondItem="bKw-8V-xMq" secondAttribute="bottom" constant="20" id="ULl-HZ-N7v"/>
+                            <constraint firstItem="yfk-bB-4kt" firstAttribute="leading" secondItem="wQZ-1Z-b4z" secondAttribute="leading" id="Yck-r5-BoV"/>
+                            <constraint firstItem="bKw-8V-xMq" firstAttribute="centerX" secondItem="wQZ-1Z-b4z" secondAttribute="centerX" id="dBY-3y-hG0"/>
+                            <constraint firstItem="bKw-8V-xMq" firstAttribute="top" secondItem="yfk-bB-4kt" secondAttribute="bottom" constant="8" id="iUK-h8-Rhl"/>
+                            <constraint firstItem="yfk-bB-4kt" firstAttribute="trailing" secondItem="wQZ-1Z-b4z" secondAttribute="trailing" id="yFs-Pc-lRT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="wQZ-1Z-b4z"/>
+                        <connections>
+                            <outlet property="addressTextField" destination="om1-WZ-HVt" id="zLo-cW-UTC"/>
+                            <outlet property="doneButton" destination="bKw-8V-xMq" id="Hf2-Bu-d1f"/>
+                            <outlet property="latitudeTextField" destination="Qj5-An-WTR" id="QEL-Vp-vW3"/>
+                            <outlet property="longitudeTextField" destination="O4Q-zu-u9M" id="CGY-MJ-2nY"/>
+                            <outlet property="scrollContentView" destination="idE-6t-bUy" id="mss-bQ-ir1"/>
+                            <outlet property="scrollView" destination="yfk-bB-4kt" id="xfj-9y-gZS"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cqa-iu-rfo" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.875" y="111.97183098591549"/>
+        </scene>
+    </scenes>
+</document>
