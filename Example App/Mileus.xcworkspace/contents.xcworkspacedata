@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:MileusKit.xcodeproj">
+      location = "group:../MileusKit.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Example App/MileusApp.xcodeproj">
+      location = "group:MileusApp.xcodeproj">
    </FileRef>
 </Workspace>
