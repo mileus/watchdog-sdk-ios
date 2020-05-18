@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'MileusKit'
-  s.version          = '0.1.7'
+  s.version          = '0.1.8'
   s.summary          = 'Mileus Watchdog iOS SDK.'
 
 # This description is used to generate tags and improve search results.
@@ -33,9 +33,7 @@ Mileus Watchdog iOS SDK with Example.
 
   s.source_files = 'MileusKit/**/*.{h,m,swift}'
   
-  s.resource_bundles = {
-     'MileusKit' => ['MileusKit/**/*.{xib,storyboard}']
-  }
+  s.resource = 'MileusKit/**/*.{xib,storyboard}'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
