@@ -23,7 +23,7 @@ github "mileus/watchdog-sdk-ios" ~> 0.1.0
 ### Cocoapods
 
 ```
-pod 'MileusKit', '~> 0.1'
+pod 'MileusWatchdogKit', '~> 0.1'
 ```
 
 ### Swift Package Manager
