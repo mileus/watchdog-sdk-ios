@@ -1,11 +1,11 @@
 
 import Foundation
-import MileusKit
+import MileusWatchdogKit
 
 
 protocol LocationFormDelegate {
     
-    func locationForm(_ locationForm: LocationFormVM, didFinish location: MileusLocation)
+    func locationForm(_ locationForm: LocationFormVM, didFinish location: MileusWatchdogLocation)
     
 }
 
@@ -18,10 +18,10 @@ class LocationFormVM {
     @LocationWrapper(value: nil)
     var longitude: String!
     
-    private let searchData: MileusSearchData
+    private let searchData: MileusWatchdogSearchData
     private let delegate: LocationFormDelegate
     
-    init(searchData: MileusSearchData, delegate: LocationFormDelegate) {
+    init(searchData: MileusWatchdogSearchData, delegate: LocationFormDelegate) {
         self.searchData = searchData
         self.delegate = delegate
         
@@ -32,7 +32,7 @@ class LocationFormVM {
     }
     
     func save() {
-        let location = MileusLocation(address: address, latitude: $latitude, longitude: $longitude)
+        let location = MileusWatchdogLocation(address: address, latitude: $latitude, longitude: $longitude)
         delegate.locationForm(self, didFinish: location)
     }
     

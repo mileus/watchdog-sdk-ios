@@ -48,28 +48,28 @@ class FormVC: UIViewController {
 
 }
 
-extension FormVC: MileusSearchFlowDelegate {
+extension FormVC: MileusWatchdogSearchFlowDelegate {
     
-    func mileus(_ mileus: MileusSearch, showSearch data: MileusSearchData) {
+    func mileus(_ mileus: MileusWatchdogSearch, showSearch data: MileusWatchdogSearchData) {
         viewModel.searchData = data
         showLocationVC(data: data)
     }
     
-    func mileusShowTaxiRide(_ mileus: MileusSearch) {
+    func mileusShowTaxiRide(_ mileus: MileusWatchdogSearch) {
         showAlert(message: "Show Taxi Ride")
     }
     
-    func mileusShowTaxiRideAndFinish(_ mileus: MileusSearch) {
+    func mileusShowTaxiRideAndFinish(_ mileus: MileusWatchdogSearch) {
         closeMileus {
             self.mileusShowTaxiRide(mileus)
         }
     }
     
-    func mileusDidFinish(_ mileus: MileusSearch) {
+    func mileusDidFinish(_ mileus: MileusWatchdogSearch) {
         closeMileus(completion: nil)
     }
     
-    private func showLocationVC(data: MileusSearchData) {
+    private func showLocationVC(data: MileusWatchdogSearchData) {
         let vc = UIStoryboard(name: "LocationForm", bundle: nil).instantiateInitialViewController() as! LocationFormVC
         vc.viewModel = LocationFormVM(searchData: data, delegate: self)
         mileusVC?.present(vc, animated: true, completion: nil)
@@ -94,7 +94,7 @@ extension FormVC: MileusSearchFlowDelegate {
 
 extension FormVC: LocationFormDelegate {
     
-    func locationForm(_ locationForm: LocationFormVM, didFinish location: MileusLocation) {
+    func locationForm(_ locationForm: LocationFormVM, didFinish location: MileusWatchdogLocation) {
         viewModel.updateLocation(location: location)
         mileusVC?.dismiss(animated: true, completion: nil)
     }

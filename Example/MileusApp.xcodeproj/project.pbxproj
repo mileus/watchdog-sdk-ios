@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18198124243EECB800150AE6 /* MileusKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18198123243EECB800150AE6 /* MileusKit.framework */; };
-		18198125243EECB800150AE6 /* MileusKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18198123243EECB800150AE6 /* MileusKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		186C7C0624457E16004E1D3F /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C7C0524457E16004E1D3F /* KeyboardManager.swift */; };
 		1880AAA024504DAA00E1DE88 /* LocationForm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1880AA9F24504DAA00E1DE88 /* LocationForm.storyboard */; };
 		1880AAA224504DBE00E1DE88 /* LocationFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880AAA124504DBE00E1DE88 /* LocationFormVC.swift */; };
@@ -25,6 +23,8 @@
 		18872BAB243B2D6E00A127D2 /* FormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872BAA243B2D6E00A127D2 /* FormVC.swift */; };
 		18872BAD243B2D7E00A127D2 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872BAC243B2D7E00A127D2 /* FormView.swift */; };
 		18872BB0243B2DB000A127D2 /* FormVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872BAF243B2DB000A127D2 /* FormVM.swift */; };
+		18C77DC0247B82D100F3A339 /* MileusWatchdogKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C77DBF247B82D100F3A339 /* MileusWatchdogKit.framework */; };
+		18C77DC1247B82D100F3A339 /* MileusWatchdogKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18C77DBF247B82D100F3A339 /* MileusWatchdogKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18EFBD702443276800C5BD5F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EFBD6F2443276800C5BD5F /* Config.swift */; };
 /* End PBXBuildFile section */
 
@@ -35,7 +35,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				18198125243EECB800150AE6 /* MileusKit.framework in Embed Frameworks */,
+				18C77DC1247B82D100F3A339 /* MileusWatchdogKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -43,7 +43,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		18198123243EECB800150AE6 /* MileusKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MileusKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		186C7C0524457E16004E1D3F /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		1880AA9F24504DAA00E1DE88 /* LocationForm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationForm.storyboard; sourceTree = "<group>"; };
 		1880AAA124504DBE00E1DE88 /* LocationFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormVC.swift; sourceTree = "<group>"; };
@@ -62,6 +61,7 @@
 		18872BAA243B2D6E00A127D2 /* FormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormVC.swift; sourceTree = "<group>"; };
 		18872BAC243B2D7E00A127D2 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		18872BAF243B2DB000A127D2 /* FormVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormVM.swift; sourceTree = "<group>"; };
+		18C77DBF247B82D100F3A339 /* MileusWatchdogKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MileusWatchdogKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EFBD6F2443276800C5BD5F /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -70,7 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18198124243EECB800150AE6 /* MileusKit.framework in Frameworks */,
+				18C77DC0247B82D100F3A339 /* MileusWatchdogKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,7 +132,7 @@
 		18872BA2243B27F400A127D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				18198123243EECB800150AE6 /* MileusKit.framework */,
+				18C77DBF247B82D100F3A339 /* MileusWatchdogKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

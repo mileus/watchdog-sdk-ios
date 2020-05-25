@@ -1,6 +1,6 @@
 
 import UIKit
-import MileusKit
+import MileusWatchdogKit
 
 
 class FormVM {
@@ -17,8 +17,8 @@ class FormVM {
     @LocationWrapper(value: "14.489431312606477")
     var destinationLongitude: String!
     
-    var mileusSearch: MileusSearch?
-    var searchData: MileusSearchData?
+    var mileusSearch: MileusWatchdogSearch?
+    var searchData: MileusWatchdogSearchData?
     
     private let config: Config
     
@@ -34,31 +34,31 @@ class FormVM {
         destinationAddress = "Not Prague center"
     }
     
-    func getOrigin() -> MileusLocation {
-        return MileusLocation(address: originAddress,
+    func getOrigin() -> MileusWatchdogLocation {
+        return MileusWatchdogLocation(address: originAddress,
                               latitude: $originLatitude,
                               longitude: $originLongitude
         )
     }
     
-    func getDestination() -> MileusLocation {
-        return MileusLocation(address: destinationAddress,
+    func getDestination() -> MileusWatchdogLocation {
+        return MileusWatchdogLocation(address: destinationAddress,
                               latitude: $destinationLatitude,
                               longitude: $destinationLongitude
         )
     }
     
-    func search(from: UIViewController, delegate: MileusSearchFlowDelegate) -> UIViewController {
+    func search(from: UIViewController, delegate: MileusWatchdogSearchFlowDelegate) -> UIViewController {
         config.accessToken = accessToken
         
         let token = (accessToken?.isEmpty ?? true) ? "unknown-token-ios-test-app" : accessToken!
-        try! MileusKit.configure(partnerName: "ios-test-app", accessToken: token, environment: .staging)
-        mileusSearch = try! MileusSearch(delegate: delegate, origin: getOrigin(), destination: getDestination())
+        try! MileusWatchdogKit.configure(partnerName: "ios-test-app", accessToken: token, environment: .staging)
+        mileusSearch = try! MileusWatchdogSearch(delegate: delegate, origin: getOrigin(), destination: getDestination())
         
         return mileusSearch!.show(from: from)
     }
     
-    func updateLocation(location: MileusLocation) {
+    func updateLocation(location: MileusWatchdogLocation) {
         guard let data = searchData else {
             return
         }
