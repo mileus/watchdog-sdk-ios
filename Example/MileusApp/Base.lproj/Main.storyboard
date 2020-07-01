@@ -114,10 +114,9 @@
                         <constraints>
                             <constraint firstItem="dS5-d8-jl4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="0xo-5R-TXc"/>
                             <constraint firstItem="dS5-d8-jl4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="6GX-4X-Dcw"/>
-                            <constraint firstItem="hrB-2y-mQf" firstAttribute="leading" secondItem="Bo9-8X-eCh" secondAttribute="leading" id="C6n-Fg-vMA"/>
                             <constraint firstItem="hrB-2y-mQf" firstAttribute="top" secondItem="Bo9-8X-eCh" secondAttribute="bottom" constant="8" id="CE8-Gt-9oW"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hrB-2y-mQf" secondAttribute="bottom" constant="8" id="HP1-gy-s3a"/>
-                            <constraint firstItem="hrB-2y-mQf" firstAttribute="trailing" secondItem="Bo9-8X-eCh" secondAttribute="trailing" id="LYY-TM-Mjb"/>
+                            <constraint firstItem="hrB-2y-mQf" firstAttribute="centerX" secondItem="Bo9-8X-eCh" secondAttribute="centerX" id="MMC-lo-wQ6"/>
                             <constraint firstItem="Bo9-8X-eCh" firstAttribute="top" secondItem="dS5-d8-jl4" secondAttribute="bottom" constant="8" id="Vt4-Bj-9PJ"/>
                             <constraint firstItem="dS5-d8-jl4" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ZPk-6u-HI9"/>
                             <constraint firstItem="Bo9-8X-eCh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="n6W-17-jfR"/>
