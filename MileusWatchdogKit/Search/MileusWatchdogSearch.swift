@@ -14,7 +14,7 @@ public final class MileusWatchdogSearch {
     private var rootVC: UINavigationController?
     private weak var searchVM: SearchVM?
     
-    public init?(delegate: MileusWatchdogSearchFlowDelegate, origin: MileusWatchdogLocation? = nil, destination: MileusWatchdogLocation? = nil) throws {
+    public init(delegate: MileusWatchdogSearchFlowDelegate, origin: MileusWatchdogLocation? = nil, destination: MileusWatchdogLocation? = nil) throws {
         if !MileusWatchdogKit.isInitialized {
             throw MileusWatchdogError.sdkIsNotInitialized
         }
@@ -65,7 +65,8 @@ public final class MileusWatchdogSearch {
             URLQueryItem(name: "access_token", value: MileusWatchdogKit.accessToken),
             URLQueryItem(name: "environment", value: MileusWatchdogKit.environment.key),
             URLQueryItem(name: "partner_name", value: MileusWatchdogKit.partnerName),
-            URLQueryItem(name: "platform", value: "ios")
+            URLQueryItem(name: "platform", value: "ios"),
+            URLQueryItem(name: "language", value: Locale.current.languageCode ?? "en")
         ]
         if let origin = self.origin {
             components.queryItems?.append(URLQueryItem(name: "origin_address", value: String(origin.address)))

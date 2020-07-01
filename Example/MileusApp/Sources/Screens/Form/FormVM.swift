@@ -5,7 +5,11 @@ import MileusWatchdogKit
 
 class FormVM {
     
-    var accessToken: String?
+    var accessToken: String? {
+        didSet {
+            config.accessToken = accessToken
+        }
+    }
     var originAddress: String!
     @LocationWrapper(value: "50.091266")
     var originLatitude: String!
@@ -18,6 +22,7 @@ class FormVM {
     var destinationLongitude: String!
     
     var mileusSearch: MileusWatchdogSearch?
+    var mileusMarketValidation: MileusMarketValidation?
     var searchData: MileusWatchdogSearchData?
     
     private let config: Config
@@ -49,13 +54,17 @@ class FormVM {
     }
     
     func search(from: UIViewController, delegate: MileusWatchdogSearchFlowDelegate) -> UIViewController {
-        config.accessToken = accessToken
-        
-        let token = (accessToken?.isEmpty ?? true) ? "unknown-token-ios-test-app" : accessToken!
-        try! MileusWatchdogKit.configure(partnerName: "ios-test-app", accessToken: token, environment: .staging)
+        try! MileusWatchdogKit.configure(partnerName: "ios-test-app", accessToken: getToken(), environment: .development)
         mileusSearch = try! MileusWatchdogSearch(delegate: delegate, origin: getOrigin(), destination: getDestination())
         
         return mileusSearch!.show(from: from)
+    }
+    
+    func validation(from: UIViewController, delegate: MileusMarketValidationFlowDelegate) -> UIViewController {
+        try! MileusWatchdogKit.configure(partnerName: "ios-test-app", accessToken: getToken(), environment: .development)
+        mileusMarketValidation = try! MileusMarketValidation(delegate: delegate, origin: getOrigin(), destination: getDestination())
+        
+        return mileusMarketValidation!.show(from: from)
     }
     
     func updateLocation(location: MileusWatchdogLocation) {
@@ -68,6 +77,11 @@ class FormVM {
         case .destination:
             mileusSearch?.updateDestination(location: location)
         }
+    }
+    
+    @inline(__always)
+    private func getToken() -> String {
+        (accessToken?.isEmpty ?? true) ? "unknown-token-ios-test-app" : accessToken!
     }
     
 }
