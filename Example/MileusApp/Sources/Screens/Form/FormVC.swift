@@ -21,6 +21,7 @@ class FormVC: UIViewController {
     
     private func configure() {
         contentView.searchButton.addTarget(self, action: #selector(searchButtonPressed(sender:)), for: .touchUpInside)
+        contentView.validationButton.addTarget(self, action: #selector(validationButtonPressed(sender:)), for: .touchUpInside)
     }
     
     private func bind() {
@@ -33,8 +34,7 @@ class FormVC: UIViewController {
         contentView.destinationLongitudeTextField.text = viewModel.destinationLongitude
     }
     
-    @objc
-    private func searchButtonPressed(sender: AnyObject) {
+    private func update() {
         viewModel.accessToken = contentView.accessTokenTextField.text ?? ""
         viewModel.originAddress = contentView.originAddressTextField.text
         viewModel.originLatitude = contentView.originLatitudeTextField.text
@@ -42,8 +42,18 @@ class FormVC: UIViewController {
         viewModel.destinationAddress = contentView.destinationAddressTextField.text
         viewModel.destinationLatitude = contentView.destinationLatitudeTextField.text
         viewModel.destinationLongitude = contentView.destinationLongitudeTextField.text
-        
+    }
+    
+    @objc
+    private func searchButtonPressed(sender: AnyObject) {
+        update()
         mileusVC = viewModel.search(from: self, delegate: self)
+    }
+    
+    @objc
+    private func validationButtonPressed(sender: AnyObject) {
+        update()
+        mileusVC = viewModel.validation(from: self, delegate: self)
     }
 
 }
@@ -83,10 +93,20 @@ extension FormVC: MileusWatchdogSearchFlowDelegate {
         (mileusVC ?? self).present(alertVC, animated: true, completion: nil)
     }
     
-    private func closeMileus(completion: (() -> Void)?) {
+    fileprivate func closeMileus(completion: (() -> Void)?) {
         mileusVC?.dismiss(animated: true, completion: completion)
         mileusVC = nil
         viewModel.mileusSearch = nil
+        viewModel.mileusMarketValidation = nil
+    }
+    
+}
+
+
+extension FormVC: MileusMarketValidationFlowDelegate {
+    
+    func mileusDidFinish(_ mileus: MileusMarketValidation) {
+        closeMileus(completion: nil)
     }
     
 }

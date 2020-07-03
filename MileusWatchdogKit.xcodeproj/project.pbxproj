@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		183AA7B424AC3F7F00E1CF00 /* MileusMarketValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AA7B324AC3F7F00E1CF00 /* MileusMarketValidation.swift */; };
+		183AA7B624AC3FCB00E1CF00 /* MileusMarketValidationFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AA7B524AC3FCB00E1CF00 /* MileusMarketValidationFlowDelegate.swift */; };
 		18543CBC2437270500363CF0 /* MileusWatchdogKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18543CB22437270500363CF0 /* MileusWatchdogKit.framework */; };
 		18543CC12437270500363CF0 /* MileusWatchdogKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18543CC02437270500363CF0 /* MileusWatchdogKitTests.swift */; };
 		18543CC32437270500363CF0 /* MileusWatchdogKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 18543CB52437270500363CF0 /* MileusWatchdogKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -39,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		183AA7B324AC3F7F00E1CF00 /* MileusMarketValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileusMarketValidation.swift; sourceTree = "<group>"; };
+		183AA7B524AC3FCB00E1CF00 /* MileusMarketValidationFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileusMarketValidationFlowDelegate.swift; sourceTree = "<group>"; };
 		18543CB22437270500363CF0 /* MileusWatchdogKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MileusWatchdogKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18543CB52437270500363CF0 /* MileusWatchdogKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MileusWatchdogKit.h; sourceTree = "<group>"; };
 		18543CB62437270500363CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,6 +86,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		183AA7B224AC3F5000E1CF00 /* Market Validation */ = {
+			isa = PBXGroup;
+			children = (
+				183AA7B324AC3F7F00E1CF00 /* MileusMarketValidation.swift */,
+				183AA7B524AC3FCB00E1CF00 /* MileusMarketValidationFlowDelegate.swift */,
+			);
+			path = "Market Validation";
+			sourceTree = "<group>";
+		};
 		18543CA82437270500363CF0 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +121,7 @@
 				18543CCC2437335500363CF0 /* MileusWatchdogKit.swift */,
 				18543CCE2437339F00363CF0 /* Models */,
 				18543CDE243736F300363CF0 /* Search */,
+				183AA7B224AC3F5000E1CF00 /* Market Validation */,
 				18872B7E243B09A800A127D2 /* Views */,
 				18543CDC243736CD00363CF0 /* Screens */,
 				1887B7CC2461369300AAC050 /* Utilities */,
@@ -338,6 +352,8 @@
 				18872B7B243B024400A127D2 /* SearchView.swift in Sources */,
 				18543CCD2437335500363CF0 /* MileusWatchdogKit.swift in Sources */,
 				18543CD3243734F900363CF0 /* MileusWatchdogSearchType.swift in Sources */,
+				183AA7B624AC3FCB00E1CF00 /* MileusMarketValidationFlowDelegate.swift in Sources */,
+				183AA7B424AC3F7F00E1CF00 /* MileusMarketValidation.swift in Sources */,
 				18872B79243B022F00A127D2 /* SearchVC.swift in Sources */,
 				18543CE0243736FE00363CF0 /* MileusWatchdogSearch.swift in Sources */,
 				18A457772477E15B00EB666E /* MileusWatchdogSearchFlowDelegate.swift in Sources */,
@@ -445,7 +461,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.8;
+				MARKETING_VERSION = 0.1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mileus.watchdog;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -610,7 +626,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.8;
+				MARKETING_VERSION = 0.1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mileus.watchdog;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -638,7 +654,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.1.8;
+				MARKETING_VERSION = 0.1.9;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mileus.watchdog;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;

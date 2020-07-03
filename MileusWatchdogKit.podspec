@@ -1,5 +1,5 @@
 #
-# Be sure to run `pod lib lint MileusKit.podspec' to ensure this is a
+# Be sure to run `pod lib lint MileusWatchdogKit.podspec' to ensure this is a
 # valid spec before submitting.
 #
 # Any lines starting with a # are optional, but their use is encouraged
@@ -7,9 +7,9 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'MileusKit'
-  s.version          = '0.1.8'
-  s.summary          = 'Mileus Watchdog iOS SDK.'
+  s.name             = 'MileusWatchdogKit'
+  s.version          = '0.1.9'
+  s.summary          = 'Mileus Watchdog iOS Kit.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -18,22 +18,22 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-Mileus Watchdog iOS SDK with Example.
+Mileus Watchdog iOS Kit with Example.
                        DESC
 
   s.homepage         = 'https://github.com/mileus/watchdog-sdk-ios'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'Libor Polehna' => 'polehna.libor@gmail.com' }
+  s.author           = { 'Mileus' => 'cocoapods@mileus.com' }
   s.source           = { :git => 'https://github.com/mileus/watchdog-sdk-ios.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '11.0'
   s.swift_versions = '5.0'
 
-  s.source_files = 'MileusKit/**/*.{h,m,swift}'
+  s.source_files = 'MileusWatchdogKit/**/*.{h,m,swift}'
   
-  s.resource = 'MileusKit/**/*.{xib,storyboard}'
+  s.resource = 'MileusWatchdogKit/**/*.{xib,storyboard}'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'

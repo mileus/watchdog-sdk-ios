@@ -14,6 +14,7 @@ class FormView: UIView {
     @IBOutlet weak var destinationLatitudeTextField: UITextField!
     @IBOutlet weak var destinationLongitudeTextField: UITextField!
     @IBOutlet weak var searchButton: UIButton!
+    @IBOutlet weak var validationButton: UIButton!
     
     private lazy var textFields: [UITextField] = {
         [
@@ -42,6 +43,7 @@ class FormView: UIView {
         destinationLatitudeTextField.placeholder = NSLocalizedString("Destination Latitude", comment: "")
         destinationLongitudeTextField.placeholder = NSLocalizedString("Destination Longitude", comment: "")
         searchButton.setTitle(NSLocalizedString("Search", comment: ""), for: .normal)
+        validationButton.setTitle(NSLocalizedString("Market Validation", comment: ""), for: .normal)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureSelected(sender:)))
         addGestureRecognizer(tapGestureRecognizer)
