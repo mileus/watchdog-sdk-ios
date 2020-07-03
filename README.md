@@ -18,18 +18,18 @@ Please see the [Watchdog search docs](https://docs.mileus.com/watchdog-search/) 
 ## Installation
 
 ### Carthage
-``` swift
+```
 github "mileus/watchdog-sdk-ios" ~> 0.1.0
 ```
 
 ### Cocoapods
-``` swift
+```
 pod 'MileusWatchdogKit', '~> 0.1'
 ```
 
 ### Swift Package Manager
 We are waiting for Swift 5.3 official release. It does not work yet.
-``` json
+```
 dependencies: [
     .package(url: "https://github.com/mileus/watchdog-sdk-ios.git", .upToNextMajor(from: "0.1.0"))
 ]
