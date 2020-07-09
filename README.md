@@ -11,28 +11,24 @@ This library supports an asynchronous background search for journey plans throug
 Please see the [Watchdog search docs](https://docs.mileus.com/watchdog-search/) for more details about the functionality, or the [SDK docs](https://docs.mileus.com/watchdog-search/frontend-integration/sdk/ios/) for more details about the usage of this SDK.
 
 ## Requirements
-
-* iOS 11.0+
-* Xcode 11.0+
-* Swift 5.0+
+- iOS 11.0+
+- Xcode 11.0+
+- Swift 5.0+
 
 ## Installation
 
 ### Carthage
-
 ```
 github "mileus/watchdog-sdk-ios" ~> 0.1.0
 ```
 
 ### Cocoapods
-
 ```
 pod 'MileusWatchdogKit', '~> 0.1'
 ```
 
 ### Swift Package Manager
 We are waiting for Swift 5.3 official release. It does not work yet.
-
 ```
 dependencies: [
     .package(url: "https://github.com/mileus/watchdog-sdk-ios.git", .upToNextMajor(from: "0.1.0"))
@@ -51,24 +47,24 @@ MileusWatchdogKit.configure(
 
 ## Usage
 
-### Start Mileus SDK screen
-This is a universal entry point in Mileus SDK. Use it to initialise new search, as well as opening Mileus SDK from notification.
+### Start Mileus Watchdog screen
+This is a universal entry point in Mileus Watchdog. Use it to initialise new search, as well as opening Mileus Watchdog from notification.
 
-You have to keep a reference to mileusSearch instance as long as you need it.
+You have to keep a reference to `mileusWatchdogSearch` instance as long as you need it.
 ``` swift
-let mileusWatchdogSearch = MileusSearch(
+let mileusWatchdogSearch = MileusWatchdogSearch(
     delegate: MileusWatchdogSearchFlowDelegate,
     origin: MileusWatchdogLocation? = nil, 
     destination: MileusWatchdogLocation? = nil 
 ) // throws exception (MileusWatchdogError.instanceAlreadyExists) if you have already created an instance or exception (MileusWatchdogError.sdkIsNotInitialized) if you have not initialized sdk yet.
 ```
 
-Show Mileus screen:
+Show Mileus Watchdog screen:
 ``` swift
 let mileusVC = mileusWatchdogSearch.show(from: UIViewController)
 ```
 
-### Search Flow Delegate
+#### Search Flow Delegate
 Methods of Flow Delegate are always called on the main thread.
 ``` swift
 protocol MileusWatchdogSearchFlowDelegate {
@@ -79,7 +75,7 @@ protocol MileusWatchdogSearchFlowDelegate {
 }
 ```
 
-### Search for origin or destination
+#### Search for origin or destination
 ``` swift
 func mileus(_ mileus: MileusWatchdogSearch, showSearch data: MileusWatchdogSearchData)
 ```
@@ -93,14 +89,14 @@ mileusWatchdogSearch.updateOrigin(location: MileusWatchdogLocation)
 mileusWatchdogSearch.updateDestination(location: MileusWatchdogLocation)
 ```
 
-### Open taxi ride Activity
+#### Open taxi ride Activity
 ``` swift
 func mileusShowTaxiRide(_ mileus: MileusWatchdogSearch)
 ```
 
 When it is called you should open your taxi ride view controller.
 
-### Open taxi ride and finish
+#### Open taxi ride and finish
 ``` swift
 func mileusShowTaxiRideAndFinish(_ mileus: MileusWatchdogSearch)
 ```
@@ -108,33 +104,80 @@ func mileusShowTaxiRideAndFinish(_ mileus: MileusWatchdogSearch)
 When it is called you should close `mileusVC` and open your taxi ride view controller.
 You get `mileusVC` after calling `mileusWatchdogSearch.show(from:)`.
 
-### Finish
+#### Finish
 ``` swift
 func mileusDidFinish(_ mileus: MileusWatchdogSearch)
 ```
 
 You are responsible for closing `mileusVC`. You get `mileusVC` after calling `mileusWatchdogSearch.show(from:)`.
 
+### Start Mileus Market Validation screen
+Special entry point for market validation purposes. In this mode no callbacks are called. You only need to init Mileus SDK and use one of the following methods to open the market validation screen. 
+
+You have to keep a reference to `mileusMarketValidation` instance as long as you need it.
+``` swift
+let mileusMarketValidation = MileusMarketValidation(
+    delegate: MileusMarketValidationFlowDelegate,
+    origin: MileusWatchdogLocation, 
+    destination: MileusWatchdogLocation 
+) // throws exception (MileusWatchdogError.instanceAlreadyExists) if you have already created an instance or exception (MileusWatchdogError.sdkIsNotInitialized) if you have not initialized sdk yet.
+```
+
+Show Mileus Market Validation screen:
+``` swift
+let mileusVC = mileusMarketValidation.show(from: UIViewController)
+```
+
+#### Market Validation Flow Delegate
+Methods of Flow Delegate are always called on the main thread.
+
+``` swift
+protocol MileusMarketValidationFlowDelegate {
+    func mileusDidFinish(_ mileus: MileusMarketValidation)
+}
+```
+
+#### Finish
+``` swift
+func mileusDidFinish(_ mileus: MileusMarketValidation)
+```
+
+You are responsible for closing `mileusVC`. You get `mileusVC` after calling `mileusMarketValidation.show(from:)`.
+
 ## Models
 
 ### Classes
 
-*Mileus Search* - Throws exception if `accessToken` is an empty string.
+#### Mileus Watchdog Search
 ``` swift
 class MileusWatchdogSearch {
-    init?(delegate: MileusWatchdogSearchFlowDelegate, 
+    init(delegate: MileusWatchdogSearchFlowDelegate, 
     origin: MileusWatchdogLocation? = nil, 
     destination: MileusWatchdogLocation? = nil
     )
-    
+
     func show(from: UIViewController) -> UIViewController
     func updateOrigin(location: MileusWatchdogLocation)
     func updateDestination(location: MileusWatchdogLocation)
 }
 ```
 
+#### Mileus Market Validation
+``` swift
+class MileusMarketValidation {
+    init(delegate: MileusMarketValidationFlowDelegate, 
+    origin: MileusWatchdogLocation, 
+    destination: MileusWatchdogLocation
+    )
+
+    func show(from: UIViewController) -> UIViewController
+}
+```
+
 ### Delegates
-*Search Flow Delegate* - Methods of Flow Delegate are always called on the main thread.
+Methods of Flow Delegate are always called on the main thread.
+
+#### Search Flow Delegate
 ``` swift
 protocol MileusWatchdogSearchFlowDelegate {
     func mileus(_ mileus: MileusWatchdogSearch, showSearch data: MileusWatchdogSearchData)
@@ -144,8 +187,15 @@ protocol MileusWatchdogSearchFlowDelegate {
 }
 ```
 
+#### Market Validation Flow Delegate
+``` swift
+protocol MileusMarketValidationFlowDelegate {
+    func mileusDidFinish(_ mileus: MileusMarketValidation)
+}
+```
+
 ### Data
-*Search Data*
+#### Search Data
 ``` swift
 struct MileusWatchdogSearchData {
     let type: MileusWatchdogSearchType
@@ -154,7 +204,7 @@ struct MileusWatchdogSearchData {
 }
 ```
 
-*Location*
+#### Location
 ``` swift
 struct MileusWatchdogLocation {
     let address: String
@@ -170,15 +220,16 @@ struct MileusWatchdogLocation {
 ```
 
 ### Enums
-*Environment*
+#### Environment
 ``` swift
 enum MileusWatchdogEnvironment {
+    case development
     case staging
     case production
 }
 ```
 
-*Search Type*
+#### Search Type
 ``` swift
 enum MileusWatchdogSearchType {
     case origin
