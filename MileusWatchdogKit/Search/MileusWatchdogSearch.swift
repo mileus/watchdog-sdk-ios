@@ -7,6 +7,7 @@ public final class MileusWatchdogSearch {
     private static var alreadyInitialized = false
     
     internal weak var delegate: MileusWatchdogSearchFlowDelegate?
+    internal var mode = MileusModeType.watchdog
     
     private(set) var origin: MileusWatchdogLocation?
     private(set) var destination: MileusWatchdogLocation?
@@ -66,7 +67,8 @@ public final class MileusWatchdogSearch {
             URLQueryItem(name: "environment", value: MileusWatchdogKit.environment.key),
             URLQueryItem(name: "partner_name", value: MileusWatchdogKit.partnerName),
             URLQueryItem(name: "platform", value: "ios"),
-            URLQueryItem(name: "language", value: Locale.current.languageCode ?? "en")
+            URLQueryItem(name: "language", value: Locale.current.languageCode ?? "en"),
+            URLQueryItem(name: "mode", value: mode.rawValue)
         ]
         if let origin = self.origin {
             components.queryItems?.append(URLQueryItem(name: "origin_address", value: String(origin.address)))

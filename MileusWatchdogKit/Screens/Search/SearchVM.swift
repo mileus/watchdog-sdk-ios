@@ -107,6 +107,10 @@ extension SearchVM: WKScriptMessageHandler {
             DispatchQueue.main.async {
                 self.openTaxiRideAndFinish()
             }
+        } else if message.name == SearchView.WebViewJSConstants.marketValidationDidFinish {
+            DispatchQueue.main.async {
+                self.didFinish()
+            }
         }
     }
     

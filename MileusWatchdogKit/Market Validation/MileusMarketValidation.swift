@@ -16,6 +16,7 @@ public final class MileusMarketValidation {
         }
         self.delegate = delegate
         mileusSearch = try MileusWatchdogSearch(delegate: self, origin: origin, destination: destination)
+        mileusSearch.mode = .marketValidation
         Self.alreadyInitialized = true
     }
     

@@ -32,7 +32,7 @@ class FormVM {
         accessToken = config.accessToken
         
 #if DEBUG
-        accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhaSI6MTIzNDUsInBuIjoiZHVtbXktcGFydG5lciIsInBlaSI6ImV4dGVybmFsLXBhc3Nlbmdlci1ib3QiLCJpYXQiOjE1ODg3NjIyNjZ9.FnBB0IJLSa76h8zaTnbZ1qDCTnSlZbplnEq64TbY2FE"
+        accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOiJmOGEzYzg4NS1mYmI2LTQxYTItYjhhOC0yZDA2OTQxODZmYTkiLCJwbiI6ImR1bW15LXBhcnRuZXIiLCJwZWkiOiJleHRlcm5hbC1wYXNzZW5nZXItaWQiLCJpYXQiOjE1OTQyNjk3NTl9.Goanc61n9jzC6wz88FktRa5u2ESZ6SneiJipO_90Jsk"
 #endif
         
         originAddress = "Prague - Nové Město"

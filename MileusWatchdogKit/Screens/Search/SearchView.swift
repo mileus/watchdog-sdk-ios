@@ -9,6 +9,7 @@ class SearchView: UIView {
         static let openSearch = "openSearchScreen"
         static let openTaxiRide = "openTaxiRideScreen"
         static let openTaxiRideAndFinish = "openTaxiRideScreenAndFinish"
+        static let marketValidationDidFinish = "finishMarketValidation"
     }
 
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
@@ -54,6 +55,7 @@ class SearchView: UIView {
         contentController.add(delegate, name: WebViewJSConstants.openSearch)
         contentController.add(delegate, name: WebViewJSConstants.openTaxiRide)
         contentController.add(delegate, name: WebViewJSConstants.openTaxiRideAndFinish)
+        contentController.add(delegate, name: WebViewJSConstants.marketValidationDidFinish)
         
         webView = WKWebView(frame: .zero, configuration: config)
         
