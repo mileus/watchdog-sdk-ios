@@ -61,13 +61,16 @@ public final class MileusWatchdogSearch {
     }
     
     private func getURL() -> URL {
+        let language = Locale.preferredLanguages.first ?? "en"
+        let languageComponents = Locale.components(fromIdentifier: language)
+        let languageCode = languageComponents[NSLocale.Key.languageCode.rawValue] ?? "en"
         var components = URLComponents(string: MileusWatchdogKit.environment!.url)!
         components.queryItems = [
             URLQueryItem(name: "access_token", value: MileusWatchdogKit.accessToken),
             URLQueryItem(name: "environment", value: MileusWatchdogKit.environment.key),
             URLQueryItem(name: "partner_name", value: MileusWatchdogKit.partnerName),
             URLQueryItem(name: "platform", value: "ios"),
-            URLQueryItem(name: "language", value: Locale.current.languageCode ?? "en"),
+            URLQueryItem(name: "language", value: languageCode),
             URLQueryItem(name: "mode", value: mode.rawValue)
         ]
         if let origin = self.origin {

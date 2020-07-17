@@ -77,6 +77,7 @@ class SearchView: UIView {
     }
     
     private func showOfflineView() {
+        webView.isHidden = true
         addSubview(offlineView)
         offlineView.translatesAutoresizingMaskIntoConstraints = false
         offlineView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20.0).isActive = true
@@ -85,6 +86,7 @@ class SearchView: UIView {
     }
     
     private func hideOfflineView() {
+        webView.isHidden = false
         offlineView.removeFromSuperview()
     }
 

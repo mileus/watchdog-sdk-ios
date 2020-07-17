@@ -19,6 +19,7 @@
 		18543CDB2437369500363CF0 /* MileusWatchdogSearchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18543CDA2437369500363CF0 /* MileusWatchdogSearchData.swift */; };
 		18543CE0243736FE00363CF0 /* MileusWatchdogSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18543CDF243736FE00363CF0 /* MileusWatchdogSearch.swift */; };
 		1865A91C24B6D5BE00D502CE /* MileusModeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865A91B24B6D5BE00D502CE /* MileusModeType.swift */; };
+		1866187724C1AA2400B23C2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1866187924C1AA2400B23C2E /* Localizable.strings */; };
 		18872B77243B021100A127D2 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18872B76243B021100A127D2 /* Search.storyboard */; };
 		18872B79243B022F00A127D2 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872B78243B022F00A127D2 /* SearchVC.swift */; };
 		18872B7B243B024400A127D2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872B7A243B024400A127D2 /* SearchView.swift */; };
@@ -57,6 +58,9 @@
 		18543CDA2437369500363CF0 /* MileusWatchdogSearchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileusWatchdogSearchData.swift; sourceTree = "<group>"; };
 		18543CDF243736FE00363CF0 /* MileusWatchdogSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileusWatchdogSearch.swift; sourceTree = "<group>"; };
 		1865A91B24B6D5BE00D502CE /* MileusModeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileusModeType.swift; sourceTree = "<group>"; };
+		1866187824C1AA2400B23C2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1866187A24C1AA2500B23C2E /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1866187B24C1AA2600B23C2E /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		18872B76243B021100A127D2 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		18872B78243B022F00A127D2 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		18872B7A243B024400A127D2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 				18543CB52437270500363CF0 /* MileusWatchdogKit.h */,
 				18543CB62437270500363CF0 /* Info.plist */,
 				18543CCC2437335500363CF0 /* MileusWatchdogKit.swift */,
+				1866187324C1AA0500B23C2E /* Resources */,
 				18543CCE2437339F00363CF0 /* Models */,
 				18543CDE243736F300363CF0 /* Search */,
 				183AA7B224AC3F5000E1CF00 /* Market Validation */,
@@ -203,6 +208,22 @@
 				18A457762477E15B00EB666E /* MileusWatchdogSearchFlowDelegate.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		1866187324C1AA0500B23C2E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1866187424C1AA0E00B23C2E /* Localizations */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1866187424C1AA0E00B23C2E /* Localizations */ = {
+			isa = PBXGroup;
+			children = (
+				1866187924C1AA2400B23C2E /* Localizable.strings */,
+			);
+			path = Localizations;
 			sourceTree = "<group>";
 		};
 		18872B7E243B09A800A127D2 /* Views */ = {
@@ -315,6 +336,8 @@
 			knownRegions = (
 				en,
 				Base,
+				cs,
+				sk,
 			);
 			mainGroup = 18543CA82437270500363CF0;
 			productRefGroup = 18543CB32437270500363CF0 /* Products */;
@@ -333,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1898175E245818AB00803ED5 /* OfflineView.xib in Resources */,
+				1866187724C1AA2400B23C2E /* Localizable.strings in Resources */,
 				18872B77243B021100A127D2 /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +412,19 @@
 			targetProxy = 18543CBD2437270500363CF0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1866187924C1AA2400B23C2E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1866187824C1AA2400B23C2E /* en */,
+				1866187A24C1AA2500B23C2E /* cs */,
+				1866187B24C1AA2600B23C2E /* sk */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		18198127243EF0A700150AE6 /* Beta */ = {

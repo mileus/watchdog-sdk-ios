@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1866188024C1ACD300B23C2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1866188224C1ACD300B23C2E /* Localizable.strings */; };
 		186C7C0624457E16004E1D3F /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C7C0524457E16004E1D3F /* KeyboardManager.swift */; };
 		1880AAA024504DAA00E1DE88 /* LocationForm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1880AA9F24504DAA00E1DE88 /* LocationForm.storyboard */; };
 		1880AAA224504DBE00E1DE88 /* LocationFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880AAA124504DBE00E1DE88 /* LocationFormVC.swift */; };
@@ -43,6 +44,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1866188124C1ACD300B23C2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1866188324C1ACDF00B23C2E /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1866188424C1ACE700B23C2E /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		186C7C0524457E16004E1D3F /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		1880AA9F24504DAA00E1DE88 /* LocationForm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationForm.storyboard; sourceTree = "<group>"; };
 		1880AAA124504DBE00E1DE88 /* LocationFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormVC.swift; sourceTree = "<group>"; };
@@ -77,6 +81,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1866187C24C1AC8B00B23C2E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				1866187D24C1AC9800B23C2E /* Localizations */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1866187D24C1AC9800B23C2E /* Localizations */ = {
+			isa = PBXGroup;
+			children = (
+				1866188224C1ACD300B23C2E /* Localizable.strings */,
+			);
+			path = Localizations;
+			sourceTree = "<group>";
+		};
 		1880AA9E24504D8F00E1DE88 /* Location Form */ = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +144,7 @@
 				18872B97243B26E800A127D2 /* Assets.xcassets */,
 				18872B99243B26E800A127D2 /* LaunchScreen.storyboard */,
 				18872B9C243B26E800A127D2 /* Info.plist */,
+				1866187C24C1AC8B00B23C2E /* Resources */,
 				18872BA7243B2C8000A127D2 /* Sources */,
 			);
 			path = MileusApp;
@@ -218,6 +239,8 @@
 			knownRegions = (
 				en,
 				Base,
+				cs,
+				sk,
 			);
 			mainGroup = 18872B82243B26E400A127D2;
 			productRefGroup = 18872B8C243B26E400A127D2 /* Products */;
@@ -234,6 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1866188024C1ACD300B23C2E /* Localizable.strings in Resources */,
 				18872B9B243B26E800A127D2 /* LaunchScreen.storyboard in Resources */,
 				18872B98243B26E800A127D2 /* Assets.xcassets in Resources */,
 				18872B96243B26E400A127D2 /* Main.storyboard in Resources */,
@@ -267,6 +291,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		1866188224C1ACD300B23C2E /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1866188124C1ACD300B23C2E /* en */,
+				1866188324C1ACDF00B23C2E /* cs */,
+				1866188424C1ACE700B23C2E /* sk */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		18872B94243B26E400A127D2 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -292,6 +326,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_DISPLAY_NAME_SUFFIX = "[Beta]";
 				BUNDLE_ID_SUFFIX = .beta;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -349,7 +384,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = QK25HD76J7;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MileusApp/Info.plist;
@@ -358,7 +393,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mileus.testapp${BUNDLE_ID_SUFFIX}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Enterprise: Mileus Test App Beta 3";
@@ -373,6 +408,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_DISPLAY_NAME_SUFFIX = "[Debug]";
 				BUNDLE_ID_SUFFIX = .debug;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -435,6 +471,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				BUNDLE_DISPLAY_NAME_SUFFIX = "";
 				BUNDLE_ID_SUFFIX = "";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -490,7 +527,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MileusApp/Info.plist;
@@ -499,7 +536,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mileus.testapp${BUNDLE_ID_SUFFIX}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -513,7 +550,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 14;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = MileusApp/Info.plist;
@@ -522,7 +559,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 0.2.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mileus.testapp${BUNDLE_ID_SUFFIX}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
