@@ -7,6 +7,7 @@ class FormView: UIView {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var scrollContentView: UIView!
     @IBOutlet weak var accessTokenTextField: UITextField!
+    @IBOutlet weak var partnerNameTextField: UITextField!
     @IBOutlet weak var originAddressTextField: UITextField!
     @IBOutlet weak var originLatitudeTextField: UITextField!
     @IBOutlet weak var originLongitudeTextField: UITextField!
@@ -18,10 +19,10 @@ class FormView: UIView {
     
     private lazy var textFields: [UITextField] = {
         [
-            accessTokenTextField, originAddressTextField,
-            originLatitudeTextField, originLongitudeTextField,
-            destinationAddressTextField, destinationLatitudeTextField,
-            destinationLongitudeTextField
+            accessTokenTextField, partnerNameTextField,
+            originAddressTextField, originLatitudeTextField,
+            originLongitudeTextField, destinationAddressTextField,
+            destinationLatitudeTextField, destinationLongitudeTextField
         ]
     }()
     
@@ -36,6 +37,7 @@ class FormView: UIView {
         keyboardManager = KeyboardManager(scrollView: scrollView)
         
         accessTokenTextField.placeholder = NSLocalizedString("Access Token", comment: "")
+        partnerNameTextField.placeholder = NSLocalizedString("Partner Name", comment: "")
         originAddressTextField.placeholder = NSLocalizedString("Origin Address", comment: "")
         originLatitudeTextField.placeholder = NSLocalizedString("Origin Latitude", comment: "")
         originLongitudeTextField.placeholder = NSLocalizedString("Origin Longitude", comment: "")

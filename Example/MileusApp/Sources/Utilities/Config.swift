@@ -13,6 +13,7 @@ class Config {
     
     private enum UserDefaultsKeys: String {
         case accessToken = "AccessToken"
+        case partnerName = "PartnerName"
     }
     
     static let shared = Config()
@@ -23,6 +24,15 @@ class Config {
         }
         get {
             userDefaults.string(forKey: UserDefaultsKeys.accessToken.rawValue)
+        }
+    }
+    
+    var partnerName: String? {
+        set {
+            userDefaults.setValue(newValue, forKey: UserDefaultsKeys.partnerName.rawValue)
+        }
+        get {
+            userDefaults.string(forKey: UserDefaultsKeys.partnerName.rawValue)
         }
     }
     

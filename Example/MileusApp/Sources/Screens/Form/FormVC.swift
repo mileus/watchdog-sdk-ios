@@ -26,6 +26,7 @@ class FormVC: UIViewController {
     
     private func bind() {
         contentView.accessTokenTextField.text = viewModel.accessToken
+        contentView.partnerNameTextField.text = viewModel.partnerName
         contentView.originAddressTextField.text = viewModel.originAddress
         contentView.originLatitudeTextField.text = viewModel.originLatitude
         contentView.originLongitudeTextField.text = viewModel.originLongitude
@@ -36,6 +37,7 @@ class FormVC: UIViewController {
     
     private func update() {
         viewModel.accessToken = contentView.accessTokenTextField.text ?? ""
+        viewModel.partnerName = contentView.partnerNameTextField.text
         viewModel.originAddress = contentView.originAddressTextField.text
         viewModel.originLatitude = contentView.originLatitudeTextField.text
         viewModel.originLongitude = contentView.originLongitudeTextField.text

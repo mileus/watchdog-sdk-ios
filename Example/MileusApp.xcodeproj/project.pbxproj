@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1866188024C1ACD300B23C2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1866188224C1ACD300B23C2E /* Localizable.strings */; };
+		186618A124C7FDF200B23C2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 186618A324C7FDF200B23C2E /* Localizable.strings */; };
 		186C7C0624457E16004E1D3F /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C7C0524457E16004E1D3F /* KeyboardManager.swift */; };
 		1880AAA024504DAA00E1DE88 /* LocationForm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1880AA9F24504DAA00E1DE88 /* LocationForm.storyboard */; };
 		1880AAA224504DBE00E1DE88 /* LocationFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880AAA124504DBE00E1DE88 /* LocationFormVC.swift */; };
@@ -44,9 +44,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1866188124C1ACD300B23C2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1866188324C1ACDF00B23C2E /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
-		1866188424C1ACE700B23C2E /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		186618A224C7FDF200B23C2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		186618A424C7FDFF00B23C2E /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
+		186618A524C7FE0600B23C2E /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		186C7C0524457E16004E1D3F /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
 		1880AA9F24504DAA00E1DE88 /* LocationForm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationForm.storyboard; sourceTree = "<group>"; };
 		1880AAA124504DBE00E1DE88 /* LocationFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormVC.swift; sourceTree = "<group>"; };
@@ -92,7 +92,7 @@
 		1866187D24C1AC9800B23C2E /* Localizations */ = {
 			isa = PBXGroup;
 			children = (
-				1866188224C1ACD300B23C2E /* Localizable.strings */,
+				186618A324C7FDF200B23C2E /* Localizable.strings */,
 			);
 			path = Localizations;
 			sourceTree = "<group>";
@@ -257,7 +257,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1866188024C1ACD300B23C2E /* Localizable.strings in Resources */,
+				186618A124C7FDF200B23C2E /* Localizable.strings in Resources */,
 				18872B9B243B26E800A127D2 /* LaunchScreen.storyboard in Resources */,
 				18872B98243B26E800A127D2 /* Assets.xcassets in Resources */,
 				18872B96243B26E400A127D2 /* Main.storyboard in Resources */,
@@ -291,12 +291,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		1866188224C1ACD300B23C2E /* Localizable.strings */ = {
+		186618A324C7FDF200B23C2E /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				1866188124C1ACD300B23C2E /* en */,
-				1866188324C1ACDF00B23C2E /* cs */,
-				1866188424C1ACE700B23C2E /* sk */,
+				186618A224C7FDF200B23C2E /* en */,
+				186618A424C7FDFF00B23C2E /* cs */,
+				186618A524C7FE0600B23C2E /* sk */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

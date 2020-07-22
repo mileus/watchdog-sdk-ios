@@ -10,6 +10,11 @@ class FormVM {
             config.accessToken = accessToken
         }
     }
+    var partnerName: String? {
+        didSet {
+            config.partnerName = partnerName
+        }
+    }
     var originAddress: String!
     @LocationWrapper(value: "50.091266")
     var originLatitude: String!
@@ -30,6 +35,7 @@ class FormVM {
     init() {
         config = Config.shared
         accessToken = config.accessToken
+        partnerName = config.partnerName
         
 #if DEBUG
         accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOiJmOGEzYzg4NS1mYmI2LTQxYTItYjhhOC0yZDA2OTQxODZmYTkiLCJwbiI6ImR1bW15LXBhcnRuZXIiLCJwZWkiOiJleHRlcm5hbC1wYXNzZW5nZXItaWQiLCJpYXQiOjE1OTQyNjk3NTl9.Goanc61n9jzC6wz88FktRa5u2ESZ6SneiJipO_90Jsk"
@@ -54,14 +60,14 @@ class FormVM {
     }
     
     func search(from: UIViewController, delegate: MileusWatchdogSearchFlowDelegate) -> UIViewController {
-        try! MileusWatchdogKit.configure(partnerName: "ios-test-app", accessToken: getToken(), environment: .development)
+        reinitSDK()
         mileusSearch = try! MileusWatchdogSearch(delegate: delegate, origin: getOrigin(), destination: getDestination())
         
         return mileusSearch!.show(from: from)
     }
     
     func validation(from: UIViewController, delegate: MileusMarketValidationFlowDelegate) -> UIViewController {
-        try! MileusWatchdogKit.configure(partnerName: "ios-test-app", accessToken: getToken(), environment: .development)
+        reinitSDK()
         mileusMarketValidation = try! MileusMarketValidation(delegate: delegate, origin: getOrigin(), destination: getDestination())
         
         return mileusMarketValidation!.show(from: from)
@@ -82,6 +88,12 @@ class FormVM {
     @inline(__always)
     private func getToken() -> String {
         (accessToken?.isEmpty ?? true) ? "unknown-token-ios-test-app" : accessToken!
+    }
+
+    private func reinitSDK() {
+        let partnerName = (self.partnerName?.isEmpty ?? true) ? "demo" :  self.partnerName!
+        // You should call this method in AppDelegate.
+        try! MileusWatchdogKit.configure(partnerName: partnerName, accessToken: getToken(), environment: .development)
     }
     
 }
