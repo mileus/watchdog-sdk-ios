@@ -35,7 +35,7 @@ class FormVM {
     init() {
         config = Config.shared
         accessToken = config.accessToken
-        partnerName = config.partnerName
+        partnerName = getPartnerName(useSaved: true)
         
 #if DEBUG
         accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOiJmOGEzYzg4NS1mYmI2LTQxYTItYjhhOC0yZDA2OTQxODZmYTkiLCJwbiI6ImR1bW15LXBhcnRuZXIiLCJwZWkiOiJleHRlcm5hbC1wYXNzZW5nZXItaWQiLCJpYXQiOjE1OTQyNjk3NTl9.Goanc61n9jzC6wz88FktRa5u2ESZ6SneiJipO_90Jsk"
@@ -89,11 +89,16 @@ class FormVM {
     private func getToken() -> String {
         (accessToken?.isEmpty ?? true) ? "unknown-token-ios-test-app" : accessToken!
     }
+    
+    @inline(__always)
+    private func getPartnerName(useSaved: Bool) -> String {
+        let partnerName = useSaved ? config.partnerName : self.partnerName
+        return (partnerName?.isEmpty ?? true) ? "demo" :  partnerName!
+    }
 
     private func reinitSDK() {
-        let partnerName = (self.partnerName?.isEmpty ?? true) ? "demo" :  self.partnerName!
         // You should call this method in AppDelegate.
-        try! MileusWatchdogKit.configure(partnerName: partnerName, accessToken: getToken(), environment: .development)
+        try! MileusWatchdogKit.configure(partnerName: getPartnerName(useSaved: false), accessToken: getToken(), environment: .development)
     }
     
 }
