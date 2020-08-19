@@ -26,6 +26,9 @@ class FormVM {
     @LocationWrapper(value: "14.489431312606477")
     var destinationLongitude: String!
     
+    var selectedEnvironmentIndex = 0
+    let environments: [String]
+    
     var mileusSearch: MileusWatchdogSearch?
     var mileusMarketValidation: MileusMarketValidation?
     var searchData: MileusWatchdogSearchData?
@@ -35,6 +38,7 @@ class FormVM {
     init() {
         config = Config.shared
         accessToken = config.accessToken
+        environments = MileusWatchdogEnvironment.allCases.map({ String(describing: $0) })
         partnerName = getPartnerName(useSaved: true)
         
 #if DEBUG
@@ -98,7 +102,8 @@ class FormVM {
 
     private func reinitSDK() {
         // You should call this method in AppDelegate.
-        try! MileusWatchdogKit.configure(partnerName: getPartnerName(useSaved: false), accessToken: getToken(), environment: .development)
+        let environment = MileusWatchdogEnvironment.allCases[selectedEnvironmentIndex]
+        try! MileusWatchdogKit.configure(partnerName: getPartnerName(useSaved: false), accessToken: getToken(), environment: environment)
     }
     
 }

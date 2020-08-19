@@ -14,8 +14,15 @@ class FormView: UIView {
     @IBOutlet weak var destinationAddressTextField: UITextField!
     @IBOutlet weak var destinationLatitudeTextField: UITextField!
     @IBOutlet weak var destinationLongitudeTextField: UITextField!
+    @IBOutlet weak var environmentPickerView: UIPickerView!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var validationButton: UIButton!
+    
+    var environments: [String] = [] {
+        didSet {
+            environmentPickerView.reloadAllComponents()
+        }
+    }
     
     private lazy var textFields: [UITextField] = {
         [
@@ -46,6 +53,8 @@ class FormView: UIView {
         destinationLongitudeTextField.placeholder = NSLocalizedString("Destination Longitude", comment: "")
         searchButton.setTitle(NSLocalizedString("Watchdog", comment: ""), for: .normal)
         validationButton.setTitle(NSLocalizedString("Market Validation", comment: ""), for: .normal)
+        environmentPickerView.delegate = self
+        environmentPickerView.dataSource = self
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureSelected(sender:)))
         addGestureRecognizer(tapGestureRecognizer)
@@ -58,4 +67,26 @@ class FormView: UIView {
         }
     }
 
+}
+
+
+extension FormView: UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        environments.count
+    }
+    
+}
+
+
+extension FormView: UIPickerViewDelegate {
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        environments[row]
+    }
+    
 }

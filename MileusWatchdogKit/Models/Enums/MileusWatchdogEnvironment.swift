@@ -2,7 +2,7 @@
 import Foundation
 
 
-public enum MileusWatchdogEnvironment {
+public enum MileusWatchdogEnvironment: CaseIterable {
     
     case development
     case staging

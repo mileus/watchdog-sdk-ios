@@ -33,6 +33,7 @@ class FormVC: UIViewController {
         contentView.destinationAddressTextField.text = viewModel.destinationAddress
         contentView.destinationLatitudeTextField.text = viewModel.destinationLatitude
         contentView.destinationLongitudeTextField.text = viewModel.destinationLongitude
+        contentView.environments = viewModel.environments
     }
     
     private func update() {
@@ -44,6 +45,7 @@ class FormVC: UIViewController {
         viewModel.destinationAddress = contentView.destinationAddressTextField.text
         viewModel.destinationLatitude = contentView.destinationLatitudeTextField.text
         viewModel.destinationLongitude = contentView.destinationLongitudeTextField.text
+        viewModel.selectedEnvironmentIndex = contentView.environmentPickerView.selectedRow(inComponent: 0)
     }
     
     @objc
