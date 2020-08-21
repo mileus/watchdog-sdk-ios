@@ -34,6 +34,7 @@ class FormVC: UIViewController {
         contentView.destinationLatitudeTextField.text = viewModel.destinationLatitude
         contentView.destinationLongitudeTextField.text = viewModel.destinationLongitude
         contentView.environments = viewModel.environments
+        contentView.environmentPickerView.selectRow(viewModel.selectedEnvironmentIndex, inComponent: 0, animated: false)
     }
     
     private func update() {

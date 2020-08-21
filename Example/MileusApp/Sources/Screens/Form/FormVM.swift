@@ -39,6 +39,7 @@ class FormVM {
         config = Config.shared
         accessToken = config.accessToken
         environments = MileusWatchdogEnvironment.allCases.map({ String(describing: $0) })
+        selectedEnvironmentIndex = MileusWatchdogEnvironment.allCases.firstIndex(of: .staging) ?? 0
         partnerName = getPartnerName(useSaved: true)
         
 #if DEBUG
