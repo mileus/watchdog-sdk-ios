@@ -13,7 +13,7 @@
         <scene sceneID="S0J-jT-1WP">
             <objects>
                 <viewController storyboardIdentifier="SearchVC" id="1Yd-gv-1lD" customClass="SearchVC" customModule="MileusWatchdogKit" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cVt-IP-A8t" customClass="SearchView" customModule="MileusWatchdogKit" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="cVt-IP-A8t" customClass="SearchView" customModule="MileusWatchdogKit">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
