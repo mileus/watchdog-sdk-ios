@@ -26,6 +26,7 @@
 		18872B7D243B025300A127D2 /* SearchVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872B7C243B025300A127D2 /* SearchVM.swift */; };
 		18872B81243B09F300A127D2 /* MainNC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872B80243B09F300A127D2 /* MainNC.swift */; };
 		1887B7CE246136BE00AAC050 /* InputSanitizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1887B7CD246136BE00AAC050 /* InputSanitizer.swift */; };
+		188D6110258B289C00D7937F /* Bundle+SPM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188D610F258B289C00D7937F /* Bundle+SPM.swift */; };
 		1898175C2458189100803ED5 /* OfflineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898175B2458189100803ED5 /* OfflineView.swift */; };
 		1898175E245818AB00803ED5 /* OfflineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1898175D245818AB00803ED5 /* OfflineView.xib */; };
 		18A457742477E0DF00EB666E /* MileusWatchdogLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A457732477E0DF00EB666E /* MileusWatchdogLocation.swift */; };
@@ -67,6 +68,7 @@
 		18872B7C243B025300A127D2 /* SearchVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVM.swift; sourceTree = "<group>"; };
 		18872B80243B09F300A127D2 /* MainNC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNC.swift; sourceTree = "<group>"; };
 		1887B7CD246136BE00AAC050 /* InputSanitizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputSanitizer.swift; sourceTree = "<group>"; };
+		188D610F258B289C00D7937F /* Bundle+SPM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+SPM.swift"; sourceTree = "<group>"; };
 		1898175B2458189100803ED5 /* OfflineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfflineView.swift; sourceTree = "<group>"; };
 		1898175D245818AB00803ED5 /* OfflineView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfflineView.xib; sourceTree = "<group>"; };
 		18A457732477E0DF00EB666E /* MileusWatchdogLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MileusWatchdogLocation.swift; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 				18872B7E243B09A800A127D2 /* Views */,
 				18543CDC243736CD00363CF0 /* Screens */,
 				1887B7CC2461369300AAC050 /* Utilities */,
+				188D610E258B288900D7937F /* Extensions */,
 			);
 			path = MileusWatchdogKit;
 			sourceTree = "<group>";
@@ -249,6 +252,14 @@
 				1887B7CD246136BE00AAC050 /* InputSanitizer.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		188D610E258B288900D7937F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				188D610F258B289C00D7937F /* Bundle+SPM.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		1898175A2458187800803ED5 /* Offline */ = {
@@ -387,6 +398,7 @@
 				18543CD62437352A00363CF0 /* MileusWatchdogEnvironment.swift in Sources */,
 				18A457742477E0DF00EB666E /* MileusWatchdogLocation.swift in Sources */,
 				1865A91C24B6D5BE00D502CE /* MileusModeType.swift in Sources */,
+				188D6110258B289C00D7937F /* Bundle+SPM.swift in Sources */,
 				18543CDB2437369500363CF0 /* MileusWatchdogSearchData.swift in Sources */,
 				18872B81243B09F300A127D2 /* MainNC.swift in Sources */,
 				1898175C2458189100803ED5 /* OfflineView.swift in Sources */,

@@ -38,13 +38,7 @@ public final class MileusWatchdogSearch {
     
     public func show(from: UIViewController) -> UIViewController {
         if rootVC == nil {
-            let bundle: Bundle
-            #if SWIFT_PACKAGE
-            bundle = Bundle.module
-            #else
-            bundle = Bundle(for: SearchVC.self)
-            #endif
-            let searchVC = UIStoryboard(name: "Search", bundle: bundle).instantiateInitialViewController() as! SearchVC
+            let searchVC = UIStoryboard(name: "Search", bundle: Bundle.bundle(for: SearchVC.self)).instantiateInitialViewController() as! SearchVC
             searchVC.viewModel = SearchVM(search: self, urlHandler: { [unowned self] in self.getURL() })
             searchVM = searchVC.viewModel
             rootVC = MainNC(rootViewController: searchVC)

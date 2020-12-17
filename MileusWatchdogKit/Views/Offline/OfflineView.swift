@@ -18,7 +18,7 @@ class OfflineView: UIView {
     }
     
     private func setup() {
-        Bundle(for: OfflineView.self).loadNibNamed("OfflineView", owner: self, options: nil)
+        Bundle.bundle(for: OfflineView.self).loadNibNamed("OfflineView", owner: self, options: nil)
         addSubview(contentView)
         
         contentView.translatesAutoresizingMaskIntoConstraints = false

@@ -16,7 +16,7 @@ class SearchVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = NSLocalizedString("watchdog_search_title", tableName: "Localizable", bundle: Bundle(for: SearchVC.self), value: "", comment: "")
+        title = NSLocalizedString("watchdog_search_title", tableName: "Localizable", bundle: Bundle.bundle(for: SearchVC.self), value: "", comment: "")
         configure()
         bind()
     }
