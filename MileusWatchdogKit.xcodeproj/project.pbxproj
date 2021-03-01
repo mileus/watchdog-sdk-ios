@@ -20,6 +20,8 @@
 		18543CE0243736FE00363CF0 /* MileusWatchdogSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18543CDF243736FE00363CF0 /* MileusWatchdogSearch.swift */; };
 		1865A91C24B6D5BE00D502CE /* MileusModeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865A91B24B6D5BE00D502CE /* MileusModeType.swift */; };
 		1866187724C1AA2400B23C2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1866187924C1AA2400B23C2E /* Localizable.strings */; };
+		1878F49125ECBCB00067640A /* NavigationBarWebDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878F49025ECBCB00067640A /* NavigationBarWebDelegate.swift */; };
+		1878F49525ECBD3B0067640A /* InfoButtonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878F49425ECBD3B0067640A /* InfoButtonViewModel.swift */; };
 		18872B77243B021100A127D2 /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18872B76243B021100A127D2 /* Search.storyboard */; };
 		18872B79243B022F00A127D2 /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872B78243B022F00A127D2 /* SearchVC.swift */; };
 		18872B7B243B024400A127D2 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872B7A243B024400A127D2 /* SearchView.swift */; };
@@ -62,6 +64,8 @@
 		1866187824C1AA2400B23C2E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1866187A24C1AA2500B23C2E /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		1866187B24C1AA2600B23C2E /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
+		1878F49025ECBCB00067640A /* NavigationBarWebDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarWebDelegate.swift; sourceTree = "<group>"; };
+		1878F49425ECBD3B0067640A /* InfoButtonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButtonViewModel.swift; sourceTree = "<group>"; };
 		18872B76243B021100A127D2 /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		18872B78243B022F00A127D2 /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		18872B7A243B024400A127D2 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
@@ -234,6 +238,8 @@
 			children = (
 				18872B7F243B09B000A127D2 /* Base */,
 				1898175A2458187800803ED5 /* Offline */,
+				1878F49025ECBCB00067640A /* NavigationBarWebDelegate.swift */,
+				1878F49425ECBD3B0067640A /* InfoButtonViewModel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -392,7 +398,9 @@
 				18543CD3243734F900363CF0 /* MileusWatchdogSearchType.swift in Sources */,
 				183AA7B624AC3FCB00E1CF00 /* MileusMarketValidationFlowDelegate.swift in Sources */,
 				183AA7B424AC3F7F00E1CF00 /* MileusMarketValidation.swift in Sources */,
+				1878F49125ECBCB00067640A /* NavigationBarWebDelegate.swift in Sources */,
 				18872B79243B022F00A127D2 /* SearchVC.swift in Sources */,
+				1878F49525ECBD3B0067640A /* InfoButtonViewModel.swift in Sources */,
 				18543CE0243736FE00363CF0 /* MileusWatchdogSearch.swift in Sources */,
 				18A457772477E15B00EB666E /* MileusWatchdogSearchFlowDelegate.swift in Sources */,
 				18543CD62437352A00363CF0 /* MileusWatchdogEnvironment.swift in Sources */,
