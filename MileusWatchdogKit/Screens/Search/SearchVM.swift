@@ -81,37 +81,3 @@ class SearchVM: NSObject {
     }
     
 }
-
-
-extension SearchVM: WKScriptMessageHandler {
-    
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        if message.name == SearchView.WebViewJSConstants.openSearch {
-            guard let jsonString = message.body as? String else {
-                return
-            }
-            guard let data = jsonString.data(using: .utf8) else {
-                return
-            }
-            guard let dic = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : String] else {
-                return
-            }
-            DispatchQueue.main.async {
-                self.openSearch(data: dic)
-            }
-        } else if message.name == SearchView.WebViewJSConstants.openTaxiRide {
-            DispatchQueue.main.async {
-                self.openTaxiRide()
-            }
-        } else if message.name == SearchView.WebViewJSConstants.openTaxiRideAndFinish {
-            DispatchQueue.main.async {
-                self.openTaxiRideAndFinish()
-            }
-        } else if message.name == SearchView.WebViewJSConstants.marketValidationDidFinish {
-            DispatchQueue.main.async {
-                self.didFinish()
-            }
-        }
-    }
-    
-}

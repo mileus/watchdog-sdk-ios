@@ -4,18 +4,11 @@ import WebKit
 
 
 class SearchView: UIView {
-    
-    enum WebViewJSConstants {
-        static let openSearch = "openSearchScreen"
-        static let openTaxiRide = "openTaxiRideScreen"
-        static let openTaxiRideAndFinish = "openTaxiRideScreenAndFinish"
-        static let marketValidationDidFinish = "finishMarketValidation"
-    }
 
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
     
     private(set) var offlineView: OfflineView!
-    private(set) var webView: WKWebView!
+    private(set) var webView: WebView!
     
     deinit {
         debugPrint("DEINIT: \(String(describing: self))")
@@ -49,15 +42,7 @@ class SearchView: UIView {
     }
      
     func setupWebView(delegate: WKScriptMessageHandler) {
-        let contentController = WKUserContentController()
-        let config = WKWebViewConfiguration()
-        config.userContentController = contentController
-        contentController.add(delegate, name: WebViewJSConstants.openSearch)
-        contentController.add(delegate, name: WebViewJSConstants.openTaxiRide)
-        contentController.add(delegate, name: WebViewJSConstants.openTaxiRideAndFinish)
-        contentController.add(delegate, name: WebViewJSConstants.marketValidationDidFinish)
-        
-        webView = WKWebView(frame: .zero, configuration: config)
+        webView = WebView()
         
         webView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(webView)
