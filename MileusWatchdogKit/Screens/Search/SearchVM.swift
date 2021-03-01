@@ -3,9 +3,18 @@ import Foundation
 import WebKit
 
 
-class SearchVM: NSObject {
+class SearchVM: NSObject, WebViewMessagesDelegate {
     
     private(set) weak var search: MileusWatchdogSearch!
+    
+    lazy var messages: [WebViewMessage] = {
+        [
+            OpenSearchMessage(action: { [weak self] data in self?.openSearch(data: data) }),
+            OpenTaxiRideMessage(action: { [weak self] in self?.openTaxiRide() }),
+            OpenTaxiRideScreenAndFinishMessage(action: { [weak self] in self?.openTaxiRideAndFinish() }),
+            CloseMarketValidationMessage(action: { [weak self] in self?.didFinish() })
+        ]
+    }()
     
     var updateCoordinates: (() -> Void)?
     let urlHandler: () -> URL

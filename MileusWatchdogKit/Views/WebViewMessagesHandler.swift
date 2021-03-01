@@ -11,25 +11,16 @@ protocol WebViewMessagesDelegate {
 
 final class WebViewMessagesHandler: NSObject {
     
-    private enum WebViewJSMessage: String {
-        case openSearch = "openSearchScreen"
-        case openTaxiRide = "openTaxiRideScreen"
-        case openTaxiRideAndFinish = "openTaxiRideScreenAndFinish"
-        case marketValidationDidFinish = "finishMarketValidation"
-    }
+    private let messages: [WebViewMessage]
     
-    var messagesDelegate: WebViewMessagesDelegate?
-    
-    init(messagesDelegate: WebViewMessagesDelegate?, content: WKUserContentController) {
-        self.messagesDelegate = messagesDelegate
-        
+    init(messages: [WebViewMessage], content: WKUserContentController) {
+        self.messages = messages
         super.init()
         
         let delegate = self
-        content.add(delegate, name: WebViewJSMessage.openSearch.rawValue)
-        content.add(delegate, name: WebViewJSMessage.openTaxiRide.rawValue)
-        content.add(delegate, name: WebViewJSMessage.openTaxiRideAndFinish.rawValue)
-        content.add(delegate, name: WebViewJSMessage.marketValidationDidFinish.rawValue)
+        messages.forEach { message in
+            content.add(delegate, name: message.identifier)
+        }
     }
     
 }
@@ -46,40 +37,9 @@ extension WebViewMessagesHandler: WKScriptMessageHandler {
     }
     
     private func handleReceivedMessage(message: WKScriptMessage) {
-        if message.name == WebViewMessagesHandler.WebViewJSConstants.openSearch {
-            handleSearch(message: message)
-        } else if message.name == WebViewMessagesHandler.WebViewJSConstants.openTaxiRide {
-            handleOpenTaxiRide()
-        } else if message.name == WebViewMessagesHandler.WebViewJSConstants.openTaxiRideAndFinish {
-            handleOpenTaxiRideAndFinish()
-        } else if message.name == WebViewMessagesHandler.WebViewJSConstants.marketValidationDidFinish {
-            handleDidFinish()
+        for localMessage in messages where localMessage.canHandle(name: message.name) {
+            _ = localMessage.execute(data: message.body)
         }
-    }
-    
-    private func handleSearch(message: WKScriptMessage) {
-        guard let jsonString = message.body as? String else {
-            return
-        }
-        guard let data = jsonString.data(using: .utf8) else {
-            return
-        }
-        guard let dic = try? JSONSerialization.jsonObject(with: data, options: []) as? [String : String] else {
-            return
-        }
-        messagesDelegate?.openSearch(data: dic)
-    }
-    
-    private func handleOpenTaxiRide() {
-        messagesDelegate?.openTaxiRide()
-    }
-    
-    private func handleOpenTaxiRideAndFinish() {
-        messagesDelegate?.openTaxiRideAndFinish()
-    }
-    
-    private func handleDidFinish() {
-        messagesDelegate?.didFinish()
     }
     
     @inline(__always)

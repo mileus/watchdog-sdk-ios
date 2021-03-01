@@ -6,5 +6,6 @@ import WebKit
 protocol WebViewMessage {
     var identifier: String { get }
     
-    func handle(message: WKScriptMessage) -> Bool
+    func canHandle(name: String) -> Bool
+    func execute(data: Any) -> Bool
 }

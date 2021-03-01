@@ -41,8 +41,8 @@ class SearchView: UIView {
         }
     }
      
-    func setupWebView(delegate: WKScriptMessageHandler) {
-        webView = WebView()
+    func setupWebView(messages: [WebViewMessage]) {
+        webView = WebView(messages: messages)
         
         webView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(webView)

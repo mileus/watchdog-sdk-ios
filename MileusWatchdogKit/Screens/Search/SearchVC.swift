@@ -27,7 +27,7 @@ class SearchVC: UIViewController {
         
         contentView.offlineView.tryAgainButton.addTarget(self, action: #selector(tryAgainButtonPressed), for: .touchUpInside)
         
-        contentView.setupWebView(delegate: viewModel)
+        contentView.setupWebView(messages: viewModel.messages)
     }
     
     private func bind() {

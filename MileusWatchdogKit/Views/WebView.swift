@@ -4,11 +4,14 @@ import WebKit
 
 final class WebView: WKWebView {
     
-    init(messagesDelegate: WebViewMessagesDelegate?) {
+    init(messages: [WebViewMessage]) {
         let contentController = WKUserContentController()
         let config = WKWebViewConfiguration()
         config.userContentController = contentController
-        let delegate = WebViewMessagesHandler(messagesDelegate: messagesDelegate)
+        let delegate = WebViewMessagesHandler(
+            messages: messages,
+            content: contentController
+        )
         
         super.init(frame: .zero, configuration: config)
     }
