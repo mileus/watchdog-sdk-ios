@@ -31,6 +31,7 @@ class FormVM {
     
     var mileusSearch: MileusWatchdogSearch?
     var mileusMarketValidation: MileusMarketValidation?
+    var mileusWatchdogScheduler: MileusWatchdogScheduler?
     var searchData: MileusWatchdogSearchData?
     
     private let config: Config
@@ -78,6 +79,13 @@ class FormVM {
         return mileusMarketValidation!.show(from: from)
     }
     
+    func scheduler(from: UIViewController, delegate: MileusWatchdogSchedulerFlowDelegate) -> UIViewController {
+        reinitSDK()
+        mileusWatchdogScheduler = try! MileusWatchdogScheduler(delegate: delegate, homeLocation: nil)
+        
+        return mileusWatchdogScheduler!.show(from: from)
+    }
+    
     func updateLocation(location: MileusWatchdogLocation) {
         guard let data = searchData else {
             return
@@ -102,7 +110,6 @@ class FormVM {
     }
 
     private func reinitSDK() {
-        // You should call this method in AppDelegate.
         let environment = MileusWatchdogEnvironment.allCases[selectedEnvironmentIndex]
         try! MileusWatchdogKit.configure(partnerName: getPartnerName(useSaved: false), accessToken: getToken(), environment: environment)
     }

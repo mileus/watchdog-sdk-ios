@@ -17,6 +17,7 @@ class FormView: UIView {
     @IBOutlet weak var environmentPickerView: UIPickerView!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var validationButton: UIButton!
+    @IBOutlet weak var schedulerButton: UIButton!
     
     var environments: [String] = [] {
         didSet {
@@ -43,6 +44,15 @@ class FormView: UIView {
     private func configure() {
         keyboardManager = KeyboardManager(scrollView: scrollView)
         
+        setupTextFieldPlaceholders()
+        setupButtonTitles()
+        setupEnvironmentPicker()
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureSelected(sender:)))
+        addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    private func setupTextFieldPlaceholders() {
         accessTokenTextField.placeholder = NSLocalizedString("Access Token", comment: "")
         partnerNameTextField.placeholder = NSLocalizedString("Partner Name", comment: "")
         originAddressTextField.placeholder = NSLocalizedString("Origin Address", comment: "")
@@ -51,13 +61,17 @@ class FormView: UIView {
         destinationAddressTextField.placeholder = NSLocalizedString("Destination Address", comment: "")
         destinationLatitudeTextField.placeholder = NSLocalizedString("Destination Latitude", comment: "")
         destinationLongitudeTextField.placeholder = NSLocalizedString("Destination Longitude", comment: "")
+    }
+    
+    private func setupButtonTitles() {
         searchButton.setTitle(NSLocalizedString("Watchdog", comment: ""), for: .normal)
         validationButton.setTitle(NSLocalizedString("Market Validation", comment: ""), for: .normal)
+        schedulerButton.setTitle(NSLocalizedString("Scheduler", comment: ""), for: .normal)
+    }
+    
+    private func setupEnvironmentPicker() {
         environmentPickerView.delegate = self
         environmentPickerView.dataSource = self
-        
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapGestureSelected(sender:)))
-        addGestureRecognizer(tapGestureRecognizer)
     }
     
     @objc
