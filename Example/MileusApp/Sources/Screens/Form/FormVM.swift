@@ -1,5 +1,5 @@
 
-import UIKit
+import Foundation
 import MileusWatchdogKit
 
 
@@ -65,25 +65,25 @@ class FormVM {
         )
     }
     
-    func search(from: UIViewController, delegate: MileusWatchdogSearchFlowDelegate) -> UIViewController {
+    func search(delegate: MileusWatchdogSearchFlowDelegate) -> MileusWatchdogSearch {
         reinitSDK()
         mileusSearch = try! MileusWatchdogSearch(delegate: delegate, origin: getOrigin(), destination: getDestination())
         
-        return mileusSearch!.show(from: from)
+        return mileusSearch!
     }
     
-    func validation(from: UIViewController, delegate: MileusMarketValidationFlowDelegate) -> UIViewController {
+    func validation(delegate: MileusMarketValidationFlowDelegate) -> MileusMarketValidation {
         reinitSDK()
         mileusMarketValidation = try! MileusMarketValidation(delegate: delegate, origin: getOrigin(), destination: getDestination())
         
-        return mileusMarketValidation!.show(from: from)
+        return mileusMarketValidation!
     }
     
-    func scheduler(from: UIViewController, delegate: MileusWatchdogSchedulerFlowDelegate) -> UIViewController {
+    func scheduler(delegate: MileusWatchdogSchedulerFlowDelegate) -> MileusWatchdogScheduler {
         reinitSDK()
         mileusWatchdogScheduler = try! MileusWatchdogScheduler(delegate: delegate, homeLocation: nil)
         
-        return mileusWatchdogScheduler!.show(from: from)
+        return mileusWatchdogScheduler!
     }
     
     func updateLocation(location: MileusWatchdogLocation) {

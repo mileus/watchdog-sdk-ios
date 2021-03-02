@@ -53,19 +53,19 @@ class FormVC: UIViewController {
     @objc
     private func searchButtonPressed(sender: AnyObject) {
         update()
-        mileusVC = viewModel.search(from: self, delegate: self)
+        mileusVC = viewModel.search(delegate: self).show(from: self)
     }
     
     @objc
     private func validationButtonPressed(sender: AnyObject) {
         update()
-        mileusVC = viewModel.validation(from: self, delegate: self)
+        mileusVC = viewModel.validation(delegate: self).show(from: self)
     }
     
     @objc
     private func schedulerButtonPressed(sender: AnyObject) {
         update()
-        mileusVC = viewModel.scheduler(from: self, delegate: self)
+        mileusVC = viewModel.scheduler(delegate: self).show(from: self)
     }
 
 }
