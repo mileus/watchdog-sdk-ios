@@ -10,6 +10,8 @@ class SearchVC: UIViewController {
         return view as! SearchView
     }
     
+    private var navigationControllerMessageHandler: NavigationControllerMessagesHandler?
+    
     deinit {
         debugPrint("DEINIT: \(String(describing: self))")
     }
@@ -27,7 +29,11 @@ class SearchVC: UIViewController {
         
         contentView.offlineView.tryAgainButton.addTarget(self, action: #selector(tryAgainButtonPressed), for: .touchUpInside)
         
-        contentView.setupWebView(messages: viewModel.messages)
+        navigationControllerMessageHandler = NavigationControllerMessagesHandler(
+            delegate: navigationController as? NavigationBarWebDelegate
+        )
+        contentView.setupWebView(messages: viewModel.messages + navigationControllerMessageHandler!.getMessages())
+        navigationControllerMessageHandler?.webView = contentView.webView
     }
     
     private func bind() {

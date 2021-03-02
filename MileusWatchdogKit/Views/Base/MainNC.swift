@@ -14,7 +14,7 @@ class MainNC: UINavigationController {
 
 
 extension MainNC: NavigationBarWebDelegate {
-    func setTitle(title: String) {
+    func setTitle(title: String?) {
         navigationItem.title = title
     }
     

@@ -2,7 +2,7 @@
 import Foundation
 
 
-protocol NavigationBarWebDelegate {
-    func setTitle(title: String)
+protocol NavigationBarWebDelegate: class {
+    func setTitle(title: String?)
     func setInfoButton(viewModel: InfoButtonViewModel?)
 }

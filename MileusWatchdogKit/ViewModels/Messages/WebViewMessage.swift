@@ -1,6 +1,5 @@
 
 import Foundation
-import WebKit
 
 
 protocol WebViewMessage {
