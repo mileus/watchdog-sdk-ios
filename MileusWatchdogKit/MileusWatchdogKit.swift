@@ -8,7 +8,7 @@ public final class MileusWatchdogKit {
     internal static var accessToken: String!
     internal static var environment: MileusWatchdogEnvironment!
     
-    internal static var isInitialized: Bool {
+    public static var isInitialized: Bool {
         return accessToken != nil
     }
     

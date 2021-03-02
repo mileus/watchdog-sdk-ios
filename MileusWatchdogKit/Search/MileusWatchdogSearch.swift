@@ -9,13 +9,32 @@ public final class MileusWatchdogSearch {
     internal weak var delegate: MileusWatchdogSearchFlowDelegate?
     internal var mode = MileusModeType.watchdog
     
-    private(set) var origin: MileusWatchdogLocation?
-    private(set) var destination: MileusWatchdogLocation?
+    internal var origin: MileusWatchdogLocation? {
+        locations.first(where: { $0.label == .origin })?.data
+    }
+    internal var destination: MileusWatchdogLocation? {
+        locations.first(where: { $0.label == .destination })?.data
+    }
+    
+    private var locations: [MileusWatchdogLabeledLocation]
     
     private var rootVC: UINavigationController?
     private weak var searchVM: SearchVM?
     
-    public init(delegate: MileusWatchdogSearchFlowDelegate, origin: MileusWatchdogLocation? = nil, destination: MileusWatchdogLocation? = nil) throws {
+    public convenience init(delegate: MileusWatchdogSearchFlowDelegate, origin: MileusWatchdogLocation? = nil, destination: MileusWatchdogLocation? = nil) throws {
+        var locations = [MileusWatchdogLabeledLocation]()
+        if let origin = origin {
+            let labeledLocation = MileusWatchdogLabeledLocation(label: .origin, data: origin)
+            locations.append(labeledLocation)
+        }
+        if let destination = destination {
+            let labeledLocation = MileusWatchdogLabeledLocation(label: .destination, data: destination)
+            locations.append(labeledLocation)
+        }
+        try self.init(delegate: delegate, locations: locations)
+    }
+    
+    internal init(delegate: MileusWatchdogSearchFlowDelegate, locations: [MileusWatchdogLabeledLocation]) throws {
         if !MileusWatchdogKit.isInitialized {
             throw MileusWatchdogError.sdkIsNotInitialized
         }
@@ -23,8 +42,7 @@ public final class MileusWatchdogSearch {
             throw MileusWatchdogError.instanceAlreadyExists
         }
         self.delegate = delegate
-        self.origin = origin
-        self.destination = destination
+        self.locations = locations
         Self.alreadyInitialized = true
     }
     
@@ -51,13 +69,18 @@ public final class MileusWatchdogSearch {
     }
     
     public func updateOrigin(location: MileusWatchdogLocation) {
-        self.origin = location
+        updateLocation(location: location, type: .origin)
         searchVM?.coordinatesUpdated()
     }
     
     public func updateDestination(location: MileusWatchdogLocation) {
-        self.destination = location
+        updateLocation(location: location, type: .destination)
         searchVM?.coordinatesUpdated()
+    }
+    
+    private func updateLocation(location: MileusWatchdogLocation, type: MileusWatchdogLocationType) {
+        locations.removeAll(where: { $0.label == type })
+        locations.append(.init(label: type, data: location))
     }
     
     private func getURL() -> URL {
@@ -73,15 +96,11 @@ public final class MileusWatchdogSearch {
             URLQueryItem(name: "language", value: languageCode),
             URLQueryItem(name: "mode", value: mode.rawValue)
         ]
-        if let origin = self.origin {
-            components.queryItems?.append(URLQueryItem(name: "origin_address", value: String(origin.address)))
-            components.queryItems?.append(URLQueryItem(name: "origin_lat", value: String(origin.latitude)))
-            components.queryItems?.append(URLQueryItem(name: "origin_lon", value: String(origin.longitude)))
-        }
-        if let destination = self.destination {
-            components.queryItems?.append(URLQueryItem(name: "destination_address", value: String(destination.address)))
-            components.queryItems?.append(URLQueryItem(name: "destination_lat", value: String(destination.latitude)))
-            components.queryItems?.append(URLQueryItem(name: "destination_lon", value: String(destination.longitude)))
+        for location in locations {
+            let prefix = location.label.rawValue
+            components.queryItems?.append(URLQueryItem(name: "\(prefix)_address", value: String(location.data.address)))
+            components.queryItems?.append(URLQueryItem(name: "\(prefix)_lat", value: String(location.data.latitude)))
+            components.queryItems?.append(URLQueryItem(name: "\(prefix)_lon", value: String(location.data.longitude)))
         }
         return components.url!
     }
