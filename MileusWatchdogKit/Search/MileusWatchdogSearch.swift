@@ -94,7 +94,7 @@ public final class MileusWatchdogSearch {
             URLQueryItem(name: "partner_name", value: MileusWatchdogKit.partnerName),
             URLQueryItem(name: "platform", value: "ios"),
             URLQueryItem(name: "language", value: languageCode),
-            URLQueryItem(name: "mode", value: mode.rawValue)
+            URLQueryItem(name: "screen", value: mode.rawValue)
         ]
         for location in locations {
             let prefix = location.label.rawValue
