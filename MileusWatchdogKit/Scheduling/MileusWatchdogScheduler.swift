@@ -15,7 +15,8 @@ public final class MileusWatchdogScheduler {
             throw MileusWatchdogError.instanceAlreadyExists
         }
         self.delegate = delegate
-        mileusSearch = try MileusWatchdogSearch(delegate: self, origin: nil, destination: nil)
+        let locations = homeLocation == nil ? [] : [MileusWatchdogLabeledLocation(label: .home, data: homeLocation!)]
+        mileusSearch = try MileusWatchdogSearch(delegate: self, locations: locations)
         mileusSearch.mode = .watchdogScheduler
         Self.alreadyInitialized = true
     }
