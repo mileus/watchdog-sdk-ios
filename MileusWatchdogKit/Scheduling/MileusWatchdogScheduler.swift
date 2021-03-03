@@ -26,7 +26,7 @@ public final class MileusWatchdogScheduler {
         debugPrint("DEINIT: \(String(describing: self))")
     }
     
-    public func show(from: UIViewController) -> UIViewController {
+    public func show(from: UIViewController) -> UINavigationController {
         mileusSearch.show(from: from)
     }
     

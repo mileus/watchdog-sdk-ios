@@ -54,7 +54,7 @@ public final class MileusWatchdogSearch {
         debugPrint("DEINIT: \(String(describing: self))")
     }
     
-    public func show(from: UIViewController) -> UIViewController {
+    public func show(from: UIViewController) -> UINavigationController {
         if rootVC == nil {
             let searchVC = UIStoryboard(name: "Search", bundle: Bundle.bundle(for: SearchVC.self)).instantiateInitialViewController() as! SearchVC
             searchVC.viewModel = SearchVM(search: self, urlHandler: { [unowned self] in self.getURL() })
@@ -65,6 +65,7 @@ public final class MileusWatchdogSearch {
         if rootVC?.presentingViewController == nil {
             from.show(rootVC!, sender: nil)
         }
+        rootVC!.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18.0)]
         return rootVC!
     }
     

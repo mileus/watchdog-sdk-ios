@@ -12,7 +12,8 @@ protocol LocationFormDelegate {
 
 class LocationFormVM {
     
-    var address: String!
+    var addressFirstLine: String!
+    var addressSecondLine: String?
     @LocationWrapper(value: nil)
     var latitude: String!
     @LocationWrapper(value: nil)
@@ -26,13 +27,21 @@ class LocationFormVM {
         self.delegate = delegate
         
         let location = searchData.type == .destination ? searchData.destination : searchData.origin
-        address = location.address
+        addressFirstLine = location.address.firstLine
+        addressSecondLine = location.address.secondLine
         $latitude = location.latitude
         $longitude = location.longitude
     }
     
     func save() {
-        let location = MileusWatchdogLocation(address: address, latitude: $latitude, longitude: $longitude)
+        let location = MileusWatchdogLocation(
+            address: .init(
+                firstLine: addressFirstLine,
+                secondLine: addressSecondLine
+            ),
+            latitude: $latitude,
+            longitude: $longitude
+        )
         delegate.locationForm(self, didFinish: location)
     }
     

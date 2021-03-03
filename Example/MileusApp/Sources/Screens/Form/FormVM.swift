@@ -15,12 +15,14 @@ class FormVM {
             config.partnerName = partnerName
         }
     }
-    var originAddress: String!
+    var originAddressFirstLine: String!
+    var originAddressSecondLine: String?
     @LocationWrapper(value: "50.091266")
     var originLatitude: String!
     @LocationWrapper(value: "14.438927")
     var originLongitude: String!
-    var destinationAddress: String!
+    var destinationAddressFirstLine: String!
+    var destinationAddressSecondLine: String?
     @LocationWrapper(value: "50.121765629793295")
     var destinationLatitude: String!
     @LocationWrapper(value: "14.489431312606477")
@@ -47,21 +49,29 @@ class FormVM {
         accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOiJmOGEzYzg4NS1mYmI2LTQxYTItYjhhOC0yZDA2OTQxODZmYTkiLCJwbiI6ImR1bW15LXBhcnRuZXIiLCJwZWkiOiJleHRlcm5hbC1wYXNzZW5nZXItaWQiLCJpYXQiOjE1OTQyNjk3NTl9.Goanc61n9jzC6wz88FktRa5u2ESZ6SneiJipO_90Jsk"
 #endif
         
-        originAddress = "Prague - Nové Město"
-        destinationAddress = "Not Prague center"
+        originAddressFirstLine = "Prague - Nové Město"
+        destinationAddressFirstLine = "Not Prague center"
     }
     
     func getOrigin() -> MileusWatchdogLocation {
-        return MileusWatchdogLocation(address: originAddress,
-                              latitude: $originLatitude,
-                              longitude: $originLongitude
+        MileusWatchdogLocation(
+            address: .init(
+                firstLine: originAddressFirstLine,
+                secondLine: originAddressSecondLine
+            ),
+            latitude: $originLatitude,
+            longitude: $originLongitude
         )
     }
     
     func getDestination() -> MileusWatchdogLocation {
-        return MileusWatchdogLocation(address: destinationAddress,
-                              latitude: $destinationLatitude,
-                              longitude: $destinationLongitude
+        return MileusWatchdogLocation(
+            address: .init(
+                firstLine: destinationAddressFirstLine,
+                secondLine: destinationAddressSecondLine
+            ),
+            latitude: $destinationLatitude,
+            longitude: $destinationLongitude
         )
     }
     

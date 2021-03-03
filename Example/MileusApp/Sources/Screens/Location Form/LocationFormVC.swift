@@ -20,14 +20,16 @@ class LocationFormVC: UIViewController {
     }
     
     private func bind() {
-        contentView.addressTextField.text = viewModel.address
+        contentView.addressFirstLineTextField.text = viewModel.addressFirstLine
+        contentView.addressSecondLineTextField.text = viewModel.addressSecondLine
         contentView.latitudeTextField.text = viewModel.latitude
         contentView.longitudeTextField.text = viewModel.longitude
     }
     
     @objc
     private func doneButtonPressed(sender: AnyObject) {
-        viewModel.address = contentView.addressTextField.text
+        viewModel.addressFirstLine = contentView.addressFirstLineTextField.text
+        viewModel.addressSecondLine = contentView.addressSecondLineTextField.text
         viewModel.latitude = contentView.latitudeTextField.text
         viewModel.longitude = contentView.longitudeTextField.text
         

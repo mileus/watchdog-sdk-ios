@@ -28,10 +28,12 @@ class FormVC: UIViewController {
     private func bind() {
         contentView.accessTokenTextField.text = viewModel.accessToken
         contentView.partnerNameTextField.text = viewModel.partnerName
-        contentView.originAddressTextField.text = viewModel.originAddress
+        contentView.originAddressFirstLineTextField.text = viewModel.originAddressFirstLine
+        contentView.originAddressSecondLineTextField.text = viewModel.originAddressSecondLine
         contentView.originLatitudeTextField.text = viewModel.originLatitude
         contentView.originLongitudeTextField.text = viewModel.originLongitude
-        contentView.destinationAddressTextField.text = viewModel.destinationAddress
+        contentView.destinationAddressFirstLineTextField.text = viewModel.destinationAddressFirstLine
+        contentView.destinationAddressSecondLineTextField.text = viewModel.destinationAddressSecondLine
         contentView.destinationLatitudeTextField.text = viewModel.destinationLatitude
         contentView.destinationLongitudeTextField.text = viewModel.destinationLongitude
         contentView.environments = viewModel.environments
@@ -41,10 +43,12 @@ class FormVC: UIViewController {
     private func update() {
         viewModel.accessToken = contentView.accessTokenTextField.text ?? ""
         viewModel.partnerName = contentView.partnerNameTextField.text
-        viewModel.originAddress = contentView.originAddressTextField.text
+        viewModel.originAddressFirstLine = contentView.originAddressFirstLineTextField.text
+        viewModel.originAddressSecondLine = contentView.originAddressSecondLineTextField.text
         viewModel.originLatitude = contentView.originLatitudeTextField.text
         viewModel.originLongitude = contentView.originLongitudeTextField.text
-        viewModel.destinationAddress = contentView.destinationAddressTextField.text
+        viewModel.destinationAddressFirstLine = contentView.destinationAddressFirstLineTextField.text
+        viewModel.destinationAddressSecondLine = contentView.destinationAddressSecondLineTextField.text
         viewModel.destinationLatitude = contentView.destinationLatitudeTextField.text
         viewModel.destinationLongitude = contentView.destinationLongitudeTextField.text
         viewModel.selectedEnvironmentIndex = contentView.environmentPickerView.selectedRow(inComponent: 0)
