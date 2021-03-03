@@ -114,6 +114,7 @@ extension FormVC: MileusWatchdogSearchFlowDelegate {
         mileusVC = nil
         viewModel.mileusSearch = nil
         viewModel.mileusMarketValidation = nil
+        viewModel.mileusWatchdogScheduler = nil
     }
     
 }

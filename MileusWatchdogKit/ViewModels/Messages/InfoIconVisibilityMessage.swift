@@ -17,7 +17,7 @@ struct InfoIconVisibilityMessage: WebViewMessage {
     }
     
     func execute(data: Any) -> Bool {
-        action(data as? Bool ?? false)
+        action((data as? String) == "true")
         return true
     }
     

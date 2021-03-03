@@ -46,7 +46,7 @@ class FormVM {
         partnerName = getPartnerName(useSaved: true)
         
 #if DEBUG
-        accessToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGkiOiJmOGEzYzg4NS1mYmI2LTQxYTItYjhhOC0yZDA2OTQxODZmYTkiLCJwbiI6ImR1bW15LXBhcnRuZXIiLCJwZWkiOiJleHRlcm5hbC1wYXNzZW5nZXItaWQiLCJpYXQiOjE1OTQyNjk3NTl9.Goanc61n9jzC6wz88FktRa5u2ESZ6SneiJipO_90Jsk"
+        accessToken = "eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJqaWQiOiJmYjVhYmY4My04MTg1LTQ5ZTMtODk0OC02YWVkZGNhZDExYzYiLCJyIjpbIlJIX1BBUyJdLCJhaSI6ImY4YTNjODg1LWZiYjYtNDFhMi1iOGE4LTJkMDY5NDE4NmZhOSIsInBuIjoiZHVtbXktcGFydG5lciIsInBpIjoiYTUzNTczMTgtMjBkNi00ODQ2LThjNGEtOWJjNGVhYjQ3MDQ4IiwicGVpIjoiZXh0ZXJuYWwtcGFzc2VuZ2VyLWlkIiwiaWF0IjoxNjE0NzY1NTk1LCJleHAiOjE2MTUzNzAzOTV9.AIY9bEfvHTtFFlEngsfpr4I9TJGx2EOQ7fvZY3aW3nl3Aq4PSt3TFrOUcLUc9cN3oLWv04nPjWcLGLtdpg8FBjkvAHXHgKE98J_Swbd4SotupFkI_XTxfWz_rGRZs-bbkEtkSholfDEI-9dKNQYoEGs_Q2MJ1e_xeZDqFcxRY6QU0i3s"
 #endif
         
         originAddressFirstLine = "Prague - Nové Město"

@@ -14,20 +14,26 @@ class MainNC: UINavigationController {
 
 
 extension MainNC: NavigationBarWebDelegate {
+    
+    private var currentItem: UINavigationItem {
+        viewControllers.first?.navigationItem ?? navigationItem
+    }
+    
     func setTitle(title: String?) {
-        navigationItem.title = title
+        currentItem.title = title
     }
     
     func setInfoButton(viewModel: InfoButtonViewModel?) {
         infoButtonViewModel = viewModel
         if let _ = infoButtonViewModel {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(
-                barButtonSystemItem: .edit,
-                target: self,
-                action: #selector(infoButtonPressed(sender:))
+            let infoButton = UIButton(type: .infoLight)
+            infoButton.addTarget(self,
+                                 action: #selector(infoButtonPressed(sender:)),
+                                 for: .touchUpInside
             )
+            currentItem.rightBarButtonItem = UIBarButtonItem(customView: infoButton)
         } else {
-            navigationItem.rightBarButtonItem = nil
+            currentItem.rightBarButtonItem = nil
         }
     }
     

@@ -18,7 +18,6 @@ final class WebView: WKWebView {
             messages: messages,
             content: contentController
         )
-        
         super.init(frame: .zero, configuration: config)
     }
     
