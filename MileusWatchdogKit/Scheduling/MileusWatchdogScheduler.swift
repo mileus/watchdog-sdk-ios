@@ -16,7 +16,11 @@ public final class MileusWatchdogScheduler {
         }
         self.delegate = delegate
         let locations = homeLocation == nil ? [] : [MileusWatchdogLabeledLocation(label: .home, data: homeLocation!)]
-        mileusSearch = try MileusWatchdogSearch(delegate: self, locations: locations)
+        mileusSearch = try MileusWatchdogSearch(
+            delegate: self,
+            locations: locations,
+            ignoreLocationPermission: false
+        )
         mileusSearch.mode = .watchdogScheduler
         Self.alreadyInitialized = true
     }

@@ -15,7 +15,12 @@ public final class MileusMarketValidation {
             throw MileusWatchdogError.instanceAlreadyExists
         }
         self.delegate = delegate
-        mileusSearch = try MileusWatchdogSearch(delegate: self, origin: origin, destination: destination)
+        mileusSearch = try MileusWatchdogSearch(
+            delegate: self,
+            origin: origin,
+            destination: destination,
+            ignoreLocationPermission: true
+        )
         mileusSearch.mode = .marketValidation
         Self.alreadyInitialized = true
     }

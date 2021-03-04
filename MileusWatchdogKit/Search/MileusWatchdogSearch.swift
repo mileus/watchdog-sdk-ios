@@ -22,6 +22,10 @@ public final class MileusWatchdogSearch {
     private weak var searchVM: SearchVM?
     
     public convenience init(delegate: MileusWatchdogSearchFlowDelegate, origin: MileusWatchdogLocation? = nil, destination: MileusWatchdogLocation? = nil) throws {
+        try self.init(delegate: delegate, origin: origin, destination: destination, ignoreLocationPermission: false)
+    }
+    
+    internal convenience init(delegate: MileusWatchdogSearchFlowDelegate, origin: MileusWatchdogLocation? = nil, destination: MileusWatchdogLocation? = nil, ignoreLocationPermission: Bool) throws {
         var locations = [MileusWatchdogLabeledLocation]()
         if let origin = origin {
             let labeledLocation = MileusWatchdogLabeledLocation(label: .origin, data: origin)
@@ -31,15 +35,18 @@ public final class MileusWatchdogSearch {
             let labeledLocation = MileusWatchdogLabeledLocation(label: .destination, data: destination)
             locations.append(labeledLocation)
         }
-        try self.init(delegate: delegate, locations: locations)
+        try self.init(delegate: delegate, locations: locations, ignoreLocationPermission: ignoreLocationPermission)
     }
     
-    internal init(delegate: MileusWatchdogSearchFlowDelegate, locations: [MileusWatchdogLabeledLocation]) throws {
+    internal init(delegate: MileusWatchdogSearchFlowDelegate, locations: [MileusWatchdogLabeledLocation], ignoreLocationPermission: Bool) throws {
         if !MileusWatchdogKit.isInitialized {
             throw MileusWatchdogError.sdkIsNotInitialized
         }
         if Self.alreadyInitialized {
             throw MileusWatchdogError.instanceAlreadyExists
+        }
+        if !ignoreLocationPermission && !CoreLocationService().isAllowed {
+            throw MileusWatchdogError.insufficientLocationPermission
         }
         self.delegate = delegate
         self.locations = locations
