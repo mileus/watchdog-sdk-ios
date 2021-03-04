@@ -85,7 +85,7 @@ class SearchVM: NSObject, WebViewMessagesDelegate {
     }
     
     private func formatLocation(location: MileusWatchdogLocation) -> String {
-        return "{'lat': \(location.latitude), 'lon': \(location.longitude), 'address_line_1': '\(inputSanitizer.sanitizeJS(location.address.firstLine))', 'address_line_2': '\(inputSanitizer.sanitizeJS(location.address.secondLine ?? ""))', 'accuracy': \(location.accuracy)}"
+        return "{'lat': \(location.latitude), 'lon': \(location.longitude), 'address_line_1': '\(inputSanitizer.sanitizeJS(location.address?.firstLine ?? ""))', 'address_line_2': '\(inputSanitizer.sanitizeJS(location.address?.secondLine ?? ""))', 'accuracy': \(location.accuracy)}"
     }
     
 }

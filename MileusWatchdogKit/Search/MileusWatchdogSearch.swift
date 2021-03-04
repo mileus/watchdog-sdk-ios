@@ -99,8 +99,10 @@ public final class MileusWatchdogSearch {
         ]
         for location in locations {
             let prefix = location.label.rawValue
-            components.queryItems?.append(URLQueryItem(name: "\(prefix)_address_line_1", value: String(location.data.address.firstLine)))
-            if let addressSecondLine = location.data.address.secondLine {
+            if let addressFirstLine = location.data.address?.firstLine {
+                components.queryItems?.append(URLQueryItem(name: "\(prefix)_address_line_1", value: String(addressFirstLine)))
+            }
+            if let addressSecondLine = location.data.address?.secondLine {
                 components.queryItems?.append(URLQueryItem(name: "\(prefix)_address_line_2", value: String(addressSecondLine)))
             }
             components.queryItems?.append(URLQueryItem(name: "\(prefix)_lat", value: String(location.data.latitude)))

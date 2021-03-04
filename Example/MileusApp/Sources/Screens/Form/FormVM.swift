@@ -15,13 +15,13 @@ class FormVM {
             config.partnerName = partnerName
         }
     }
-    var originAddressFirstLine: String!
+    var originAddressFirstLine: String?
     var originAddressSecondLine: String?
     @LocationWrapper(value: "50.091266")
     var originLatitude: String!
     @LocationWrapper(value: "14.438927")
     var originLongitude: String!
-    var destinationAddressFirstLine: String!
+    var destinationAddressFirstLine: String?
     var destinationAddressSecondLine: String?
     @LocationWrapper(value: "50.121765629793295")
     var destinationLatitude: String!
@@ -55,7 +55,7 @@ class FormVM {
     
     func getOrigin() -> MileusWatchdogLocation {
         MileusWatchdogLocation(
-            address: .init(
+            address: getAddress(
                 firstLine: originAddressFirstLine,
                 secondLine: originAddressSecondLine
             ),
@@ -66,13 +66,20 @@ class FormVM {
     
     func getDestination() -> MileusWatchdogLocation {
         return MileusWatchdogLocation(
-            address: .init(
+            address: getAddress(
                 firstLine: destinationAddressFirstLine,
                 secondLine: destinationAddressSecondLine
             ),
             latitude: $destinationLatitude,
             longitude: $destinationLongitude
         )
+    }
+    
+    private func getAddress(firstLine: String?, secondLine: String?) -> MileusWatchdogAddress? {
+        guard let firstLine = firstLine else {
+            return nil
+        }
+        return .init(firstLine: firstLine, secondLine: secondLine)
     }
     
     func search(delegate: MileusWatchdogSearchFlowDelegate) -> MileusWatchdogSearch {
