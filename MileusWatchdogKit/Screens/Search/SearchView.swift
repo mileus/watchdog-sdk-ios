@@ -7,8 +7,23 @@ class SearchView: UIView {
 
     @IBOutlet weak var loadingView: UIActivityIndicatorView!
     
+    var navigationItem: UINavigationItem? {
+        didSet {
+            closeBarButtonItem = navigationItem?.leftBarButtonItem
+        }
+    }
+    
     private(set) var offlineView: OfflineView!
     private(set) var webView: WebView!
+    
+    private var closeBarButtonItem: UIBarButtonItem?
+    private lazy var goBackBarButtonItem: UIBarButtonItem? = {
+        UIBarButtonItem(
+            barButtonSystemItem: .fastForward,
+            target: self,
+            action: #selector(goBackButtonPressed)
+        )
+    }()
     
     deinit {
         debugPrint("DEINIT: \(String(describing: self))")
@@ -74,6 +89,17 @@ class SearchView: UIView {
         webView.isHidden = false
         offlineView.removeFromSuperview()
     }
+    
+    private func configureBackButton() {
+        navigationItem?.leftBarButtonItem = webView.canGoBack ? goBackBarButtonItem : closeBarButtonItem
+    }
+    
+    @objc
+    private func goBackButtonPressed() {
+        if webView.canGoBack {
+            webView.goBack()
+        }
+    }
 
 }
 
@@ -90,6 +116,7 @@ extension SearchView: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         loadingView.stopAnimating()
         hideOfflineView()
+        configureBackButton()
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {

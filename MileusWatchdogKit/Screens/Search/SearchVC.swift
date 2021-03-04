@@ -26,6 +26,7 @@ class SearchVC: UIViewController {
     private func configure() {
         let closeBarButton = UIBarButtonItem(barButtonSystemItem: .stop, target: self, action: #selector(closeButtonPressed(sender:)))
         navigationItem.leftBarButtonItem = closeBarButton
+        contentView.navigationItem = navigationItem
         
         contentView.offlineView.tryAgainButton.addTarget(self, action: #selector(tryAgainButtonPressed), for: .touchUpInside)
         
