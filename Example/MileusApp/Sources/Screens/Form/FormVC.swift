@@ -8,7 +8,7 @@ class FormVC: UIViewController {
 
     private let viewModel = FormVM()
     
-    private var mileusVC: UIViewController?
+    private var mileusVC: UINavigationController?
     
     private let locationManager = CLLocationManager()
     
