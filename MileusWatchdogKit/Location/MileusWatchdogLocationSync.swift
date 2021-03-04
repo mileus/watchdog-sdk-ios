@@ -29,6 +29,10 @@ public final class MileusWatchdogLocationSync {
         }
     }
     
+    public func stop() {
+        callCompletionCallbackAndStopLocationService()
+    }
+    
     private func handleLocationUpdate(coordinate: Coordinate, accuracy: Double) {
         let location = LocationTrackingLocation(
             coordinates: LocationTrackingCoordinates(lat: coordinate.latitude, lon: coordinate.longitude),
