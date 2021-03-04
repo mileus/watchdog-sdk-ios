@@ -34,6 +34,7 @@ class FormVM {
     var mileusSearch: MileusWatchdogSearch?
     var mileusMarketValidation: MileusMarketValidation?
     var mileusWatchdogScheduler: MileusWatchdogScheduler?
+    var mileusWatchdogLocationSync: MileusWatchdogLocationSync?
     var searchData: MileusWatchdogSearchData?
     
     private let config: Config
@@ -101,6 +102,14 @@ class FormVM {
         mileusWatchdogScheduler = try! MileusWatchdogScheduler(delegate: delegate, homeLocation: nil)
         
         return mileusWatchdogScheduler!
+    }
+    
+    func locationSync(completion: @escaping () -> Void) {
+        mileusWatchdogLocationSync = try! MileusWatchdogLocationSync()
+        mileusWatchdogLocationSync?.start(completion: { [weak self] in
+            completion()
+            self?.mileusWatchdogLocationSync = nil
+        })
     }
     
     func updateLocation(location: MileusWatchdogLocation) {

@@ -1,6 +1,7 @@
 
 import UIKit
 import MileusWatchdogKit
+import CoreLocation
 
 
 class FormVC: UIViewController {
@@ -19,10 +20,16 @@ class FormVC: UIViewController {
         bind()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        CLLocationManager().requestWhenInUseAuthorization()
+    }
+    
     private func configure() {
         contentView.searchButton.addTarget(self, action: #selector(searchButtonPressed(sender:)), for: .touchUpInside)
         contentView.validationButton.addTarget(self, action: #selector(validationButtonPressed(sender:)), for: .touchUpInside)
         contentView.schedulerButton.addTarget(self, action: #selector(schedulerButtonPressed(sender:)), for: .touchUpInside)
+        contentView.locationButton.addTarget(self, action: #selector(locationButtonPressed(sender:)), for: .touchUpInside)
     }
     
     private func bind() {
@@ -70,6 +77,29 @@ class FormVC: UIViewController {
     private func schedulerButtonPressed(sender: AnyObject) {
         update()
         mileusVC = viewModel.scheduler(delegate: self).show(from: self)
+    }
+    
+    @objc
+    private func locationButtonPressed(sender: AnyObject) {
+        contentView.locationButton.isEnabled = false
+        viewModel.locationSync(completion: { [weak self] in
+            DispatchQueue.main.async { [weak self] in
+                self?.contentView.locationButton.isEnabled = true
+                self?.showAlert(message: "Location Sync Completed.")
+            }
+        })
+    }
+    
+    private func showAlert(title: String = "Success", message: String) {
+        let alertController = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            alertController.dismiss(animated: true, completion: nil)
+        }))
+        show(alertController, sender: self)
     }
 
 }

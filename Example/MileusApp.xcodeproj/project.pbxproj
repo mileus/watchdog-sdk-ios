@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		186618A124C7FDF200B23C2E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 186618A324C7FDF200B23C2E /* Localizable.strings */; };
 		186C7C0624457E16004E1D3F /* KeyboardManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186C7C0524457E16004E1D3F /* KeyboardManager.swift */; };
+		1878F79B25F0D2180067640A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1878F79A25F0D2180067640A /* CoreLocation.framework */; };
 		1880AAA024504DAA00E1DE88 /* LocationForm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1880AA9F24504DAA00E1DE88 /* LocationForm.storyboard */; };
 		1880AAA224504DBE00E1DE88 /* LocationFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880AAA124504DBE00E1DE88 /* LocationFormVC.swift */; };
 		1880AAA42450575400E1DE88 /* LocationFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880AAA32450575400E1DE88 /* LocationFormView.swift */; };
@@ -48,6 +49,7 @@
 		186618A424C7FDFF00B23C2E /* cs */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = cs; path = cs.lproj/Localizable.strings; sourceTree = "<group>"; };
 		186618A524C7FE0600B23C2E /* sk */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = sk; path = sk.lproj/Localizable.strings; sourceTree = "<group>"; };
 		186C7C0524457E16004E1D3F /* KeyboardManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardManager.swift; sourceTree = "<group>"; };
+		1878F79A25F0D2180067640A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1880AA9F24504DAA00E1DE88 /* LocationForm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationForm.storyboard; sourceTree = "<group>"; };
 		1880AAA124504DBE00E1DE88 /* LocationFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormVC.swift; sourceTree = "<group>"; };
 		1880AAA32450575400E1DE88 /* LocationFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1878F79B25F0D2180067640A /* CoreLocation.framework in Frameworks */,
 				18C77DC0247B82D100F3A339 /* MileusWatchdogKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,6 +156,7 @@
 		18872BA2243B27F400A127D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1878F79A25F0D2180067640A /* CoreLocation.framework */,
 				18C77DBF247B82D100F3A339 /* MileusWatchdogKit.framework */,
 			);
 			name = Frameworks;
