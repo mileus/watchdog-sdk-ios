@@ -28,7 +28,7 @@ final class CoreLocationService: NSObject, LocationService {
     override init() {
         super.init()
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
+        locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
     }
     
     var isAllowed: Bool {
