@@ -37,30 +37,34 @@ class FormVC: UIViewController {
     private func bind() {
         contentView.accessTokenTextField.text = viewModel.accessToken
         contentView.partnerNameTextField.text = viewModel.partnerName
-        contentView.originAddressFirstLineTextField.text = viewModel.originAddressFirstLine
-        contentView.originAddressSecondLineTextField.text = viewModel.originAddressSecondLine
-        contentView.originLatitudeTextField.text = viewModel.originLatitude
-        contentView.originLongitudeTextField.text = viewModel.originLongitude
-        contentView.destinationAddressFirstLineTextField.text = viewModel.destinationAddressFirstLine
-        contentView.destinationAddressSecondLineTextField.text = viewModel.destinationAddressSecondLine
-        contentView.destinationLatitudeTextField.text = viewModel.destinationLatitude
-        contentView.destinationLongitudeTextField.text = viewModel.destinationLongitude
+        map(location: viewModel.originLocation, to: contentView.originLocationView)
+        map(location: viewModel.destinationLocation, to: contentView.destinationLocationView)
+        map(location: viewModel.homeLocation, to: contentView.homeLocationView)
         contentView.environments = viewModel.environments
         contentView.environmentPickerView.selectRow(viewModel.selectedEnvironmentIndex, inComponent: 0, animated: false)
+    }
+    
+    private func map(location: FormLocation, to locationView: FormLocationView) {
+        locationView.addressFirstLineTextField.text = location.addressSecondLine
+        locationView.addressSecondLineTextField.text = location.addressSecondLine
+        locationView.latitudeTextField.text = location.latitude
+        locationView.longitudeTextField.text = location.longitude
     }
     
     private func update() {
         viewModel.accessToken = contentView.accessTokenTextField.text ?? ""
         viewModel.partnerName = contentView.partnerNameTextField.text
-        viewModel.originAddressFirstLine = contentView.originAddressFirstLineTextField.text
-        viewModel.originAddressSecondLine = contentView.originAddressSecondLineTextField.text
-        viewModel.originLatitude = contentView.originLatitudeTextField.text
-        viewModel.originLongitude = contentView.originLongitudeTextField.text
-        viewModel.destinationAddressFirstLine = contentView.destinationAddressFirstLineTextField.text
-        viewModel.destinationAddressSecondLine = contentView.destinationAddressSecondLineTextField.text
-        viewModel.destinationLatitude = contentView.destinationLatitudeTextField.text
-        viewModel.destinationLongitude = contentView.destinationLongitudeTextField.text
+        map(locationView: contentView.originLocationView, to: viewModel.originLocation)
+        map(locationView: contentView.destinationLocationView, to: viewModel.destinationLocation)
+        map(locationView: contentView.homeLocationView, to: viewModel.homeLocation)
         viewModel.selectedEnvironmentIndex = contentView.environmentPickerView.selectedRow(inComponent: 0)
+    }
+    
+    private func map(locationView: FormLocationView, to location: FormLocation) {
+        location.addressFirstLine = locationView.addressFirstLineTextField.text
+        location.addressSecondLine = locationView.addressSecondLineTextField.text
+        location.latitude = locationView.latitudeTextField.text
+        location.longitude = locationView.longitudeTextField.text
     }
     
     @objc
@@ -90,18 +94,6 @@ class FormVC: UIViewController {
                 self?.showAlert(message: "Location Sync Completed.")
             }
         })
-    }
-    
-    private func showAlert(title: String = "Success", message: String) {
-        let alertController = UIAlertController(
-            title: title,
-            message: message,
-            preferredStyle: .alert
-        )
-        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-            alertController.dismiss(animated: true, completion: nil)
-        }))
-        show(alertController, sender: self)
     }
 
 }

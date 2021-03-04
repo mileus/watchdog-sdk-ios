@@ -15,18 +15,10 @@ class FormVM {
             config.partnerName = partnerName
         }
     }
-    var originAddressFirstLine: String?
-    var originAddressSecondLine: String?
-    @LocationWrapper(value: "50.091266")
-    var originLatitude: String!
-    @LocationWrapper(value: "14.438927")
-    var originLongitude: String!
-    var destinationAddressFirstLine: String?
-    var destinationAddressSecondLine: String?
-    @LocationWrapper(value: "50.121765629793295")
-    var destinationLatitude: String!
-    @LocationWrapper(value: "14.489431312606477")
-    var destinationLongitude: String!
+    
+    var originLocation = FormLocation(latitude: "50.091266", longitude: "14.438927")
+    var destinationLocation = FormLocation(latitude: "50.121765629793295", longitude: "14.489431312606477")
+    var homeLocation = FormLocation(latitude: nil, longitude: nil)
     
     var selectedEnvironmentIndex = 0
     let environments: [String]
@@ -50,29 +42,30 @@ class FormVM {
         accessToken = "eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJqaWQiOiJmYjVhYmY4My04MTg1LTQ5ZTMtODk0OC02YWVkZGNhZDExYzYiLCJyIjpbIlJIX1BBUyJdLCJhaSI6ImY4YTNjODg1LWZiYjYtNDFhMi1iOGE4LTJkMDY5NDE4NmZhOSIsInBuIjoiZHVtbXktcGFydG5lciIsInBpIjoiYTUzNTczMTgtMjBkNi00ODQ2LThjNGEtOWJjNGVhYjQ3MDQ4IiwicGVpIjoiZXh0ZXJuYWwtcGFzc2VuZ2VyLWlkIiwiaWF0IjoxNjE0NzY1NTk1LCJleHAiOjE2MTUzNzAzOTV9.AIY9bEfvHTtFFlEngsfpr4I9TJGx2EOQ7fvZY3aW3nl3Aq4PSt3TFrOUcLUc9cN3oLWv04nPjWcLGLtdpg8FBjkvAHXHgKE98J_Swbd4SotupFkI_XTxfWz_rGRZs-bbkEtkSholfDEI-9dKNQYoEGs_Q2MJ1e_xeZDqFcxRY6QU0i3s"
 #endif
         
-        originAddressFirstLine = "Prague - Nové Město"
-        destinationAddressFirstLine = "Not Prague center"
+        originLocation.addressFirstLine = "Prague - Nové Město"
+        destinationLocation.addressFirstLine = "Not Prague center"
     }
     
-    func getOrigin() -> MileusWatchdogLocation {
+    private func getOrigin() -> MileusWatchdogLocation {
+        getLocation(location: originLocation)
+    }
+    
+    private func getDestination() -> MileusWatchdogLocation {
+        getLocation(location: destinationLocation)
+    }
+    
+    private func getHome() -> MileusWatchdogLocation {
+        getLocation(location: destinationLocation)
+    }
+    
+    private func getLocation(location: FormLocation) -> MileusWatchdogLocation {
         MileusWatchdogLocation(
             address: getAddress(
-                firstLine: originAddressFirstLine,
-                secondLine: originAddressSecondLine
+                firstLine: location.addressFirstLine,
+                secondLine: location.addressSecondLine
             ),
-            latitude: $originLatitude,
-            longitude: $originLongitude
-        )
-    }
-    
-    func getDestination() -> MileusWatchdogLocation {
-        return MileusWatchdogLocation(
-            address: getAddress(
-                firstLine: destinationAddressFirstLine,
-                secondLine: destinationAddressSecondLine
-            ),
-            latitude: $destinationLatitude,
-            longitude: $destinationLongitude
+            latitude: location.$latitude,
+            longitude: location.$longitude
         )
     }
     
@@ -99,7 +92,7 @@ class FormVM {
     
     func scheduler(delegate: MileusWatchdogSchedulerFlowDelegate) -> MileusWatchdogScheduler {
         reinitSDK()
-        mileusWatchdogScheduler = try! MileusWatchdogScheduler(delegate: delegate, homeLocation: nil)
+        mileusWatchdogScheduler = try! MileusWatchdogScheduler(delegate: delegate, homeLocation: getHome())
         
         return mileusWatchdogScheduler!
     }

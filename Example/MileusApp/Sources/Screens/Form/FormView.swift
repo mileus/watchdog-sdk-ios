@@ -8,14 +8,9 @@ class FormView: UIView {
     @IBOutlet weak var scrollContentView: UIView!
     @IBOutlet weak var accessTokenTextField: UITextField!
     @IBOutlet weak var partnerNameTextField: UITextField!
-    @IBOutlet weak var originAddressFirstLineTextField: UITextField!
-    @IBOutlet weak var originAddressSecondLineTextField: UITextField!
-    @IBOutlet weak var originLatitudeTextField: UITextField!
-    @IBOutlet weak var originLongitudeTextField: UITextField!
-    @IBOutlet weak var destinationAddressFirstLineTextField: UITextField!
-    @IBOutlet weak var destinationAddressSecondLineTextField: UITextField!
-    @IBOutlet weak var destinationLatitudeTextField: UITextField!
-    @IBOutlet weak var destinationLongitudeTextField: UITextField!
+    @IBOutlet weak var originLocationView: FormLocationView!
+    @IBOutlet weak var destinationLocationView: FormLocationView!
+    @IBOutlet weak var homeLocationView: FormLocationView!
     @IBOutlet weak var environmentPickerView: UIPickerView!
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var validationButton: UIButton!
@@ -30,11 +25,7 @@ class FormView: UIView {
     
     private lazy var textFields: [UITextField] = {
         [
-            accessTokenTextField, partnerNameTextField,
-            originAddressFirstLineTextField, originAddressSecondLineTextField,
-            originLatitudeTextField, originLongitudeTextField,
-            destinationAddressFirstLineTextField, destinationAddressSecondLineTextField,
-            destinationLatitudeTextField, destinationLongitudeTextField
+            accessTokenTextField, partnerNameTextField
         ]
     }()
     
@@ -59,14 +50,9 @@ class FormView: UIView {
     private func setupTextFieldPlaceholders() {
         accessTokenTextField.placeholder = NSLocalizedString("Access Token", comment: "")
         partnerNameTextField.placeholder = NSLocalizedString("Partner Name", comment: "")
-        originAddressFirstLineTextField.placeholder = NSLocalizedString("Origin Address (Street and number)", comment: "")
-        originAddressSecondLineTextField.placeholder = NSLocalizedString("Origin Address Optinal (City, country, code)", comment: "")
-        originLatitudeTextField.placeholder = NSLocalizedString("Origin Latitude", comment: "")
-        originLongitudeTextField.placeholder = NSLocalizedString("Origin Longitude", comment: "")
-        destinationAddressFirstLineTextField.placeholder = NSLocalizedString("Destination Address (Street and number)", comment: "")
-        destinationAddressSecondLineTextField.placeholder = NSLocalizedString("Destination Address Optinal (City, country, code)", comment: "")
-        destinationLatitudeTextField.placeholder = NSLocalizedString("Destination Latitude", comment: "")
-        destinationLongitudeTextField.placeholder = NSLocalizedString("Destination Longitude", comment: "")
+        originLocationView.setPlaceholderPrefix(prefix: "Origin")
+        destinationLocationView.setPlaceholderPrefix(prefix: "Destination")
+        homeLocationView.setPlaceholderPrefix(prefix: "Home")
     }
     
     private func setupButtonTitles() {

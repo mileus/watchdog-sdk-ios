@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="352"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQY-uF-Nan">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="790"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="330"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6Yy-vV-WS9">
-                                                <rect key="frame" x="20" y="20" width="280" height="750"/>
+                                                <rect key="frame" x="20" y="20" width="280" height="290"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QgU-EI-PJk" customClass="TextField" customModule="MileusApp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="45"/>
@@ -39,63 +39,27 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b96-vV-iUb" customClass="TextField" customModule="MileusApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="130" width="280" height="45"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gHd-8Q-4RF" customClass="TextField" customModule="MileusApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="195" width="280" height="45"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yzq-Xw-7Vl" customClass="LocationTextField" customModule="MileusApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="260" width="280" height="45"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lAp-gH-oee" customClass="LocationTextField" customModule="MileusApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="325" width="280" height="45"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oDJ-dD-CNE" customClass="TextField" customModule="MileusApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="390" width="280" height="45"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="edk-VX-7TY" customClass="TextField" customModule="MileusApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="455" width="280" height="45"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QkS-bQ-goa" customClass="LocationTextField" customModule="MileusApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="520" width="280" height="45"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vFE-X6-Vh6" customClass="LocationTextField" customModule="MileusApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="585" width="280" height="45"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                    </textField>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2uX-5e-s9e" customClass="FormLocationView" customModule="MileusApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="130" width="280" height="0.0"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kue-8b-T0L" customClass="FormLocationView" customModule="MileusApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="150" width="280" height="0.0"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdU-TO-GVo" customClass="FormLocationView" customModule="MileusApp" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="170" width="280" height="0.0"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                    </view>
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xGK-GT-54Z">
-                                                        <rect key="frame" x="0.0" y="650" width="280" height="100"/>
+                                                        <rect key="frame" x="0.0" y="190" width="280" height="100"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="jeP-Ud-NDL"/>
                                                         </constraints>
                                                     </pickerView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="oDJ-dD-CNE" firstAttribute="height" secondItem="QgU-EI-PJk" secondAttribute="height" id="4Tx-ha-93K"/>
-                                                    <constraint firstItem="QkS-bQ-goa" firstAttribute="height" secondItem="oDJ-dD-CNE" secondAttribute="height" id="8GX-Gg-uye"/>
-                                                    <constraint firstItem="yzq-Xw-7Vl" firstAttribute="height" secondItem="QgU-EI-PJk" secondAttribute="height" id="8qv-7P-1NI"/>
-                                                    <constraint firstItem="vFE-X6-Vh6" firstAttribute="height" secondItem="QgU-EI-PJk" secondAttribute="height" id="EET-eW-MUz"/>
-                                                    <constraint firstItem="edk-VX-7TY" firstAttribute="height" secondItem="oDJ-dD-CNE" secondAttribute="height" id="N5B-7Z-09f"/>
-                                                    <constraint firstItem="gHd-8Q-4RF" firstAttribute="height" secondItem="b96-vV-iUb" secondAttribute="height" id="VYJ-W1-BYs"/>
                                                     <constraint firstItem="fbg-g1-6lp" firstAttribute="height" secondItem="QgU-EI-PJk" secondAttribute="height" id="XQK-hQ-d8c"/>
-                                                    <constraint firstItem="b96-vV-iUb" firstAttribute="height" secondItem="QgU-EI-PJk" secondAttribute="height" id="bd8-kw-nQL"/>
-                                                    <constraint firstItem="lAp-gH-oee" firstAttribute="height" secondItem="QgU-EI-PJk" secondAttribute="height" id="puY-b2-Q2R"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -169,16 +133,11 @@
                         </constraints>
                         <connections>
                             <outlet property="accessTokenTextField" destination="QgU-EI-PJk" id="oou-mx-EKe"/>
-                            <outlet property="destinationAddressFirstLineTextField" destination="oDJ-dD-CNE" id="nf0-tz-fIh"/>
-                            <outlet property="destinationAddressSecondLineTextField" destination="edk-VX-7TY" id="AwO-do-Rt8"/>
-                            <outlet property="destinationLatitudeTextField" destination="QkS-bQ-goa" id="piD-ug-50W"/>
-                            <outlet property="destinationLongitudeTextField" destination="vFE-X6-Vh6" id="vef-eV-DXo"/>
+                            <outlet property="destinationLocationView" destination="kue-8b-T0L" id="kAL-6X-8CU"/>
                             <outlet property="environmentPickerView" destination="xGK-GT-54Z" id="u13-2O-Vbf"/>
+                            <outlet property="homeLocationView" destination="sdU-TO-GVo" id="h7W-EB-d4Q"/>
                             <outlet property="locationButton" destination="tki-J4-6fQ" id="1PG-gq-Oap"/>
-                            <outlet property="originAddressFirstLineTextField" destination="b96-vV-iUb" id="bER-bP-idN"/>
-                            <outlet property="originAddressSecondLineTextField" destination="gHd-8Q-4RF" id="r1l-Fe-c8q"/>
-                            <outlet property="originLatitudeTextField" destination="yzq-Xw-7Vl" id="fUp-Mb-5Qw"/>
-                            <outlet property="originLongitudeTextField" destination="lAp-gH-oee" id="GF5-Ar-DpM"/>
+                            <outlet property="originLocationView" destination="2uX-5e-s9e" id="EI2-ZC-fO0"/>
                             <outlet property="partnerNameTextField" destination="fbg-g1-6lp" id="7U5-BF-fCt"/>
                             <outlet property="schedulerButton" destination="hlU-2o-5Io" id="TWy-na-Lal"/>
                             <outlet property="scrollContentView" destination="tQY-uF-Nan" id="Z9r-02-EtE"/>
