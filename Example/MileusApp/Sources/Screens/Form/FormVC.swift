@@ -45,7 +45,7 @@ class FormVC: UIViewController {
     }
     
     private func map(location: FormLocation, to locationView: FormLocationView) {
-        locationView.addressFirstLineTextField.text = location.addressSecondLine
+        locationView.addressFirstLineTextField.text = location.addressFirstLine
         locationView.addressSecondLineTextField.text = location.addressSecondLine
         locationView.latitudeTextField.text = location.latitude
         locationView.longitudeTextField.text = location.longitude
