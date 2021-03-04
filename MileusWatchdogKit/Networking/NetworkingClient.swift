@@ -30,14 +30,16 @@ final class HTTPClient: NetworkingClient {
                     throw UnexpectedValues()
                 }
             }))
-        }
+        }.resume()
     }
     
     private func convert(endpoint: Endpoint) -> URLRequest {
         var request = URLRequest(url: endpoint.url)
         request.httpMethod = endpoint.method.key
         request.httpBody = endpoint.body
-        request.allHTTPHeaderFields = endpoint.headers
+        for item in endpoint.headers ?? [:] {
+            request.setValue(item.value, forHTTPHeaderField: item.key)
+        }
         return request
     }
 }

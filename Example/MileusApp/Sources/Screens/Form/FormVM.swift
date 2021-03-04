@@ -105,6 +105,7 @@ class FormVM {
     }
     
     func locationSync(completion: @escaping () -> Void) {
+        reinitSDK()
         mileusWatchdogLocationSync = try! MileusWatchdogLocationSync()
         mileusWatchdogLocationSync?.start(completion: { [weak self] in
             completion()

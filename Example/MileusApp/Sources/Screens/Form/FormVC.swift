@@ -10,6 +10,8 @@ class FormVC: UIViewController {
     
     private var mileusVC: UIViewController?
     
+    private let locationManager = CLLocationManager()
+    
     private var contentView: FormView {
         return view as! FormView
     }
@@ -22,7 +24,7 @@ class FormVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        CLLocationManager().requestWhenInUseAuthorization()
+        locationManager.requestWhenInUseAuthorization()
     }
     
     private func configure() {

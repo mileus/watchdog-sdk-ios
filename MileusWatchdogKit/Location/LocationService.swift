@@ -36,6 +36,7 @@ final class CoreLocationService: NSObject, LocationService {
     }
     
     func startUpdating(update: @escaping UpdateHandler) {
+        updateCallback = update
         locationManager.startUpdatingLocation()
     }
     

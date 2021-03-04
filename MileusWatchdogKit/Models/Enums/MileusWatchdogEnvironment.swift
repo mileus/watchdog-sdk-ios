@@ -13,7 +13,7 @@ public enum MileusWatchdogEnvironment: CaseIterable {
         case .development:
             return "https://mileus.spacek.now.sh/"
         case .staging:
-            return "https://mileus-spacek.vercel.app/"
+            return "https://api-stage.mileus.com/"
         case .production:
             return "https://watchdog-web.mileus.com/"
         }

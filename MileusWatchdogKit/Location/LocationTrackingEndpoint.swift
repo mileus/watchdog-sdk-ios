@@ -15,7 +15,8 @@ struct LocationTrackingEndpoint: Endpoint {
     
     var headers: [String : String]? {
         [
-            "Authorization: " : "Bearer \(token)"
+            "Authorization" : "Bearer \(token)",
+            "Content-Type" : "application/json"
         ]
     }
     
