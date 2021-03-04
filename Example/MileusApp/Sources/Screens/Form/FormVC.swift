@@ -87,6 +87,7 @@ class FormVC: UIViewController {
     
     @objc
     private func locationButtonPressed(sender: AnyObject) {
+        update()
         contentView.locationButton.isEnabled = false
         viewModel.locationSync(completion: { [weak self] in
             DispatchQueue.main.async { [weak self] in
