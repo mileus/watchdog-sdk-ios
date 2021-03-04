@@ -9,7 +9,7 @@ struct Coordinate {
 
 protocol LocationService {
     
-    typealias UpdateHandler = (Coordinate) -> Void
+    typealias UpdateHandler = (Coordinate, Double) -> Void
     
     var isAllowed: Bool { get }
     
@@ -28,6 +28,7 @@ final class CoreLocationService: NSObject, LocationService {
     override init() {
         super.init()
         locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
     }
     
     var isAllowed: Bool {
@@ -53,7 +54,8 @@ extension CoreLocationService: CLLocationManagerDelegate {
             .init(
                 latitude: location.coordinate.latitude,
                 longitude: location.coordinate.longitude
-            )
+            ),
+            location.horizontalAccuracy
         )
     }
 }
