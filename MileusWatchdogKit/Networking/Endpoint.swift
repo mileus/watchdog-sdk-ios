@@ -15,6 +15,8 @@ protocol Endpoint {
     
     var body: Data? { get }
     
+    var headers: [String : String]? { get }
+    
 }
 
 extension Endpoint {

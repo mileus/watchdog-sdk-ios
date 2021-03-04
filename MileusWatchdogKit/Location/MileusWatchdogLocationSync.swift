@@ -36,7 +36,8 @@ public final class MileusWatchdogLocationSync {
         )
         let endpoint = LocationTrackingEndpoint(
             baseUrl: MileusWatchdogKit.environment.url,
-            body: LocationTrackingBodyRequest(location: location).asData()
+            body: LocationTrackingBodyRequest(location: location).asData(),
+            token: MileusWatchdogKit.accessToken
         )
         networkingClient.request(endpoint: endpoint) { [weak self] result in
             self?.handleNetworkResponse(result: result)

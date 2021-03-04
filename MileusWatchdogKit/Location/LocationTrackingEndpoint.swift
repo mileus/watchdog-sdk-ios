@@ -11,4 +11,12 @@ struct LocationTrackingEndpoint: Endpoint {
     
     let body: Data?
     
+    let token: String
+    
+    var headers: [String : String]? {
+        [
+            "Authorization: " : "Bearer \(token)"
+        ]
+    }
+    
 }

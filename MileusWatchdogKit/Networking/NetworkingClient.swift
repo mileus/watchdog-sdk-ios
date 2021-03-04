@@ -37,6 +37,7 @@ final class HTTPClient: NetworkingClient {
         var request = URLRequest(url: endpoint.url)
         request.httpMethod = endpoint.method.key
         request.httpBody = endpoint.body
+        request.allHTTPHeaderFields = endpoint.headers
         return request
     }
 }
