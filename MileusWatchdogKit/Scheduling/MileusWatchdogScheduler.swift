@@ -34,13 +34,17 @@ public final class MileusWatchdogScheduler {
         mileusSearch.show(from: from)
     }
     
+    public func updateHome(location: MileusWatchdogLocation) {
+        mileusSearch.updateHome(location: location)
+    }
+    
 }
 
 
 extension MileusWatchdogScheduler: MileusWatchdogSearchFlowDelegate {
     
     public func mileus(_ mileus: MileusWatchdogSearch, showSearch data: MileusWatchdogSearchData) {
-        
+        delegate?.mileus(self, showSearch: data)
     }
     
     public func mileusShowTaxiRide(_ mileus: MileusWatchdogSearch) {

@@ -89,7 +89,7 @@ public final class MileusWatchdogSearch {
         searchVM?.coordinatesUpdated()
     }
     
-    public func updateHome(location: MileusWatchdogLocation) {
+    internal func updateHome(location: MileusWatchdogLocation) {
         updateLocation(location: location, type: .home)
         searchVM?.coordinatesUpdated()
     }

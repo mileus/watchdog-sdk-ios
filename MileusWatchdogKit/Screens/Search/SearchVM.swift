@@ -70,14 +70,11 @@ class SearchVM: NSObject, WebViewMessagesDelegate {
         guard let rawSearchType = data["search_type"], let searchType = MileusWatchdogSearchType(raw: rawSearchType)  else {
             return
         }
-        guard let origin = search.origin, let destination = search.destination, let home = search.home else {
-            return
-        }
         let searchDate = MileusWatchdogSearchData(
             type: searchType,
-            origin: origin,
-            destination: destination,
-            home: home
+            origin: search.origin,
+            destination: search.destination,
+            home: search.home
         )
         DispatchQueue.main.async {
             self.search?.delegate?.mileus(self.search, showSearch: searchDate)

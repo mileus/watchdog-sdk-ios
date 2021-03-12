@@ -116,7 +116,7 @@ class FormVM {
         case .destination:
             mileusSearch?.updateDestination(location: location)
         case .home:
-            mileusSearch?.updateHome(location: location)
+            mileusWatchdogScheduler?.updateHome(location: location)
         }
     }
     

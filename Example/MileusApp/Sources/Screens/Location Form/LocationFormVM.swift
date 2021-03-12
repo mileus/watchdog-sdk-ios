@@ -27,10 +27,14 @@ class LocationFormVM {
         self.delegate = delegate
         
         let location = searchData.type == .destination ? searchData.destination : searchData.origin
-        addressFirstLine = location.address?.firstLine
-        addressSecondLine = location.address?.secondLine
-        $latitude = location.latitude
-        $longitude = location.longitude
+        addressFirstLine = location?.address?.firstLine
+        addressSecondLine = location?.address?.secondLine
+        if let latitude = location?.latitude {
+            $latitude = latitude
+        }
+        if let longitude = location?.longitude {
+            $longitude = longitude
+        }
     }
     
     func save() {

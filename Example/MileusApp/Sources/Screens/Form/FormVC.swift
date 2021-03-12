@@ -160,6 +160,11 @@ extension FormVC: MileusWatchdogSchedulerFlowDelegate {
         closeMileus(completion: nil)
     }
     
+    func mileus(_ mileus: MileusWatchdogScheduler, showSearch data: MileusWatchdogSearchData) {
+        viewModel.searchData = data
+        showLocationVC(data: data)
+    }
+    
 }
 
 
