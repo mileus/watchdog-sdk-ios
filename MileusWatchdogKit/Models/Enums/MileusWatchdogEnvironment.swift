@@ -11,9 +11,9 @@ public enum MileusWatchdogEnvironment: CaseIterable {
     internal var url: String {
         switch self {
         case .development:
-            return "https://mileus.spacek.now.sh/"
-        case .staging:
             return "https://mileus-spacek.vercel.app/"
+        case .staging:
+            return "https://api-stage.mileus.com/"
         case .production:
             return "https://watchdog-web.mileus.com/"
         }
