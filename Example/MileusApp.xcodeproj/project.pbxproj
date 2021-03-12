@@ -12,6 +12,8 @@
 		1878F79B25F0D2180067640A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1878F79A25F0D2180067640A /* CoreLocation.framework */; };
 		1878F7A525F0E8790067640A /* FormLocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878F7A425F0E8780067640A /* FormLocationView.swift */; };
 		1878F7A725F0EE1C0067640A /* FormLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878F7A625F0EE1B0067640A /* FormLocation.swift */; };
+		1878F82125F210710067640A /* MileusWatchdogKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1878F81A25F20FB60067640A /* MileusWatchdogKit.framework */; };
+		1878F82225F210710067640A /* MileusWatchdogKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1878F81A25F20FB60067640A /* MileusWatchdogKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1880AAA024504DAA00E1DE88 /* LocationForm.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1880AA9F24504DAA00E1DE88 /* LocationForm.storyboard */; };
 		1880AAA224504DBE00E1DE88 /* LocationFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880AAA124504DBE00E1DE88 /* LocationFormVC.swift */; };
 		1880AAA42450575400E1DE88 /* LocationFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1880AAA32450575400E1DE88 /* LocationFormView.swift */; };
@@ -27,19 +29,17 @@
 		18872BAB243B2D6E00A127D2 /* FormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872BAA243B2D6E00A127D2 /* FormVC.swift */; };
 		18872BAD243B2D7E00A127D2 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872BAC243B2D7E00A127D2 /* FormView.swift */; };
 		18872BB0243B2DB000A127D2 /* FormVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872BAF243B2DB000A127D2 /* FormVM.swift */; };
-		18C77DC0247B82D100F3A339 /* MileusWatchdogKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C77DBF247B82D100F3A339 /* MileusWatchdogKit.framework */; };
-		18C77DC1247B82D100F3A339 /* MileusWatchdogKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18C77DBF247B82D100F3A339 /* MileusWatchdogKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18EFBD702443276800C5BD5F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EFBD6F2443276800C5BD5F /* Config.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		18198126243EECB800150AE6 /* Embed Frameworks */ = {
+		1878F82325F210710067640A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				18C77DC1247B82D100F3A339 /* MileusWatchdogKit.framework in Embed Frameworks */,
+				1878F82225F210710067640A /* MileusWatchdogKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,6 +54,7 @@
 		1878F79A25F0D2180067640A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		1878F7A425F0E8780067640A /* FormLocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormLocationView.swift; sourceTree = "<group>"; };
 		1878F7A625F0EE1B0067640A /* FormLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormLocation.swift; sourceTree = "<group>"; };
+		1878F81A25F20FB60067640A /* MileusWatchdogKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MileusWatchdogKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1880AA9F24504DAA00E1DE88 /* LocationForm.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationForm.storyboard; sourceTree = "<group>"; };
 		1880AAA124504DBE00E1DE88 /* LocationFormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormVC.swift; sourceTree = "<group>"; };
 		1880AAA32450575400E1DE88 /* LocationFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationFormView.swift; sourceTree = "<group>"; };
@@ -81,7 +82,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1878F79B25F0D2180067640A /* CoreLocation.framework in Frameworks */,
-				18C77DC0247B82D100F3A339 /* MileusWatchdogKit.framework in Frameworks */,
+				1878F82125F210710067640A /* MileusWatchdogKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +161,7 @@
 		18872BA2243B27F400A127D2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1878F81A25F20FB60067640A /* MileusWatchdogKit.framework */,
 				1878F79A25F0D2180067640A /* CoreLocation.framework */,
 				18C77DBF247B82D100F3A339 /* MileusWatchdogKit.framework */,
 			);
@@ -216,7 +218,7 @@
 				18872B87243B26E400A127D2 /* Sources */,
 				18872B88243B26E400A127D2 /* Frameworks */,
 				18872B89243B26E400A127D2 /* Resources */,
-				18198126243EECB800150AE6 /* Embed Frameworks */,
+				1878F82325F210710067640A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -408,7 +410,7 @@
 				MARKETING_VERSION = 1.1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mileus.testapp${BUNDLE_ID_SUFFIX}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Enterprise: Mileus Test App Beta 3";
+				PROVISIONING_PROFILE_SPECIFIER = "Enterprise: Mileus Test App Beta 4";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

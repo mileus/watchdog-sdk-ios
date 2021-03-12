@@ -3,7 +3,17 @@ import UIKit
 
 
 class TextField: UITextField {
-
+    
+    init() {
+        super.init(frame: .zero)
+        setup()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setup()
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setup()

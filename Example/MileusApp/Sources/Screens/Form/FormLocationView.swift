@@ -4,10 +4,10 @@ import UIKit
 
 final class FormLocationView: UIView {
     let titleLabel = UILabel()
-    let addressFirstLineTextField = UITextField()
-    let addressSecondLineTextField = UITextField()
-    let latitudeTextField = UITextField()
-    let longitudeTextField = UITextField()
+    let addressFirstLineTextField = TextField()
+    let addressSecondLineTextField = TextField()
+    let latitudeTextField = TextField()
+    let longitudeTextField = TextField()
     
     private var textFields: [UITextField] {
         [
