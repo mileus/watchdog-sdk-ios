@@ -13,8 +13,12 @@ class LocationWrapper {
     
     var wrappedValue: String? {
         set {
-            let sep = Locale.current.decimalSeparator ?? "."
-            value = newValue?.replacingOccurrences(of: ".", with: sep)
+            if newValue?.isEmpty ?? true {
+                value = nil
+            } else {
+                let sep = Locale.current.decimalSeparator ?? "."
+                value = newValue?.replacingOccurrences(of: ".", with: sep)
+            }
         }
         get {
             return value
