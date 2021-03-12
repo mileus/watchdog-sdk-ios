@@ -15,6 +15,9 @@ public final class MileusWatchdogSearch {
     internal var destination: MileusWatchdogLocation? {
         locations.first(where: { $0.label == .destination })?.data
     }
+    internal var home: MileusWatchdogLocation? {
+        locations.first(where: { $0.label == .home })?.data
+    }
     
     private var locations: [MileusWatchdogLabeledLocation]
     
@@ -83,6 +86,11 @@ public final class MileusWatchdogSearch {
     
     public func updateDestination(location: MileusWatchdogLocation) {
         updateLocation(location: location, type: .destination)
+        searchVM?.coordinatesUpdated()
+    }
+    
+    public func updateHome(location: MileusWatchdogLocation) {
+        updateLocation(location: location, type: .home)
         searchVM?.coordinatesUpdated()
     }
     

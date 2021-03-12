@@ -115,6 +115,8 @@ class FormVM {
             mileusSearch?.updateOrigin(location: location)
         case .destination:
             mileusSearch?.updateDestination(location: location)
+        case .home:
+            mileusSearch?.updateHome(location: location)
         }
     }
     

@@ -55,6 +55,12 @@ class SearchView: UIView {
             self.webView.evaluateJavaScript("window.setDestination(\(location));", completionHandler: nil)
         }
     }
+    
+    func updateHome(location: String) {
+        DispatchQueue.main.async {
+            self.webView.evaluateJavaScript("window.setHome(\(location));", completionHandler: nil)
+        }
+    }
      
     func setupWebView(messages: [WebViewMessage]) {
         webView = WebView(messages: messages)

@@ -49,6 +49,13 @@ class SearchVM: NSObject, WebViewMessagesDelegate {
         return nil
     }
     
+    func getHome() -> String? {
+        if let location = search.home {
+            return formatLocation(location: location)
+        }
+        return nil
+    }
+    
     func coordinatesUpdated() {
         updateCoordinates?()
     }
@@ -63,10 +70,15 @@ class SearchVM: NSObject, WebViewMessagesDelegate {
         guard let rawSearchType = data["search_type"], let searchType = MileusWatchdogSearchType(raw: rawSearchType)  else {
             return
         }
-        guard let origin = search.origin, let destination = search.destination else {
+        guard let origin = search.origin, let destination = search.destination, let home = search.home else {
             return
         }
-        let searchDate = MileusWatchdogSearchData(type: searchType, origin: origin, destination: destination)
+        let searchDate = MileusWatchdogSearchData(
+            type: searchType,
+            origin: origin,
+            destination: destination,
+            home: home
+        )
         DispatchQueue.main.async {
             self.search?.delegate?.mileus(self.search, showSearch: searchDate)
         }
