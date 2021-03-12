@@ -29,6 +29,7 @@
 		18872BAB243B2D6E00A127D2 /* FormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872BAA243B2D6E00A127D2 /* FormVC.swift */; };
 		18872BAD243B2D7E00A127D2 /* FormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872BAC243B2D7E00A127D2 /* FormView.swift */; };
 		18872BB0243B2DB000A127D2 /* FormVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18872BAF243B2DB000A127D2 /* FormVM.swift */; };
+		18A139FE25FB78CC00BF490C /* NotificationsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A139FD25FB78CC00BF490C /* NotificationsService.swift */; };
 		18EFBD702443276800C5BD5F /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18EFBD6F2443276800C5BD5F /* Config.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		18872BAA243B2D6E00A127D2 /* FormVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormVC.swift; sourceTree = "<group>"; };
 		18872BAC243B2D7E00A127D2 /* FormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormView.swift; sourceTree = "<group>"; };
 		18872BAF243B2DB000A127D2 /* FormVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormVM.swift; sourceTree = "<group>"; };
+		18A139FD25FB78CC00BF490C /* NotificationsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsService.swift; sourceTree = "<group>"; };
 		18C77DBF247B82D100F3A339 /* MileusWatchdogKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MileusWatchdogKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18EFBD6F2443276800C5BD5F /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -204,6 +206,7 @@
 			children = (
 				18EFBD6F2443276800C5BD5F /* Config.swift */,
 				186C7C0524457E16004E1D3F /* KeyboardManager.swift */,
+				18A139FD25FB78CC00BF490C /* NotificationsService.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				18872B91243B26E400A127D2 /* SceneDelegate.swift in Sources */,
 				1880AAA224504DBE00E1DE88 /* LocationFormVC.swift in Sources */,
 				1880AAAB24505C7100E1DE88 /* LocationTextField.swift in Sources */,
+				18A139FE25FB78CC00BF490C /* NotificationsService.swift in Sources */,
 				186C7C0624457E16004E1D3F /* KeyboardManager.swift in Sources */,
 				1880AAAD2450620800E1DE88 /* LocationWrapper.swift in Sources */,
 				1878F7A725F0EE1C0067640A /* FormLocation.swift in Sources */,

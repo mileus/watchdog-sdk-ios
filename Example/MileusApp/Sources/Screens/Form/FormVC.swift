@@ -4,13 +4,16 @@ import MileusWatchdogKit
 import CoreLocation
 
 
-class FormVC: UIViewController {
+final class FormVC: UIViewController {
 
     private let viewModel = FormVM()
     
     private var mileusVC: UINavigationController?
     
     private let locationManager = CLLocationManager()
+    private var notificationService: NotificationsService = {
+        LocalNotificationsService(delegate: self)
+    }()
     
     private var contentView: FormView {
         return view as! FormView
@@ -87,6 +90,36 @@ class FormVC: UIViewController {
     
     @objc
     private func locationButtonPressed(sender: AnyObject) {
+        askForNotificationPermission { [weak self] in
+            self?.minimizeAndFireLocationScanningLocalNotification()
+        }
+        
+    }
+    
+    private func askForNotificationPermission(success: @escaping () -> Void) {
+        notificationService.requestPermission { (granted) in
+            if granted {
+                DispatchQueue.main.async {
+                    success()
+                }
+            }
+        }
+    }
+    
+    private func minimizeAndFireLocationScanningLocalNotification() {
+        minimizeApp()
+        fireLocationScanningLocalNotification()
+    }
+    
+    private func minimizeApp() {
+        UIControl().sendAction(#selector(URLSessionTask.suspend), to: UIApplication.shared, for: nil)
+    }
+    
+    private func fireLocationScanningLocalNotification() {
+        notificationService.showBackgroundSyncNotification()
+    }
+    
+    private func startBackgroundLocationScanning() {
         update()
         contentView.locationButton.isEnabled = false
         viewModel.locationSync(completion: { [weak self] in
@@ -175,4 +208,10 @@ extension FormVC: LocationFormDelegate {
         mileusVC?.dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension FormVC: LocalNotificationsServiceDelegate {
+    func notificationServiceStartBackgroundSync() {
+        startBackgroundLocationScanning()
+    }
 }
