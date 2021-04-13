@@ -15,7 +15,6 @@ class FormView: UIView {
     @IBOutlet weak var searchButton: UIButton!
     @IBOutlet weak var validationButton: UIButton!
     @IBOutlet weak var schedulerButton: UIButton!
-    @IBOutlet weak var locationButton: UIButton!
     
     var environments: [String] = [] {
         didSet {
@@ -59,7 +58,6 @@ class FormView: UIView {
         searchButton.setTitle(NSLocalizedString("Watchdog", comment: ""), for: .normal)
         validationButton.setTitle(NSLocalizedString("Market Validation", comment: ""), for: .normal)
         schedulerButton.setTitle(NSLocalizedString("Scheduler", comment: ""), for: .normal)
-        locationButton.setTitle(NSLocalizedString("Location Sync", comment: ""), for: .normal)
     }
     
     private func setupEnvironmentPicker() {

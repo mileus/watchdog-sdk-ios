@@ -34,7 +34,6 @@ final class FormVC: UIViewController {
         contentView.searchButton.addTarget(self, action: #selector(searchButtonPressed(sender:)), for: .touchUpInside)
         contentView.validationButton.addTarget(self, action: #selector(validationButtonPressed(sender:)), for: .touchUpInside)
         contentView.schedulerButton.addTarget(self, action: #selector(schedulerButtonPressed(sender:)), for: .touchUpInside)
-        contentView.locationButton.addTarget(self, action: #selector(locationButtonPressed(sender:)), for: .touchUpInside)
     }
     
     private func bind() {
@@ -117,17 +116,6 @@ final class FormVC: UIViewController {
     
     private func fireLocationScanningLocalNotification() {
         notificationService.showBackgroundSyncNotification()
-    }
-    
-    private func startBackgroundLocationScanning() {
-        update()
-        contentView.locationButton.isEnabled = false
-        viewModel.locationSync(completion: { [weak self] in
-            DispatchQueue.main.async { [weak self] in
-                self?.contentView.locationButton.isEnabled = true
-                self?.showAlert(message: "Location Sync Completed.")
-            }
-        })
     }
 
 }
@@ -212,6 +200,5 @@ extension FormVC: LocationFormDelegate {
 
 extension FormVC: LocalNotificationsServiceDelegate {
     func notificationServiceStartBackgroundSync() {
-        startBackgroundLocationScanning()
     }
 }

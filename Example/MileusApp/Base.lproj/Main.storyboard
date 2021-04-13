@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tQY-uF-Nan">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="1011.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="945.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="6Yy-vV-WS9">
-                                                <rect key="frame" x="20" y="20" width="280" height="971.5"/>
+                                                <rect key="frame" x="20" y="20" width="280" height="905.5"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QgU-EI-PJk" customClass="TextField" customModule="MileusApp" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="280" height="45"/>
@@ -48,17 +48,17 @@
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sdU-TO-GVo" customClass="FormLocationView" customModule="MileusApp" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="302.5" width="280" height="293"/>
+                                                        <rect key="frame" x="0.0" y="302.5" width="280" height="291"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                     </view>
                                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xGK-GT-54Z">
-                                                        <rect key="frame" x="0.0" y="615.5" width="280" height="100"/>
+                                                        <rect key="frame" x="0.0" y="613.5" width="280" height="100"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="100" id="jeP-Ud-NDL"/>
                                                         </constraints>
                                                     </pickerView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bo9-8X-eCh">
-                                                        <rect key="frame" x="0.0" y="735.5" width="280" height="44"/>
+                                                        <rect key="frame" x="0.0" y="733.5" width="280" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="akm-hx-0TY"/>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="f5C-Vq-biz"/>
@@ -66,23 +66,16 @@
                                                         <state key="normal" title="Button"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrB-2y-mQf">
-                                                        <rect key="frame" x="0.0" y="799.5" width="280" height="44"/>
+                                                        <rect key="frame" x="0.0" y="797.5" width="280" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="km0-RG-JYa"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlU-2o-5Io">
-                                                        <rect key="frame" x="0.0" y="863.5" width="280" height="44"/>
+                                                        <rect key="frame" x="0.0" y="861.5" width="280" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="nTn-Hu-wAO"/>
-                                                        </constraints>
-                                                        <state key="normal" title="Button"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tki-J4-6fQ">
-                                                        <rect key="frame" x="0.0" y="927.5" width="280" height="44"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="f1A-Xc-G3X"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                     </button>
@@ -91,7 +84,6 @@
                                                     <constraint firstItem="hlU-2o-5Io" firstAttribute="height" secondItem="hrB-2y-mQf" secondAttribute="height" id="Syp-ao-vmZ"/>
                                                     <constraint firstItem="fbg-g1-6lp" firstAttribute="height" secondItem="QgU-EI-PJk" secondAttribute="height" id="XQK-hQ-d8c"/>
                                                     <constraint firstItem="hrB-2y-mQf" firstAttribute="height" secondItem="Bo9-8X-eCh" secondAttribute="height" id="cZ4-7S-BGw"/>
-                                                    <constraint firstItem="tki-J4-6fQ" firstAttribute="height" secondItem="hlU-2o-5Io" secondAttribute="height" id="dxm-jT-sMd"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -128,7 +120,6 @@
                             <outlet property="destinationLocationView" destination="kue-8b-T0L" id="kAL-6X-8CU"/>
                             <outlet property="environmentPickerView" destination="xGK-GT-54Z" id="u13-2O-Vbf"/>
                             <outlet property="homeLocationView" destination="sdU-TO-GVo" id="h7W-EB-d4Q"/>
-                            <outlet property="locationButton" destination="tki-J4-6fQ" id="1PG-gq-Oap"/>
                             <outlet property="originLocationView" destination="2uX-5e-s9e" id="EI2-ZC-fO0"/>
                             <outlet property="partnerNameTextField" destination="fbg-g1-6lp" id="7U5-BF-fCt"/>
                             <outlet property="schedulerButton" destination="hlU-2o-5Io" id="TWy-na-Lal"/>
