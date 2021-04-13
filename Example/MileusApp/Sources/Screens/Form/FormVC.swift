@@ -11,7 +11,7 @@ final class FormVC: UIViewController {
     private var mileusVC: UINavigationController?
     
     private let locationManager = CLLocationManager()
-    private var notificationService: NotificationsService = {
+    private lazy var notificationService: NotificationsService = {
         LocalNotificationsService(delegate: self)
     }()
     

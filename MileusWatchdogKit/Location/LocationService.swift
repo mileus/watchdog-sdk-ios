@@ -27,6 +27,7 @@ final class CoreLocationService: NSObject, LocationService {
     
     override init() {
         super.init()
+        locationManager.allowsBackgroundLocationUpdates = true
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
     }

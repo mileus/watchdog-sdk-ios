@@ -21,9 +21,13 @@ final class NavigationControllerMessagesHandler {
     
     private func getInfoIconVisibilityMessage() -> WebViewMessage {
         InfoIconVisibilityMessage(action: { [weak self] isVisible in
-            self?.delegate?.setInfoButton(viewModel: InfoButtonViewModel(action: { [weak self] in
-                self?.webView?.inject(InfoButtonClickInjection())
-            }))
+            if isVisible {
+                self?.delegate?.setInfoButton(viewModel: InfoButtonViewModel(action: { [weak self] in
+                    self?.webView?.inject(InfoButtonClickInjection())
+                }))
+            } else {
+                self?.delegate?.setInfoButton(viewModel: nil)
+            }
         })
     }
     

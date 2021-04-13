@@ -39,7 +39,7 @@ class FormVM {
         partnerName = getPartnerName(useSaved: true)
         
 #if DEBUG
-        accessToken = "eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJqaWQiOiJmYjVhYmY4My04MTg1LTQ5ZTMtODk0OC02YWVkZGNhZDExYzYiLCJyIjpbIlJIX1BBUyJdLCJhaSI6ImY4YTNjODg1LWZiYjYtNDFhMi1iOGE4LTJkMDY5NDE4NmZhOSIsInBuIjoiZHVtbXktcGFydG5lciIsInBpIjoiYTUzNTczMTgtMjBkNi00ODQ2LThjNGEtOWJjNGVhYjQ3MDQ4IiwicGVpIjoiZXh0ZXJuYWwtcGFzc2VuZ2VyLWlkIiwiaWF0IjoxNjE0NzY1NTk1LCJleHAiOjE2MTUzNzAzOTV9.AIY9bEfvHTtFFlEngsfpr4I9TJGx2EOQ7fvZY3aW3nl3Aq4PSt3TFrOUcLUc9cN3oLWv04nPjWcLGLtdpg8FBjkvAHXHgKE98J_Swbd4SotupFkI_XTxfWz_rGRZs-bbkEtkSholfDEI-9dKNQYoEGs_Q2MJ1e_xeZDqFcxRY6QU0i3s"
+        accessToken = "eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJqaWQiOiI4YzRlZDVhNy1kZGM2LTQ4NjEtYWUyNy05MzQ1OGZkMzgyZjgiLCJyIjpbIlJIX1BBUyJdLCJhaSI6ImY4YTNjODg1LWZiYjYtNDFhMi1iOGE4LTJkMDY5NDE4NmZhOSIsInBuIjoiZHVtbXktcGFydG5lciIsInBpIjoiYTUzNTczMTgtMjBkNi00ODQ2LThjNGEtOWJjNGVhYjQ3MDQ4IiwicGVpIjoiZXh0ZXJuYWwtcGFzc2VuZ2VyLWlkIiwiaWF0IjoxNjE2NjU2MDEwLCJleHAiOjE2MTkyNDgwMTB9.AdUP4H-LbIDHKi8mpZVPZa1y2Json93CW9rVHulmk4vWM6froeWcZxbpo0yqL1GA9-YnUk4VzC-frEe_RCmLBa6PAVpKLmx9OR1_2wP75qohnANyD0ntXm4iNOI3_nBlL9p2g4qVoG39sRlWZOg_I9Z0wFyRHkIzTbkx6P9IoCB_kY2_"
 #endif
         
         originLocation.addressFirstLine = "Prague - Nové Město"
@@ -55,7 +55,7 @@ class FormVM {
     }
     
     private func getHome() -> MileusWatchdogLocation {
-        getLocation(location: destinationLocation)
+        getLocation(location: homeLocation)
     }
     
     private func getLocation(location: FormLocation) -> MileusWatchdogLocation {
