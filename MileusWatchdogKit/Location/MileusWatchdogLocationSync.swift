@@ -60,6 +60,8 @@ public final class MileusWatchdogLocationSync {
     private func handleSuccessfulResponse(data: Data, response: HTTPURLResponse) {
         if response.statusCode == ResponseCode.completed.rawValue {
             handleSuccess()
+        } else if response.statusCode >= 300 {
+            stopLocationService()
         }
     }
     
@@ -73,6 +75,10 @@ public final class MileusWatchdogLocationSync {
     
     private func callCompletionCallbackAndStopLocationService() {
         completionCallback?()
+        stopLocationService()
+    }
+    
+    private func stopLocationService() {
         locationService.stopUpdating()
     }
     
