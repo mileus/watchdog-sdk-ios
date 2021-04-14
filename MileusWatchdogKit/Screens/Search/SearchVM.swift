@@ -11,7 +11,8 @@ class SearchVM: NSObject, WebViewMessagesDelegate {
             OpenSearchMessage(action: { [weak self] data in self?.openSearch(data: data) }),
             OpenTaxiRideMessage(action: { [weak self] in self?.openTaxiRide() }),
             OpenTaxiRideScreenAndFinishMessage(action: { [weak self] in self?.openTaxiRideAndFinish() }),
-            CloseMarketValidationMessage(action: { [weak self] in self?.didFinish() })
+            CloseMarketValidationMessage(action: { [weak self] in self?.didFinish() }),
+            LocationScanningMessage(action: { [weak self] in self?.startLocationScanning() })
         ]
     }()
     
@@ -19,6 +20,7 @@ class SearchVM: NSObject, WebViewMessagesDelegate {
     let urlHandler: () -> URL
     
     private let inputSanitizer = InputSanitizer()
+    private var mileusWatchdogLocationSync: MileusWatchdogLocationSync?
     
     init(search: MileusWatchdogSearch, urlHandler: @escaping () -> URL) {
         self.search = search
@@ -95,6 +97,15 @@ class SearchVM: NSObject, WebViewMessagesDelegate {
     
     private func formatLocation(location: MileusWatchdogLocation) -> String {
         return "{'lat': \(location.latitude), 'lon': \(location.longitude), 'address_line_1': '\(inputSanitizer.sanitizeJS(location.address?.firstLine ?? ""))', 'address_line_2': '\(inputSanitizer.sanitizeJS(location.address?.secondLine ?? ""))', 'accuracy': \(location.accuracy)}"
+    }
+    
+    private func startLocationScanning() {
+        if mileusWatchdogLocationSync == nil {
+            mileusWatchdogLocationSync = try? MileusWatchdogLocationSync()
+        }
+        mileusWatchdogLocationSync?.start(completion: { [weak self] in
+            self?.mileusWatchdogLocationSync = nil
+        })
     }
     
 }

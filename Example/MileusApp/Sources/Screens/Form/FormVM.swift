@@ -97,15 +97,6 @@ class FormVM {
         return mileusWatchdogScheduler!
     }
     
-    func locationSync(completion: @escaping () -> Void) {
-        reinitSDK()
-        mileusWatchdogLocationSync = try! MileusWatchdogLocationSync()
-        mileusWatchdogLocationSync?.start(completion: { [weak self] in
-            completion()
-            self?.mileusWatchdogLocationSync = nil
-        })
-    }
-    
     func updateLocation(location: MileusWatchdogLocation) {
         guard let data = searchData else {
             return
