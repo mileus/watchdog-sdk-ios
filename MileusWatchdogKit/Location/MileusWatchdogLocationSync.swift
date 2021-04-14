@@ -39,7 +39,7 @@ public final class MileusWatchdogLocationSync {
             accuracy: Int(accuracy)
         )
         let endpoint = LocationTrackingEndpoint(
-            baseUrl: MileusWatchdogKit.environment.url,
+            baseUrl: MileusWatchdogKit.environment.apiURL,
             body: LocationTrackingBodyRequest(location: location).asData(),
             token: MileusWatchdogKit.accessToken
         )

@@ -103,7 +103,7 @@ public final class MileusWatchdogSearch {
         let language = Locale.preferredLanguages.first ?? "en"
         let languageComponents = Locale.components(fromIdentifier: language)
         let languageCode = languageComponents[NSLocale.Key.languageCode.rawValue] ?? "en"
-        var components = URLComponents(string: MileusWatchdogKit.environment!.url)!
+        var components = URLComponents(string: MileusWatchdogKit.environment!.webURL)!
         components.queryItems = [
             URLQueryItem(name: "access_token", value: MileusWatchdogKit.accessToken),
             URLQueryItem(name: "environment", value: MileusWatchdogKit.environment.key),

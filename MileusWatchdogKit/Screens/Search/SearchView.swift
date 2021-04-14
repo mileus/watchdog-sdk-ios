@@ -113,7 +113,7 @@ extension SearchView: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         if navigationAction.navigationType == .linkActivated {
-            decisionHandler(navigationAction.request.url?.absoluteString.hasPrefix(MileusWatchdogKit.environment.url) ?? false ? .allow : .cancel)
+            decisionHandler(navigationAction.request.url?.absoluteString.hasPrefix(MileusWatchdogKit.environment.webURL) ?? false ? .allow : .cancel)
         } else {
             decisionHandler(.allow)
         }
