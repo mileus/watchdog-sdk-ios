@@ -68,12 +68,9 @@ class SearchVM: NSObject, WebViewMessagesDelegate {
         }
     }
     
-    func openSearch(data: [String : String]) {
-        guard let rawSearchType = data["search_type"], let searchType = MileusWatchdogSearchType(raw: rawSearchType)  else {
-            return
-        }
+    func openSearch(data: MileusWatchdogLabeledLocation) {
         let searchData = MileusWatchdogSearchData(
-            type: searchType,
+            type: data.label.searchType,
             origin: search.origin,
             destination: search.destination,
             home: search.home

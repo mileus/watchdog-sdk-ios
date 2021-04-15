@@ -3,7 +3,7 @@ import WebKit
 
 
 protocol WebViewMessagesDelegate {
-    func openSearch(data: [String : String])
+    func openSearch(data: MileusWatchdogLabeledLocation)
     func openTaxiRide()
     func openTaxiRideAndFinish()
     func didFinish()
