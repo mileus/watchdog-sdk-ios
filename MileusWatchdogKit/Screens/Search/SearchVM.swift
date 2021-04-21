@@ -38,21 +38,21 @@ class SearchVM: NSObject, WebViewMessagesDelegate {
     }
     
     func getOrigin() -> String? {
-        if let location = search.origin {
+        if let location = search.location(of: .origin) {
             return formatLocation(location: location)
         }
         return nil
     }
     
     func getDestination() -> String? {
-        if let location = search.destination {
+        if let location = search.location(of: .destination) {
             return formatLocation(location: location)
         }
         return nil
     }
     
     func getHome() -> String? {
-        if let location = search.home {
+        if let location = search.location(of: .home) {
             return formatLocation(location: location)
         }
         return nil

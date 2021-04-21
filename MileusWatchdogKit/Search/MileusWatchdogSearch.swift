@@ -9,16 +9,6 @@ public final class MileusWatchdogSearch {
     internal weak var delegate: MileusWatchdogSearchFlowDelegate?
     internal var mode = MileusModeType.watchdog
     
-    internal var origin: MileusWatchdogLocation? {
-        locations.first(where: { $0.label == .origin })?.data
-    }
-    internal var destination: MileusWatchdogLocation? {
-        locations.first(where: { $0.label == .destination })?.data
-    }
-    internal var home: MileusWatchdogLocation? {
-        locations.first(where: { $0.label == .home })?.data
-    }
-    
     private var locations: [MileusWatchdogLabeledLocation]
     
     private var rootVC: UINavigationController?
@@ -87,6 +77,10 @@ public final class MileusWatchdogSearch {
     public func update(searchData: MileusWatchdogSearchData) {
         updateLocation(location: searchData.location, type: MileusWatchdogLocationType(type: searchData.type))
         searchVM?.coordinatesUpdated()
+    }
+    
+    internal func location(of type: MileusWatchdogLocationType) -> MileusWatchdogLocation? {
+        locations.first(where: { $0.label == type })?.data
     }
     
     private func updateLocation(location: MileusWatchdogLocation, type: MileusWatchdogLocationType) {
