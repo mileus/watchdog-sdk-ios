@@ -79,18 +79,13 @@ public final class MileusWatchdogSearch {
         return rootVC!
     }
     
-    public func updateOrigin(location: MileusWatchdogLocation) {
-        updateLocation(location: location, type: .origin)
+    public func update(location: MileusWatchdogLocation, type: MileusWatchdogSearchType) {
+        updateLocation(location: location, type: MileusWatchdogLocationType(type: type))
         searchVM?.coordinatesUpdated()
     }
     
-    public func updateDestination(location: MileusWatchdogLocation) {
-        updateLocation(location: location, type: .destination)
-        searchVM?.coordinatesUpdated()
-    }
-    
-    internal func updateHome(location: MileusWatchdogLocation) {
-        updateLocation(location: location, type: .home)
+    public func update(searchData: MileusWatchdogSearchData) {
+        updateLocation(location: searchData.location, type: MileusWatchdogLocationType(type: searchData.type))
         searchVM?.coordinatesUpdated()
     }
     

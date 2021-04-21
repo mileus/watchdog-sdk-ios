@@ -71,9 +71,7 @@ class SearchVM: NSObject, WebViewMessagesDelegate {
     func openSearch(data: MileusWatchdogLabeledLocation) {
         let searchData = MileusWatchdogSearchData(
             type: data.label.searchType,
-            origin: search.origin,
-            destination: search.destination,
-            home: search.home
+            location: data.data
         )
         DispatchQueue.main.async {
             self.search?.delegate?.mileus(self.search, showSearch: searchData)

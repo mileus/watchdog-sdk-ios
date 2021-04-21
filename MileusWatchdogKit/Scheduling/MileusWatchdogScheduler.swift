@@ -35,7 +35,7 @@ public final class MileusWatchdogScheduler {
     }
     
     public func updateHome(location: MileusWatchdogLocation) {
-        mileusSearch.updateHome(location: location)
+        mileusSearch.update(location: location, type: .home)
     }
     
 }

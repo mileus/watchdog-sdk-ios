@@ -102,10 +102,8 @@ class FormVM {
             return
         }
         switch data.type {
-        case .origin:
-            mileusSearch?.updateOrigin(location: location)
-        case .destination:
-            mileusSearch?.updateDestination(location: location)
+        case .origin, .destination:
+            mileusSearch?.update(location: location, type: data.type)
         case .home:
             mileusWatchdogScheduler?.updateHome(location: location)
         }

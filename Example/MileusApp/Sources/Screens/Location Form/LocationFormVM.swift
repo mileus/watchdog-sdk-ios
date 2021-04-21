@@ -26,14 +26,13 @@ class LocationFormVM {
         self.searchData = searchData
         self.delegate = delegate
         
-        let location = searchData.type == .destination ? searchData.destination : searchData.origin
-        addressFirstLine = location?.address?.firstLine
-        addressSecondLine = location?.address?.secondLine
-        if let latitude = location?.latitude {
-            $latitude = latitude
+        addressFirstLine = searchData.location.address?.firstLine
+        addressSecondLine = searchData.location.address?.secondLine
+        if searchData.location.latitude != 0.0 {
+            $latitude = searchData.location.latitude
         }
-        if let longitude = location?.longitude {
-            $longitude = longitude
+        if searchData.location.longitude != 0.0 {
+            $longitude = searchData.location.longitude
         }
     }
     
