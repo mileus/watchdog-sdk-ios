@@ -19,7 +19,8 @@ class SearchView: UIView {
     private var closeBarButtonItem: UIBarButtonItem?
     private lazy var goBackBarButtonItem: UIBarButtonItem? = {
         UIBarButtonItem(
-            barButtonSystemItem: .fastForward,
+            image: UIImage(named: "backIcon", in: Bundle(for: SearchView.self), compatibleWith: nil)?.withRenderingMode(.alwaysTemplate),
+            style: .plain,
             target: self,
             action: #selector(goBackButtonPressed)
         )

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		183AA7B424AC3F7F00E1CF00 /* MileusMarketValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AA7B324AC3F7F00E1CF00 /* MileusMarketValidation.swift */; };
 		183AA7B624AC3FCB00E1CF00 /* MileusMarketValidationFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AA7B524AC3FCB00E1CF00 /* MileusMarketValidationFlowDelegate.swift */; };
+		1845AB142631AE6700C561D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1845AB132631AE6700C561D1 /* Assets.xcassets */; };
 		18543CBC2437270500363CF0 /* MileusWatchdogKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18543CB22437270500363CF0 /* MileusWatchdogKit.framework */; };
 		18543CC12437270500363CF0 /* MileusWatchdogKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18543CC02437270500363CF0 /* MileusWatchdogKitTests.swift */; };
 		18543CC32437270500363CF0 /* MileusWatchdogKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 18543CB52437270500363CF0 /* MileusWatchdogKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -74,6 +75,7 @@
 /* Begin PBXFileReference section */
 		183AA7B324AC3F7F00E1CF00 /* MileusMarketValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileusMarketValidation.swift; sourceTree = "<group>"; };
 		183AA7B524AC3FCB00E1CF00 /* MileusMarketValidationFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileusMarketValidationFlowDelegate.swift; sourceTree = "<group>"; };
+		1845AB132631AE6700C561D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18543CB22437270500363CF0 /* MileusWatchdogKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MileusWatchdogKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18543CB52437270500363CF0 /* MileusWatchdogKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MileusWatchdogKit.h; sourceTree = "<group>"; };
 		18543CB62437270500363CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				1866187424C1AA0E00B23C2E /* Localizations */,
+				1845AB132631AE6700C561D1 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 			files = (
 				1898175E245818AB00803ED5 /* OfflineView.xib in Resources */,
 				1866187724C1AA2400B23C2E /* Localizable.strings in Resources */,
+				1845AB142631AE6700C561D1 /* Assets.xcassets in Resources */,
 				18872B77243B021100A127D2 /* Search.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
