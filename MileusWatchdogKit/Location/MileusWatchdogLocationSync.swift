@@ -11,7 +11,7 @@ public final class MileusWatchdogLocationSync {
     
     public typealias CompletionHandler = () -> Void
     
-    private let locationService: LocationService = CoreLocationService()
+    private let locationService: LocationService = LocationServiceThrottlingDecorator(decoratee: CoreLocationService())
     private let networkingClient: NetworkingClient = HTTPClient()
     
     private var completionCallback: CompletionHandler?

@@ -10,6 +10,7 @@
 		183AA7B424AC3F7F00E1CF00 /* MileusMarketValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AA7B324AC3F7F00E1CF00 /* MileusMarketValidation.swift */; };
 		183AA7B624AC3FCB00E1CF00 /* MileusMarketValidationFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AA7B524AC3FCB00E1CF00 /* MileusMarketValidationFlowDelegate.swift */; };
 		1845AB142631AE6700C561D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1845AB132631AE6700C561D1 /* Assets.xcassets */; };
+		1845AB182631B21C00C561D1 /* LocationServiceThrottlingDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845AB172631B21C00C561D1 /* LocationServiceThrottlingDecorator.swift */; };
 		18543CBC2437270500363CF0 /* MileusWatchdogKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18543CB22437270500363CF0 /* MileusWatchdogKit.framework */; };
 		18543CC12437270500363CF0 /* MileusWatchdogKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18543CC02437270500363CF0 /* MileusWatchdogKitTests.swift */; };
 		18543CC32437270500363CF0 /* MileusWatchdogKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 18543CB52437270500363CF0 /* MileusWatchdogKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -76,6 +77,7 @@
 		183AA7B324AC3F7F00E1CF00 /* MileusMarketValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileusMarketValidation.swift; sourceTree = "<group>"; };
 		183AA7B524AC3FCB00E1CF00 /* MileusMarketValidationFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileusMarketValidationFlowDelegate.swift; sourceTree = "<group>"; };
 		1845AB132631AE6700C561D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		1845AB172631B21C00C561D1 /* LocationServiceThrottlingDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceThrottlingDecorator.swift; sourceTree = "<group>"; };
 		18543CB22437270500363CF0 /* MileusWatchdogKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MileusWatchdogKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		18543CB52437270500363CF0 /* MileusWatchdogKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MileusWatchdogKit.h; sourceTree = "<group>"; };
 		18543CB62437270500363CF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 			children = (
 				1878F51025EE60BB0067640A /* MileusWatchdogLocationSync.swift */,
 				1878F77A25F0A08B0067640A /* LocationService.swift */,
+				1845AB172631B21C00C561D1 /* LocationServiceThrottlingDecorator.swift */,
 				1878F79225F0BC910067640A /* LocationTrackingEndpoint.swift */,
 				1878F79625F0BDBA0067640A /* LocationTrackingBodyRequest.swift */,
 			);
@@ -570,6 +573,7 @@
 				1878F4B325ECC9E90067640A /* WebViewMessage.swift in Sources */,
 				18543CD62437352A00363CF0 /* MileusWatchdogEnvironment.swift in Sources */,
 				1878F78B25F0B5760067640A /* Endpoint.swift in Sources */,
+				1845AB182631B21C00C561D1 /* LocationServiceThrottlingDecorator.swift in Sources */,
 				18A457742477E0DF00EB666E /* MileusWatchdogLocation.swift in Sources */,
 				1865A91C24B6D5BE00D502CE /* MileusModeType.swift in Sources */,
 				1878F51125EE60BB0067640A /* MileusWatchdogLocationSync.swift in Sources */,
