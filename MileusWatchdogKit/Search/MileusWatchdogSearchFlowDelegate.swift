@@ -2,7 +2,7 @@
 import Foundation
 
 
-public protocol MileusWatchdogSearchFlowDelegate: class {
+public protocol MileusWatchdogSearchFlowDelegate: AnyObject {
     
     func mileus(_ mileus: MileusWatchdogSearch, showSearch data: MileusWatchdogSearchData)
     func mileusShowTaxiRide(_ mileus: MileusWatchdogSearch)
