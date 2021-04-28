@@ -4,7 +4,7 @@ import Foundation
 
 final class LocationServiceThrottlingDecorator: LocationService {
     
-    private static let throttleLimitMiliseconds = 50.0
+    private static let throttleLimitMilliseconds = 50.0
     
     var isAllowed: Bool {
         decoratee.isAllowed
@@ -34,7 +34,7 @@ final class LocationServiceThrottlingDecorator: LocationService {
     
     private func canUpdate() -> Bool {
         let delta = Date().timeIntervalSince1970 - lastUpdate.timeIntervalSince1970
-        return delta * 1000.0 > Self.throttleLimitMiliseconds
+        return delta * 1000.0 > Self.throttleLimitMilliseconds
     }
     
     private func updateLastUpdateDate() {
