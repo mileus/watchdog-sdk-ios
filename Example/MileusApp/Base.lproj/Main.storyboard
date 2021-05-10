@@ -65,17 +65,17 @@
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrB-2y-mQf">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlU-2o-5Io">
                                                         <rect key="frame" x="0.0" y="797.5" width="280" height="44"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="km0-RG-JYa"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="nTn-Hu-wAO"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hlU-2o-5Io">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hrB-2y-mQf">
                                                         <rect key="frame" x="0.0" y="861.5" width="280" height="44"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="nTn-Hu-wAO"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="160" id="km0-RG-JYa"/>
                                                         </constraints>
                                                         <state key="normal" title="Button"/>
                                                     </button>
