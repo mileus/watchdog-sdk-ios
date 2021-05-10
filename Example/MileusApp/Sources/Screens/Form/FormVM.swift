@@ -39,7 +39,7 @@ class FormVM {
         partnerName = getPartnerName(useSaved: true)
         
 #if DEBUG
-        accessToken = "eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJqaWQiOiIyZDgyZTRmYS0xNmYxLTQ3NzEtYTU5Ny0wYTM2MzUyZDY4ODQiLCJyIjpbIlJIX1BBUyJdLCJhaSI6ImY4YTNjODg1LWZiYjYtNDFhMi1iOGE4LTJkMDY5NDE4NmZhOSIsInBuIjoiZHVtbXktcGFydG5lciIsInBpIjoiYTUzNTczMTgtMjBkNi00ODQ2LThjNGEtOWJjNGVhYjQ3MDQ4IiwicGVpIjoiZXh0ZXJuYWwtcGFzc2VuZ2VyLWlkIiwiaWF0IjoxNjE4MzI4MjMwLCJleHAiOjE2MjA5MjAyMzB9.AfLdOtH08pzlNPEF_Y9-paB9HXPRbG86AKf5-ufJ6zS8QXwYcFRmAL-1MFxZwmEYDhUPTY4kDPEq-llMMS6MzRdUAUQDIRC1wP7H97KLdPUVv8RxrtWy5q0OPMX-C4_gW9Q-hZt0wLVl3UUJxKRqsKwwkE3qWZX79NdGGJ9dggIgEiUl"
+        accessToken = "eyJhbGciOiJFUzUxMiIsInR5cCI6IkpXVCJ9.eyJqaWQiOiI5MGJkM2Y1ZC1iMjBkLTQ4YzUtYjVhMy0xZTVmYTBmMzVhOTgiLCJyIjpbIlJIX1BBUyJdLCJhaSI6ImY4YTNjODg1LWZiYjYtNDFhMi1iOGE4LTJkMDY5NDE4NmZhOSIsInBuIjoiZHVtbXktcGFydG5lciIsInBpIjoiYTUzNTczMTgtMjBkNi00ODQ2LThjNGEtOWJjNGVhYjQ3MDQ4IiwicGVpIjoiZXh0ZXJuYWwtcGFzc2VuZ2VyLWlkIiwiaWF0IjoxNjIwNjE2NzMzLCJleHAiOjE2MjMyMDg3MzN9.AdpU1eRPSfnQS04gat-cMM5_IVc_bYINwAUUIHpXqL2Tz-uTpbNsHnaqUGnCYo5ZiZEK6UaSpMJNwjsXBa7d5JPpAXK1ThErPd6LjTQjMyFOgsunxzfdfKqf_Up613Iht3x2LHyYFpvFJYw1xgLOceeGnWzvwaQQziZdl0uAzhkiOjPM"
 #endif
         
         originLocation.addressFirstLine = "Prague - Nové Město"
@@ -106,6 +106,7 @@ class FormVM {
             mileusSearch?.update(location: location, type: data.type)
         case .home:
             mileusWatchdogScheduler?.updateHome(location: location)
+            mileusSearch?.update(location: location, type: .home)
         }
     }
     
