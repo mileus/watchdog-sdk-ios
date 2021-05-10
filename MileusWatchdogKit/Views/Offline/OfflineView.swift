@@ -32,9 +32,9 @@ class OfflineView: UIView {
         subtitleLabel.textAlignment = .center
         subtitleLabel.numberOfLines = 0
         
-        titleLabel.text = NSLocalizedString("Something went wrong", comment: "")
-        subtitleLabel.text = NSLocalizedString("Check your internet connection and try again.", comment: "")
-        tryAgainButton.setTitle(NSLocalizedString("Try again", comment: ""), for: .normal)
+        titleLabel.text = NSLocalizedString("offline_title", comment: "")
+        subtitleLabel.text = NSLocalizedString("offline_message", comment: "")
+        tryAgainButton.setTitle(NSLocalizedString("try_again_button_title", comment: ""), for: .normal)
         
         tryAgainButton.layer.borderWidth = 1.0
         tryAgainButton.layer.borderColor = UIColor.systemBlue.cgColor
