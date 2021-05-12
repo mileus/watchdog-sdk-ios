@@ -6,7 +6,7 @@ public final class MileusWatchdogSearch {
     
     private static var alreadyInitialized = false
     
-    internal weak var delegate: MileusWatchdogSearchFlowDelegate?
+    internal var delegate: MileusWatchdogSearchFlowDelegate?
     internal var mode = MileusModeType.watchdog
     
     private var locations: [MileusWatchdogLabeledLocation]
@@ -41,7 +41,7 @@ public final class MileusWatchdogSearch {
         if !ignoreLocationPermission && !CoreLocationService().isAllowed {
             throw MileusWatchdogError.insufficientLocationPermission
         }
-        self.delegate = delegate
+        self.delegate = MainDispatchDecorator(decoratee: delegate)
         self.locations = locations
         Self.alreadyInitialized = true
     }

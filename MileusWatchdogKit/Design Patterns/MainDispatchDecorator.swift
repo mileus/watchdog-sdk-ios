@@ -1,11 +1,11 @@
 
 import Foundation
 
-final class MainDispatchDecorator<DecorateeType> {
+final class MainDispatchDecorator {
 
-    internal let decoratee: DecorateeType
+    internal weak var decoratee: MileusWatchdogSearchFlowDelegate?
 
-    init(decoratee: DecorateeType) {
+    init(decoratee: MileusWatchdogSearchFlowDelegate) {
         self.decoratee = decoratee
     }
 
@@ -19,4 +19,31 @@ final class MainDispatchDecorator<DecorateeType> {
         }
     }
 
+}
+
+
+extension MainDispatchDecorator: MileusWatchdogSearchFlowDelegate {
+    func mileus(_ mileus: MileusWatchdogSearch, showSearch data: MileusWatchdogSearchData) {
+        performOnMainThread { [weak self] in
+            self?.decoratee?.mileus(mileus, showSearch: data)
+        }
+    }
+    
+    func mileusShowTaxiRide(_ mileus: MileusWatchdogSearch) {
+        performOnMainThread { [weak self] in
+            self?.decoratee?.mileusShowTaxiRide(mileus)
+        }
+    }
+    
+    func mileusShowTaxiRideAndFinish(_ mileus: MileusWatchdogSearch) {
+        performOnMainThread { [weak self] in
+            self?.decoratee?.mileusShowTaxiRideAndFinish(mileus)
+        }
+    }
+    
+    func mileusDidFinish(_ mileus: MileusWatchdogSearch) {
+        performOnMainThread { [weak self] in
+            self?.decoratee?.mileusDidFinish(mileus)
+        }
+    }
 }

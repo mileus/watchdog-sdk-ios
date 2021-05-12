@@ -63,9 +63,7 @@ class SearchVM: NSObject, WebViewMessagesDelegate {
     }
     
     func didFinish() {
-        DispatchQueue.main.async { [unowned self] in
-            self.search?.delegate?.mileusDidFinish(self.search)
-        }
+        search?.delegate?.mileusDidFinish(search)
     }
     
     func openSearch(data: MileusWatchdogLabeledLocation) {
@@ -73,21 +71,15 @@ class SearchVM: NSObject, WebViewMessagesDelegate {
             type: data.label.searchType,
             location: data.data
         )
-        DispatchQueue.main.async {
-            self.search?.delegate?.mileus(self.search, showSearch: searchData)
-        }
+        search?.delegate?.mileus(search, showSearch: searchData)
     }
     
     func openTaxiRide() {
-        DispatchQueue.main.async {
-            self.search?.delegate?.mileusShowTaxiRide(self.search)
-        }
+        search?.delegate?.mileusShowTaxiRide(search)
     }
     
     func openTaxiRideAndFinish() {
-        DispatchQueue.main.async {
-            self.search?.delegate?.mileusShowTaxiRideAndFinish(self.search)
-        }
+        search?.delegate?.mileusShowTaxiRideAndFinish(search)
     }
     
     private func formatLocation(location: MileusWatchdogLocation) -> String {
