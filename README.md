@@ -45,6 +45,37 @@ MileusWatchdogKit.configure(
 ) // throws exception (MileusWatchdogError.invalidInput) if partnerName or accessToken is an empty string
 ```
 
+## Migration
+### 1.1.0 -> 1.2.0
+#### Mileus Watchdog Search
+Update location methods have been replaced with one universal method:
+``` swift
+// 1.1.0
+func updateOrigin(location: MileusWatchdogLocation)
+func updateDestination(location: MileusWatchdogLocation)
+
+// 1.2.0
+func update(location: MileusWatchdogLocation, type: MileusWatchdogSearchType)
+func update(searchData: MileusWatchdogSearchData)
+```
+
+#### Mileus Watchdog Search Data
+This structure has been changed to be universal. We removed origin a destination attributes and added universal location attribute.
+``` swift
+// 1.1.0
+struct MileusWatchdogSearchData {
+    let type: MileusWatchdogSearchType
+    let origin: MileusWatchdogLocation
+    let destination: MileusWatchdogLocation
+}
+
+// 1.2.0
+struct MileusWatchdogSearchData {
+    let type: MileusWatchdogSearchType
+    let location: MileusWatchdogLocation
+}
+```
+
 ## Usage
 
 ### Start Mileus Watchdog screen
@@ -85,8 +116,11 @@ When it is called you should open your search view controller.
 Update origin or destination according to user’s choice:
 
 ``` swift
-mileusWatchdogSearch.updateOrigin(location: MileusWatchdogLocation)
-mileusWatchdogSearch.updateDestination(location: MileusWatchdogLocation)
+mileusWatchdogSearch.update(location: MileusWatchdogLocation, type: MileusWatchdogSearchType)
+```
+or
+```
+mileusWatchdogSearch.update(searchData: MileusWatchdogSearchData)
 ```
 
 #### Open taxi ride Activity
@@ -144,6 +178,83 @@ func mileusDidFinish(_ mileus: MileusMarketValidation)
 
 You are responsible for closing `mileusVC`. You get `mileusVC` after calling `mileusMarketValidation.show(from:)`.
 
+### Start Mileus Watchdog Scheduling screen
+This is an entry point for opening the screen for scheduling watchdogs. Use it to open Watchdog Scheduling from your user interface, as well as for opening Watchdog Scheduling from notification. You can optionally pass the home location which will be used as the destination, if your app allows choosing one; otherwise the feature itself will allow the user to choose it. It will only be used as the default value, the user can still pick a different one within the feature.
+
+You have to keep a reference to mileusScheduler instance as long as you need it.
+``` swift
+let mileusScheduler = MileusWatchdogScheduler(
+	delegate: MileusMarketValidationFlowDelegate,
+    homeLocation: MileusWatchdogLocation? = nil
+) // throws exception (MileusWatchdogError.instanceAlreadyExists) if you have already created an instance or exception (MileusWatchdogError.sdkIsNotInitialized) if you have not initialized sdk yet or (MileusWatchdogError.insufficientLocationPermission) if the app does not have sufficient location permissions.
+```
+
+Show Mileus Watchdog Scheduling screen:
+``` swift
+let mileusSchedulerVC = mileusScheduler.show(from: UIViewController)
+```
+
+#### Watchdog Scheduling Flow Delegate
+Methods of Flow Delegate are always called on the main thread.
+
+``` swift
+protocol MileusWatchdogSchedulerFlowDelegate {
+    func mileus(_ mileus: MileusWatchdogScheduler, 
+        	     showSearch data: MileusWatchdogSearchData)
+    func mileusDidFinish(_ mileus: MileusWatchdogScheduler)
+}
+```
+
+
+#### Search for origin or destination
+``` swift
+func mileus(_ mileus: MileusWatchdogScheduler, showSearch data: MileusWatchdogSearchData)
+```
+
+When it is called you should open your search view controller.
+
+Update home location:
+
+``` swift
+mileusSchedulerVC.updateHome(location: MileusWatchdogLocation)
+```
+
+#### Finish
+``` swift
+func mileusDidFinish(_ mileus: MileusWatchdogScheduler)
+```
+
+### Background Location Sync
+We use a foreground service to initiate the synchronization of the user's location when the scheduled watchdog is about to start. Call this method to start the service. Get the appropriate location permission from a user before calling this method. Moreover, make sure that you have set the location permission text in Info.plist before calling it, otherwise your app will crash:
+
+``` swift
+let locationSync = MileusWatchdogLocationSync() // throws exception (MileusWatchdogError.insufficientLocationPermission) if the app does not have sufficient location permissions.
+
+locationSync.start(completion:)
+```
+
+### Styling
+When you call show(from:) method it returns UINavigationController. You have full access to UIKit elements such as navigationBar or navigationItem and so on. Feel free to customize it as you need. 
+
+If you change or remove something from a navigation item, such as bar buttons or title, you are responsible for this change and the UI of the SDK does not have to work properly after this change.
+
+Example:
+``` swift
+let navigationController = show(from: yourCurrentViewController)
+// Transparent bar background colour
+navigationController.navigationBar.backgroundColor = .red 
+// Solid bar background colour
+navigationController.navigationBar.barTintColor = .green
+// Bar buttons colour
+navigationController.navigationBar.tintColor = .blue
+// Title font and colour
+navigationController.navigationBar.titleTextAttributes = 
+[
+NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18.0),
+	NSAttributedString.Key.foregroundColor : UIColor.orange
+]
+```
+
 ## Models
 
 ### Classes
@@ -152,13 +263,13 @@ You are responsible for closing `mileusVC`. You get `mileusVC` after calling `mi
 ``` swift
 class MileusWatchdogSearch {
     init(delegate: MileusWatchdogSearchFlowDelegate, 
-    origin: MileusWatchdogLocation? = nil, 
-    destination: MileusWatchdogLocation? = nil
+        origin: MileusWatchdogLocation? = nil, 
+        destination: MileusWatchdogLocation? = nil
     )
 
     func show(from: UIViewController) -> UIViewController
-    func updateOrigin(location: MileusWatchdogLocation)
-    func updateDestination(location: MileusWatchdogLocation)
+    func update(location: MileusWatchdogLocation, type: MileusWatchdogSearchType)
+    func update(searchData: MileusWatchdogSearchData)
 }
 ```
 
@@ -166,11 +277,34 @@ class MileusWatchdogSearch {
 ``` swift
 class MileusMarketValidation {
     init(delegate: MileusMarketValidationFlowDelegate, 
-    origin: MileusWatchdogLocation, 
-    destination: MileusWatchdogLocation
+        origin: MileusWatchdogLocation, 
+        destination: MileusWatchdogLocation
     )
 
     func show(from: UIViewController) -> UIViewController
+}
+```
+
+#### Mileus Watchdog Scheduler
+``` swift
+class MileusWatchdogScheduler {
+    init(delegate: MileusWatchdogSchedulerFlowDelegate, 
+        homeLocation: MileusWatchdogLocation? = nil, 
+    )
+    
+    func show(from: UIViewController) -> UINavigationController
+    func updateHome(location: MileusWatchdogLocation)
+}
+```
+
+#### Mileus Watchdog Location Sync
+``` swift
+class MileusWatchdogLocationSync {
+    init()
+    
+    
+    func start(completion: CompletionHandler? = nil)
+    func stop()
 }
 ```
 
@@ -194,13 +328,21 @@ protocol MileusMarketValidationFlowDelegate {
 }
 ```
 
+#### Mileus Watchdog Scheduler Flow Delegate
+``` swift
+protocol MileusWatchdogSchedulerFlowDelegate {
+    func mileus(_ mileus: MileusWatchdogScheduler, 
+        	     showSearch data: MileusWatchdogSearchData)
+    func mileusDidFinish(_ mileus: MileusWatchdogScheduler)
+}
+```
+
 ### Data
 #### Search Data
 ``` swift
 struct MileusWatchdogSearchData {
     let type: MileusWatchdogSearchType
-    let origin: MileusWatchdogLocation
-    let destination: MileusWatchdogLocation
+    let location: MileusWatchdogLocation
 }
 ```
 
@@ -234,6 +376,7 @@ enum MileusWatchdogEnvironment {
 enum MileusWatchdogSearchType {
     case origin
     case destination
+    case home
 }
 ```
 
@@ -243,6 +386,7 @@ enum MileusWatchdogError: Error {
     case invalidInput
     case instanceAlreadyExists
     case sdkIsNotInitialized
+    case insufficientLocationPermission
     case unknown
 }
 ```
