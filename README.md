@@ -390,3 +390,6 @@ enum MileusWatchdogError: Error {
     case unknown
 }
 ```
+
+## Internal Class Diagram of SDK structure
+![Internal Class Diagram of SDK structure](Documentation/MileusInternalSDKClassDiagram.png?raw=true "Internal Class Diagram of SDK structure")
