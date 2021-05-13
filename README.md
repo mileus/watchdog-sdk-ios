@@ -46,11 +46,11 @@ MileusWatchdogKit.configure(
 ```
 
 ## Migration
-### 1.1.0 -> 2.0.0
+### 1.0.2 -> 2.0.0
 #### Mileus Watchdog Search
 Update location methods have been replaced with one universal method:
 ``` swift
-// 1.1.0
+// 1.0.2
 func updateOrigin(location: MileusWatchdogLocation)
 func updateDestination(location: MileusWatchdogLocation)
 
@@ -62,7 +62,7 @@ func update(searchData: MileusWatchdogSearchData)
 #### Mileus Watchdog Search Data
 This structure has been changed to be universal. We removed origin a destination attributes and added universal location attribute.
 ``` swift
-// 1.1.0
+// 1.0.2
 struct MileusWatchdogSearchData {
     let type: MileusWatchdogSearchType
     let origin: MileusWatchdogLocation
