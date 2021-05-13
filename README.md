@@ -54,7 +54,7 @@ Update location methods have been replaced with one universal method:
 func updateOrigin(location: MileusWatchdogLocation)
 func updateDestination(location: MileusWatchdogLocation)
 
-// 1.2.0
+// 2.0.0
 func update(location: MileusWatchdogLocation, type: MileusWatchdogSearchType)
 func update(searchData: MileusWatchdogSearchData)
 ```
@@ -69,7 +69,7 @@ struct MileusWatchdogSearchData {
     let destination: MileusWatchdogLocation
 }
 
-// 1.2.0
+// 2.0.0
 struct MileusWatchdogSearchData {
     let type: MileusWatchdogSearchType
     let location: MileusWatchdogLocation
