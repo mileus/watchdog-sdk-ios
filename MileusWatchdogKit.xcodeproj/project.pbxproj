@@ -61,6 +61,7 @@
 		1898175E245818AB00803ED5 /* OfflineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1898175D245818AB00803ED5 /* OfflineView.xib */; };
 		18A457742477E0DF00EB666E /* MileusWatchdogLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A457732477E0DF00EB666E /* MileusWatchdogLocation.swift */; };
 		18A457772477E15B00EB666E /* MileusWatchdogSearchFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A457762477E15B00EB666E /* MileusWatchdogSearchFlowDelegate.swift */; };
+		18FA3E28265426AF00E21209 /* ScreenSwitchedCallbackMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FA3E27265426AF00E21209 /* ScreenSwitchedCallbackMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +134,7 @@
 		1898175D245818AB00803ED5 /* OfflineView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfflineView.xib; sourceTree = "<group>"; };
 		18A457732477E0DF00EB666E /* MileusWatchdogLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MileusWatchdogLocation.swift; sourceTree = "<group>"; };
 		18A457762477E15B00EB666E /* MileusWatchdogSearchFlowDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MileusWatchdogSearchFlowDelegate.swift; sourceTree = "<group>"; };
+		18FA3E27265426AF00E21209 /* ScreenSwitchedCallbackMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenSwitchedCallbackMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -325,6 +327,7 @@
 				1878F4BA25ECFB3F0067640A /* OpenTaxiRideMessage.swift */,
 				1878F4BE25ECFBF80067640A /* OpenTaxiRideScreenAndFinishMessage.swift */,
 				1878F4C225ECFC360067640A /* CloseMarketValidationMessage.swift */,
+				18FA3E27265426AF00E21209 /* ScreenSwitchedCallbackMessage.swift */,
 				1878F4E725EE062A0067640A /* InfoIconVisibilityMessage.swift */,
 				1878F4EB25EE066A0067640A /* InfoIconTitleMessage.swift */,
 				18807D12262699260012608C /* LocationScanningMessage.swift */,
@@ -569,6 +572,7 @@
 				18807D13262699260012608C /* LocationScanningMessage.swift in Sources */,
 				1878F4BF25ECFBF80067640A /* OpenTaxiRideScreenAndFinishMessage.swift in Sources */,
 				18A457772477E15B00EB666E /* MileusWatchdogSearchFlowDelegate.swift in Sources */,
+				18FA3E28265426AF00E21209 /* ScreenSwitchedCallbackMessage.swift in Sources */,
 				1878F77B25F0A08B0067640A /* LocationService.swift in Sources */,
 				1878F4B325ECC9E90067640A /* WebViewMessage.swift in Sources */,
 				18543CD62437352A00363CF0 /* MileusWatchdogEnvironment.swift in Sources */,
