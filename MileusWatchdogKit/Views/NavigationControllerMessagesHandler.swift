@@ -15,7 +15,8 @@ final class NavigationControllerMessagesHandler {
     func getMessages() -> [WebViewMessage] {
         [
             getInfoIconVisibilityMessage(),
-            getIntoIconTitleMessage()
+            getIntoIconTitleMessage(),
+            getScreenSwitchedCallbackMessage()
         ]
     }
     
@@ -34,6 +35,12 @@ final class NavigationControllerMessagesHandler {
     private func getIntoIconTitleMessage() -> WebViewMessage {
         InfoIconTitleMessage { [weak self] title in
             self?.delegate?.setTitle(title: title)
+        }
+    }
+    
+    private func getScreenSwitchedCallbackMessage() -> WebViewMessage {
+        ScreenSwitchedCallbackMessage { [weak self] in
+            self?.webView?.jsDelegate?.jsDidCommitNavigation()
         }
     }
     

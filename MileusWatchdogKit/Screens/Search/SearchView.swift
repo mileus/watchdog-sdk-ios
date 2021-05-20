@@ -75,7 +75,7 @@ class SearchView: UIView {
         
         webView.backgroundColor = UIColor.clear
         webView.navigationDelegate = self
-        
+        webView.jsDelegate = self
         insertSubview(loadingView, aboveSubview: webView)
     }
     
@@ -136,4 +136,10 @@ extension SearchView: WKNavigationDelegate {
         showOfflineView()
     }
     
+}
+
+extension SearchView: CustomJSWebViewDelegate {
+    func jsDidCommitNavigation() {
+        configureBackButton()
+    }
 }
