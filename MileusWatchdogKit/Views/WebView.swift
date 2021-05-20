@@ -1,6 +1,9 @@
 
 import WebKit
 
+protocol CustomJSWebViewDelegate: class {
+    func jsDidCommitNavigation()
+}
 
 final class WebView: WKWebView {
     
@@ -9,6 +12,7 @@ final class WebView: WKWebView {
     }
     
     private let messagesHandler: WebViewMessagesHandler
+    weak var jsDelegate: CustomJSWebViewDelegate?
     
     init(messages: [WebViewMessage]) {
         let contentController = WKUserContentController()
@@ -50,3 +54,4 @@ final class WebView: WKWebView {
     }
     
 }
+
