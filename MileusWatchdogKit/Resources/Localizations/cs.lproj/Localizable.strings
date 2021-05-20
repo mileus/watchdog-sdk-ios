@@ -1,14 +1,7 @@
-/* 
-  Localizable.strings
-  MileusWatchdogKit
-
-  Created by Libor Polehna on 17/07/2020.
-  Copyright © 2020 SKOUMAL, s.r.o. All rights reserved.
-*/
 
 "watchdog_search_title" = "MHD + Taxi";
 
-"offline_title" = "Something went wrong";
-"offline_message" = "Check your internet connection and try again.";
+"offline_title" = "Něco se pokazilo";
+"offline_message" = "Zkontrolujte připojení k internetu a zkuste to znovu.";
 
-"try_again_button_title" = "Try again";
+"try_again_button_title" = "Načíst znovu";

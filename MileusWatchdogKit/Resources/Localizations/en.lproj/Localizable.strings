@@ -1,10 +1,3 @@
-/* 
-  Localizable.strings
-  MileusWatchdogKit
-
-  Created by Libor Polehna on 17/07/2020.
-  Copyright © 2020 SKOUMAL, s.r.o. All rights reserved.
-*/
 
 "watchdog_search_title" = "Public transport + Taxi";
 
