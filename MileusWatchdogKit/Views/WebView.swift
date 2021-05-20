@@ -1,7 +1,7 @@
 
 import WebKit
 
-protocol CustomJSWebViewDelegate: class {
+protocol CustomJSWebViewDelegate: AnyObject {
     func jsDidCommitNavigation()
 }
 
