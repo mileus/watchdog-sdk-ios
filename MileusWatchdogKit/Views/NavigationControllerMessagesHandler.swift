@@ -39,7 +39,7 @@ final class NavigationControllerMessagesHandler {
     }
     
     private func getScreenSwitchedCallbackMessage() -> WebViewMessage {
-        ScreenSwitchedCallback { [weak self] in
+        ScreenSwitchedCallbackMessage { [weak self] in
             self?.webView?.jsDelegate?.jsDidCommitNavigation()
         }
     }

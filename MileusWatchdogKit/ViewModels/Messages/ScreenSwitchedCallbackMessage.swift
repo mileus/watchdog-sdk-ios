@@ -1,16 +1,8 @@
-//
-//  ScreenSwitchedCallbackMessage.swift
-//  MileusWatchdogKit
-//
-//  Created by Michal Miko on 18.05.2021.
-//  Copyright © 2021 SKOUMAL, s.r.o. All rights reserved.
-//
-
 
 import Foundation
 
 
-struct ScreenSwitchedCallback: WebViewMessage {
+struct ScreenSwitchedCallbackMessage: WebViewMessage {
     
     let identifier = "screenSwitchedCallback"
     
