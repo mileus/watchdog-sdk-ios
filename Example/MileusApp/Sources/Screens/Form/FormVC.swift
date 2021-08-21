@@ -34,6 +34,7 @@ final class FormVC: UIViewController {
         contentView.searchButton.addTarget(self, action: #selector(searchButtonPressed(sender:)), for: .touchUpInside)
         contentView.validationButton.addTarget(self, action: #selector(validationButtonPressed(sender:)), for: .touchUpInside)
         contentView.schedulerButton.addTarget(self, action: #selector(schedulerButtonPressed(sender:)), for: .touchUpInside)
+        contentView.oneTimeSearchButton.addTarget(self, action: #selector(oneTimeSearchButtonPressed(sender:)), for: .touchUpInside)
     }
     
     private func bind() {
@@ -92,7 +93,12 @@ final class FormVC: UIViewController {
         askForNotificationPermission { [weak self] in
             self?.minimizeAndFireLocationScanningLocalNotification()
         }
-        
+    }
+    
+    @objc
+    private func oneTimeSearchButtonPressed(sender: AnyObject) {
+        update()
+        mileusVC = viewModel.oneTimeSearch(delegate: self).show(from: self)
     }
     
     private func askForNotificationPermission(success: @escaping () -> Void) {
@@ -186,6 +192,12 @@ extension FormVC: MileusWatchdogSchedulerFlowDelegate {
         showLocationVC(data: data)
     }
     
+}
+
+extension FormVC: MileusOneTimeSearchFlowDelegate {
+    func mileusDidFinish(_ mileus: MileusOneTimeSearch) {
+        closeMileus(completion: nil)
+    }
 }
 
 

@@ -21,10 +21,8 @@ final class WebViewMessagesHandler: NSObject {
         messages.forEach { message in
             content.add(delegate, name: message.identifier)
         }
-    }
-    
+    }    
 }
-
 
 extension WebViewMessagesHandler: WKScriptMessageHandler {
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {

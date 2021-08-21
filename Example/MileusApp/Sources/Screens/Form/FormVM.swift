@@ -24,6 +24,7 @@ class FormVM {
     let environments: [String]
     
     var mileusSearch: MileusWatchdogSearch?
+    var mileusOneTimeSearch: MileusOneTimeSearch?
     var mileusMarketValidation: MileusMarketValidation?
     var mileusWatchdogScheduler: MileusWatchdogScheduler?
     var mileusWatchdogLocationSync: MileusWatchdogLocationSync?
@@ -81,6 +82,12 @@ class FormVM {
         mileusSearch = try! MileusWatchdogSearch(delegate: delegate, origin: getOrigin(), destination: getDestination())
         
         return mileusSearch!
+    }
+    
+    func oneTimeSearch(delegate: MileusOneTimeSearchFlowDelegate) -> MileusOneTimeSearch {
+        reinitSDK()
+        mileusOneTimeSearch = try! MileusOneTimeSearch(delegate: delegate)
+        return mileusOneTimeSearch!
     }
     
     func validation(delegate: MileusMarketValidationFlowDelegate) -> MileusMarketValidation {
