@@ -17,7 +17,7 @@ public final class MileusOneTimeSearch {
     
     private var mileusSearch: MileusWatchdogSearch!
     
-    public init(delegate: MileusOneTimeSearchFlowDelegate) throws {
+    public init(delegate: MileusOneTimeSearchFlowDelegate, explanationDialogKey: String) throws {
         if Self.alreadyInitialized {
             throw MileusWatchdogError.instanceAlreadyExists
         }
@@ -28,6 +28,7 @@ public final class MileusOneTimeSearch {
             ignoreLocationPermission: false
         )
         mileusSearch.mode = .oneTimeSearch
+        
         Self.alreadyInitialized = true
     }
     

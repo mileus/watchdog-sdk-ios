@@ -84,9 +84,9 @@ class FormVM {
         return mileusSearch!
     }
     
-    func oneTimeSearch(delegate: MileusOneTimeSearchFlowDelegate) -> MileusOneTimeSearch {
+    func oneTimeSearch(delegate: MileusOneTimeSearchFlowDelegate, explanationDialogKey: String) -> MileusOneTimeSearch {
         reinitSDK()
-        mileusOneTimeSearch = try! MileusOneTimeSearch(delegate: delegate)
+        mileusOneTimeSearch = try! MileusOneTimeSearch(delegate: delegate, explanationDialogKey: explanationDialogKey)
         return mileusOneTimeSearch!
     }
     

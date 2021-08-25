@@ -98,7 +98,8 @@ final class FormVC: UIViewController {
     @objc
     private func oneTimeSearchButtonPressed(sender: AnyObject) {
         update()
-        mileusVC = viewModel.oneTimeSearch(delegate: self).show(from: self)
+        guard let key = contentView.explanationKey.text else { return }
+        mileusVC = viewModel.oneTimeSearch(delegate: self, explanationDialogKey: key).show(from: self)
     }
     
     private func askForNotificationPermission(success: @escaping () -> Void) {

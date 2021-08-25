@@ -10,6 +10,7 @@ public final class MileusWatchdogSearch {
     internal var mode = MileusModeType.watchdog
     
     private var locations: [MileusWatchdogLabeledLocation]
+    private var explanationDialogKey: String?
     
     private var rootVC: UINavigationController?
     private weak var searchVM: SearchVM?
@@ -43,6 +44,22 @@ public final class MileusWatchdogSearch {
         }
         self.delegate = MainDispatchDecorator(decoratee: delegate)
         self.locations = locations
+        Self.alreadyInitialized = true
+    }
+    
+    internal init(delegate: MileusWatchdogSearchFlowDelegate, explanationDialogKey: String, ignoreLocationPermission: Bool) throws {
+        if !MileusWatchdogKit.isInitialized {
+            throw MileusWatchdogError.sdkIsNotInitialized
+        }
+        if Self.alreadyInitialized {
+            throw MileusWatchdogError.instanceAlreadyExists
+        }
+        if !ignoreLocationPermission && !CoreLocationService().isAllowed {
+            throw MileusWatchdogError.insufficientLocationPermission
+        }
+        self.delegate = MainDispatchDecorator(decoratee: delegate)
+        self.explanationDialogKey = explanationDialogKey
+        self.locations = []
         Self.alreadyInitialized = true
     }
     
@@ -101,6 +118,9 @@ public final class MileusWatchdogSearch {
             URLQueryItem(name: "language", value: languageCode),
             URLQueryItem(name: "screen", value: mode.rawValue)
         ]
+        if let explanationDialogKey = explanationDialogKey {
+            components.queryItems?.append(URLQueryItem(name: "str_key_explanation_dialog", value: explanationDialogKey))
+        }
         for location in locations {
             let prefix = location.label.rawValue
             if let addressFirstLine = location.data.address?.firstLine {

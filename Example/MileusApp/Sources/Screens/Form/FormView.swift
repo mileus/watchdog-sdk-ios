@@ -16,6 +16,9 @@ class FormView: UIView {
     @IBOutlet weak var validationButton: UIButton!
     @IBOutlet weak var schedulerButton: UIButton!
     @IBOutlet weak var oneTimeSearchButton: UIButton!
+    @IBOutlet weak var explanationKey: TextField!
+    
+    
     
     var environments: [String] = [] {
         didSet {
