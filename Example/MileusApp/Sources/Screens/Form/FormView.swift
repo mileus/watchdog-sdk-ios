@@ -1,7 +1,6 @@
 
 import UIKit
 
-
 class FormView: UIView {
 
     @IBOutlet weak var scrollView: UIScrollView!
@@ -17,8 +16,6 @@ class FormView: UIView {
     @IBOutlet weak var schedulerButton: UIButton!
     @IBOutlet weak var oneTimeSearchButton: UIButton!
     @IBOutlet weak var explanationKey: TextField!
-    
-    
     
     var environments: [String] = [] {
         didSet {
