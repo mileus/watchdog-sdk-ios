@@ -8,6 +8,7 @@ public enum MileusWatchdogError: Error {
     case instanceAlreadyExists
     case sdkIsNotInitialized
     case insufficientLocationPermission
+    case fatalInvalidState(message: String)
     case unknown
     
 }

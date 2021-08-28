@@ -12,7 +12,9 @@ class SearchVM: NSObject, WebViewMessagesDelegate {
             OpenTaxiRideMessage(action: { [weak self] in self?.openTaxiRide() }),
             OpenTaxiRideScreenAndFinishMessage(action: { [weak self] in self?.openTaxiRideAndFinish() }),
             CloseMarketValidationMessage(action: { [weak self] in self?.didFinish() }),
-            LocationScanningMessage(action: { [weak self] in self?.startLocationScanning() })
+            LocationScanningMessage(action: { [weak self] in self?.startLocationScanning() }),
+            FinishFlowMessage(action: { [weak self] in self?.didFinish() }),
+            FinishFlowMessageWithError(action: { [weak self] (error) in self?.didFinish(with: error) })
         ]
     }()
     
@@ -63,6 +65,10 @@ class SearchVM: NSObject, WebViewMessagesDelegate {
     }
     
     func didFinish() {
+        search?.delegate?.mileusDidFinish(search)
+    }
+    
+    func didFinish(with error: MileusWatchdogError) {
         search?.delegate?.mileusDidFinish(search)
     }
     

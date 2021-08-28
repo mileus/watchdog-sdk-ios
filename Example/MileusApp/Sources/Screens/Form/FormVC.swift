@@ -128,7 +128,6 @@ final class FormVC: UIViewController {
 }
 
 extension FormVC: MileusWatchdogSearchFlowDelegate {
-    
     func mileus(_ mileus: MileusWatchdogSearch, showSearch data: MileusWatchdogSearchData) {
         viewModel.searchData = data
         showLocationVC(data: data)
@@ -145,6 +144,10 @@ extension FormVC: MileusWatchdogSearchFlowDelegate {
     }
     
     func mileusDidFinish(_ mileus: MileusWatchdogSearch) {
+        closeMileus(completion: nil)
+    }
+    
+    func mileusDidFinish(_ mileus: MileusWatchdogSearch, with error: MileusWatchdogError) {
         closeMileus(completion: nil)
     }
     
@@ -168,6 +171,7 @@ extension FormVC: MileusWatchdogSearchFlowDelegate {
         viewModel.mileusSearch = nil
         viewModel.mileusMarketValidation = nil
         viewModel.mileusWatchdogScheduler = nil
+        viewModel.mileusOneTimeSearch = nil
     }
     
 }
@@ -198,6 +202,15 @@ extension FormVC: MileusWatchdogSchedulerFlowDelegate {
 extension FormVC: MileusOneTimeSearchFlowDelegate {
     func mileusDidFinish(_ mileus: MileusOneTimeSearch) {
         closeMileus(completion: nil)
+    }
+    
+    func mileusDidFinish(_ mileus: MileusOneTimeSearch, with error: MileusWatchdogError) {
+        switch error {
+        case .fatalInvalidState(message: let message):
+            fatalError(message)
+        default:
+            break
+        }
     }
 }
 

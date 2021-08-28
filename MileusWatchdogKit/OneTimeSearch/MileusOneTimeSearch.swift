@@ -42,7 +42,6 @@ public final class MileusOneTimeSearch {
 
 
 extension MileusOneTimeSearch: MileusWatchdogSearchFlowDelegate {
-    
     public func mileus(_ mileus: MileusWatchdogSearch, showSearch data: MileusWatchdogSearchData) {
 
     }
@@ -59,4 +58,7 @@ extension MileusOneTimeSearch: MileusWatchdogSearchFlowDelegate {
         delegate?.mileusDidFinish(self)
     }
     
+    public func mileusDidFinish(_ mileus: MileusWatchdogSearch, with error: MileusWatchdogError) {
+        
+    }
 }

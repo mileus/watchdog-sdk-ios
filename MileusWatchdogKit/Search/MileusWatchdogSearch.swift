@@ -47,20 +47,9 @@ public final class MileusWatchdogSearch {
         Self.alreadyInitialized = true
     }
     
-    internal init(delegate: MileusWatchdogSearchFlowDelegate, explanationDialogKey: String, ignoreLocationPermission: Bool) throws {
-        if !MileusWatchdogKit.isInitialized {
-            throw MileusWatchdogError.sdkIsNotInitialized
-        }
-        if Self.alreadyInitialized {
-            throw MileusWatchdogError.instanceAlreadyExists
-        }
-        if !ignoreLocationPermission && !CoreLocationService().isAllowed {
-            throw MileusWatchdogError.insufficientLocationPermission
-        }
-        self.delegate = MainDispatchDecorator(decoratee: delegate)
+    internal convenience init(delegate: MileusWatchdogSearchFlowDelegate, explanationDialogKey: String, ignoreLocationPermission: Bool) throws {
+        try self.init(delegate: delegate)
         self.explanationDialogKey = explanationDialogKey
-        self.locations = []
-        Self.alreadyInitialized = true
     }
     
     deinit {
