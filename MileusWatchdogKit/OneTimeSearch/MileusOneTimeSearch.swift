@@ -33,11 +33,6 @@ public final class MileusOneTimeSearch {
     public func show(from: UIViewController) -> UINavigationController {
         mileusSearch.show(from: from)
     }
-    
-    public func updateHome(location: MileusWatchdogLocation) {
-        mileusSearch.update(location: location, type: .home)
-    }
-    
 }
 
 
@@ -58,7 +53,7 @@ extension MileusOneTimeSearch: MileusWatchdogSearchFlowDelegate {
         delegate?.mileusDidFinish(self)
     }
     
-    public func mileusDidFinish(_ mileus: MileusWatchdogSearch, with error: MileusWatchdogError) {
-        
+    public func mileusDidFinish(_ mileus: MileusWatchdogSearch, with error: MileusFlowError) {
+        delegate?.mileusDidFinish(self, with: error)
     }
 }

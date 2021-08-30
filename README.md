@@ -150,7 +150,7 @@ Special entry point for one time search. You only need to init Mileus SDK and us
 
 You have to keep a reference to `mileusOneTimeSearch` instance as long as you need it.
 ``` swift
-let mileusOneTimeSearchValidation = MileusOneTimeSearch(
+let mileusOneTimeSearch = MileusOneTimeSearch(
     delegate: MileusOneTimeSearchFlowDelegate, explanationDialogKey: String)
 ) // throws exception (MileusWatchdogError.instanceAlreadyExists) if you have already created an instance or exception (MileusWatchdogError.sdkIsNotInitialized) if you have not initialized sdk yet.
 ```
@@ -165,17 +165,17 @@ Methods of Flow Delegate are always called on the main thread.
 
 ``` swift
 protocol MileusOneTimeSearchFlowDelegate {
-    func mileusDidFinish(_ mileus: MileusMarketValidation)
-    func mileusDidFinish(_ mileus: MileusMarketValidation, with error: MileusWatchdogError)
+    func mileusDidFinish(_ mileus: MileusOneTimeSearch)
+    func mileusDidFinish(_ mileus: MileusOneTimeSearch, with error: MileusWatchdogError)
 }
 ```
 
 #### Finish
 ``` swift
-func mileusDidFinish(_ mileus: MileusMarketValidation)
+func mileusDidFinish(_ mileus: MileusOneTimeSearch)
 ```
 
-You are responsible for closing `mileusVC`. You get `mileusVC` after calling `mileusMarketValidation.show(from:)`.
+You are responsible for closing `mileusVC`. You get `mileusVC` after calling `mileusOneTimeSearch.show(from:)`.
 
 
 #### Finish with Error

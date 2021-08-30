@@ -5,9 +5,9 @@ struct FinishFlowMessageWithError: WebViewMessage {
     
     let identifier = "finishFlowWithError"
     
-    private let action: (MileusWatchdogError) -> Void
+    private let action: (MileusFlowError) -> Void
     
-    init(action: @escaping (MileusWatchdogError) -> Void) {
+    init(action: @escaping (MileusFlowError) -> Void) {
         self.action = action
     }
     
@@ -19,7 +19,7 @@ struct FinishFlowMessageWithError: WebViewMessage {
         guard let message = data as? String else {
             return false
         }
-        action(.fatalInvalidState(message: message))
+        action(.invalidState(message: message))
         return true
     }
 }

@@ -47,7 +47,7 @@ extension MainDispatchDecorator: MileusWatchdogSearchFlowDelegate {
         }
     }
     
-    func mileusDidFinish(_ mileus: MileusWatchdogSearch, with error: MileusWatchdogError) {
+    func mileusDidFinish(_ mileus: MileusWatchdogSearch, with error: MileusFlowError) {
         performOnMainThread { [weak self] in
             self?.decoratee?.mileusDidFinish(mileus, with: error)
         }

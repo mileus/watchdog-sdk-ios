@@ -68,7 +68,7 @@ class SearchVM: NSObject, WebViewMessagesDelegate {
         search?.delegate?.mileusDidFinish(search)
     }
     
-    func didFinish(with error: MileusWatchdogError) {
+    func didFinish(with error: MileusFlowError) {
         search?.delegate?.mileusDidFinish(search)
     }
     

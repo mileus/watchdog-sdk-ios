@@ -55,7 +55,7 @@ extension MileusMarketValidation: MileusWatchdogSearchFlowDelegate {
         delegate?.mileusDidFinish(self)
     }
     
-    public func mileusDidFinish(_ mileus: MileusWatchdogSearch, with error: MileusWatchdogError) {
+    public func mileusDidFinish(_ mileus: MileusWatchdogSearch, with error: MileusFlowError) {
         
     }
     

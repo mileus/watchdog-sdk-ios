@@ -147,7 +147,7 @@ extension FormVC: MileusWatchdogSearchFlowDelegate {
         closeMileus(completion: nil)
     }
     
-    func mileusDidFinish(_ mileus: MileusWatchdogSearch, with error: MileusWatchdogError) {
+    func mileusDidFinish(_ mileus: MileusWatchdogSearch, with error: MileusFlowError) {
         closeMileus(completion: nil)
     }
     
@@ -204,16 +204,13 @@ extension FormVC: MileusOneTimeSearchFlowDelegate {
         closeMileus(completion: nil)
     }
     
-    func mileusDidFinish(_ mileus: MileusOneTimeSearch, with error: MileusWatchdogError) {
+    func mileusDidFinish(_ mileus: MileusOneTimeSearch, with error: MileusFlowError) {
         switch error {
-        case .fatalInvalidState(message: let message):
+        case .invalidState(message: let message):
             fatalError(message)
-        default:
-            break
         }
     }
 }
-
 
 extension FormVC: LocationFormDelegate {
     
