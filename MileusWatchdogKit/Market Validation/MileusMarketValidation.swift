@@ -38,7 +38,7 @@ public final class MileusMarketValidation {
 
 
 extension MileusMarketValidation: MileusWatchdogSearchFlowDelegate {
-    
+   
     public func mileus(_ mileus: MileusWatchdogSearch, showSearch data: MileusWatchdogSearchData) {
         
     }
@@ -53,6 +53,10 @@ extension MileusMarketValidation: MileusWatchdogSearchFlowDelegate {
     
     public func mileusDidFinish(_ mileus: MileusWatchdogSearch) {
         delegate?.mileusDidFinish(self)
+    }
+    
+    public func mileusDidFinish(_ mileus: MileusWatchdogSearch, with error: MileusFlowError) {
+        
     }
     
 }

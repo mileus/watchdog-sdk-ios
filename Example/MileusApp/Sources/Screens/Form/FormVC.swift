@@ -34,6 +34,7 @@ final class FormVC: UIViewController {
         contentView.searchButton.addTarget(self, action: #selector(searchButtonPressed(sender:)), for: .touchUpInside)
         contentView.validationButton.addTarget(self, action: #selector(validationButtonPressed(sender:)), for: .touchUpInside)
         contentView.schedulerButton.addTarget(self, action: #selector(schedulerButtonPressed(sender:)), for: .touchUpInside)
+        contentView.oneTimeSearchButton.addTarget(self, action: #selector(oneTimeSearchButtonPressed(sender:)), for: .touchUpInside)
     }
     
     private func bind() {
@@ -92,7 +93,13 @@ final class FormVC: UIViewController {
         askForNotificationPermission { [weak self] in
             self?.minimizeAndFireLocationScanningLocalNotification()
         }
-        
+    }
+    
+    @objc
+    private func oneTimeSearchButtonPressed(sender: AnyObject) {
+        update()
+        guard let key = contentView.explanationKey.text else { return }
+        mileusVC = viewModel.oneTimeSearch(delegate: self, explanationDialogKey: key).show(from: self)
     }
     
     private func askForNotificationPermission(success: @escaping () -> Void) {
@@ -121,7 +128,6 @@ final class FormVC: UIViewController {
 }
 
 extension FormVC: MileusWatchdogSearchFlowDelegate {
-    
     func mileus(_ mileus: MileusWatchdogSearch, showSearch data: MileusWatchdogSearchData) {
         viewModel.searchData = data
         showLocationVC(data: data)
@@ -138,6 +144,10 @@ extension FormVC: MileusWatchdogSearchFlowDelegate {
     }
     
     func mileusDidFinish(_ mileus: MileusWatchdogSearch) {
+        closeMileus(completion: nil)
+    }
+    
+    func mileusDidFinish(_ mileus: MileusWatchdogSearch, with error: MileusFlowError) {
         closeMileus(completion: nil)
     }
     
@@ -161,6 +171,7 @@ extension FormVC: MileusWatchdogSearchFlowDelegate {
         viewModel.mileusSearch = nil
         viewModel.mileusMarketValidation = nil
         viewModel.mileusWatchdogScheduler = nil
+        viewModel.mileusOneTimeSearch = nil
     }
     
 }
@@ -188,6 +199,18 @@ extension FormVC: MileusWatchdogSchedulerFlowDelegate {
     
 }
 
+extension FormVC: MileusOneTimeSearchFlowDelegate {
+    func mileusDidFinish(_ mileus: MileusOneTimeSearch) {
+        closeMileus(completion: nil)
+    }
+    
+    func mileusDidFinish(_ mileus: MileusOneTimeSearch, with error: MileusFlowError) {
+        switch error {
+        case .invalidState(message: let message):
+            fatalError(message)
+        }
+    }
+}
 
 extension FormVC: LocationFormDelegate {
     

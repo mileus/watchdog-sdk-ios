@@ -2,26 +2,26 @@
 import UIKit
 
 
-public final class MileusWatchdogScheduler {
+public final class MileusOneTimeSearch {
     
     private static var alreadyInitialized = false
     
-    internal private(set) weak var delegate: MileusWatchdogSchedulerFlowDelegate?
+    internal private(set) weak var delegate: MileusOneTimeSearchFlowDelegate?
     
     private var mileusSearch: MileusWatchdogSearch!
     
-    public init(delegate: MileusWatchdogSchedulerFlowDelegate, homeLocation: MileusWatchdogLocation? = nil) throws {
+    public init(delegate: MileusOneTimeSearchFlowDelegate, explanationDialogKey: String) throws {
         if Self.alreadyInitialized {
             throw MileusWatchdogError.instanceAlreadyExists
         }
         self.delegate = delegate
-        let locations = homeLocation == nil ? [] : [MileusWatchdogLabeledLocation(label: .home, data: homeLocation!)]
         mileusSearch = try MileusWatchdogSearch(
             delegate: self,
-            locations: locations,
+            locations: [],
             ignoreLocationPermission: false
         )
-        mileusSearch.mode = .watchdogScheduler
+        mileusSearch.mode = .oneTimeSearch
+        
         Self.alreadyInitialized = true
     }
     
@@ -33,18 +33,12 @@ public final class MileusWatchdogScheduler {
     public func show(from: UIViewController) -> UINavigationController {
         mileusSearch.show(from: from)
     }
-    
-    public func updateHome(location: MileusWatchdogLocation) {
-        mileusSearch.update(location: location, type: .home)
-    }
-    
 }
 
 
-extension MileusWatchdogScheduler: MileusWatchdogSearchFlowDelegate {
-    
+extension MileusOneTimeSearch: MileusWatchdogSearchFlowDelegate {
     public func mileus(_ mileus: MileusWatchdogSearch, showSearch data: MileusWatchdogSearchData) {
-        delegate?.mileus(self, showSearch: data)
+
     }
     
     public func mileusShowTaxiRide(_ mileus: MileusWatchdogSearch) {
@@ -60,7 +54,6 @@ extension MileusWatchdogScheduler: MileusWatchdogSearchFlowDelegate {
     }
     
     public func mileusDidFinish(_ mileus: MileusWatchdogSearch, with error: MileusFlowError) {
-        
+        delegate?.mileusDidFinish(self, with: error)
     }
-    
 }

@@ -61,6 +61,11 @@
 		1898175E245818AB00803ED5 /* OfflineView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1898175D245818AB00803ED5 /* OfflineView.xib */; };
 		18A457742477E0DF00EB666E /* MileusWatchdogLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A457732477E0DF00EB666E /* MileusWatchdogLocation.swift */; };
 		18A457772477E15B00EB666E /* MileusWatchdogSearchFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A457762477E15B00EB666E /* MileusWatchdogSearchFlowDelegate.swift */; };
+		18C7365A26DA4DAE004DD227 /* FinishFlowMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7365926DA4DAE004DD227 /* FinishFlowMessage.swift */; };
+		18C7365C26DA4E09004DD227 /* FinishFlowMessageWithError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C7365B26DA4E09004DD227 /* FinishFlowMessageWithError.swift */; };
+		18C73A3726DCCE73004DD227 /* MileusFlowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C73A3626DCCE73004DD227 /* MileusFlowError.swift */; };
+		18D2C58826D1455C00C5DF80 /* MileusOneTimeSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D2C58726D1455C00C5DF80 /* MileusOneTimeSearch.swift */; };
+		18D2C58A26D1458200C5DF80 /* MileusOneTimeSearchFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D2C58926D1458200C5DF80 /* MileusOneTimeSearchFlowDelegate.swift */; };
 		18FA3E28265426AF00E21209 /* ScreenSwitchedCallbackMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FA3E27265426AF00E21209 /* ScreenSwitchedCallbackMessage.swift */; };
 /* End PBXBuildFile section */
 
@@ -134,6 +139,11 @@
 		1898175D245818AB00803ED5 /* OfflineView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OfflineView.xib; sourceTree = "<group>"; };
 		18A457732477E0DF00EB666E /* MileusWatchdogLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MileusWatchdogLocation.swift; sourceTree = "<group>"; };
 		18A457762477E15B00EB666E /* MileusWatchdogSearchFlowDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MileusWatchdogSearchFlowDelegate.swift; sourceTree = "<group>"; };
+		18C7365926DA4DAE004DD227 /* FinishFlowMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishFlowMessage.swift; sourceTree = "<group>"; };
+		18C7365B26DA4E09004DD227 /* FinishFlowMessageWithError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishFlowMessageWithError.swift; sourceTree = "<group>"; };
+		18C73A3626DCCE73004DD227 /* MileusFlowError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileusFlowError.swift; sourceTree = "<group>"; };
+		18D2C58726D1455C00C5DF80 /* MileusOneTimeSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileusOneTimeSearch.swift; sourceTree = "<group>"; };
+		18D2C58926D1458200C5DF80 /* MileusOneTimeSearchFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileusOneTimeSearchFlowDelegate.swift; sourceTree = "<group>"; };
 		18FA3E27265426AF00E21209 /* ScreenSwitchedCallbackMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenSwitchedCallbackMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +206,7 @@
 				1878F78325F0B3D90067640A /* Networking */,
 				18543CDE243736F300363CF0 /* Search */,
 				183AA7B224AC3F5000E1CF00 /* Market Validation */,
+				18D2C58626D1453600C5DF80 /* OneTimeSearch */,
 				1878F4FE25EE18450067640A /* Scheduling */,
 				1878F50F25EE60AF0067640A /* Location */,
 				18872B7E243B09A800A127D2 /* Views */,
@@ -231,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				18543CD0243733C900363CF0 /* MileusWatchdogError.swift */,
+				18C73A3626DCCE73004DD227 /* MileusFlowError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -328,6 +340,8 @@
 				1878F4BE25ECFBF80067640A /* OpenTaxiRideScreenAndFinishMessage.swift */,
 				1878F4C225ECFC360067640A /* CloseMarketValidationMessage.swift */,
 				18FA3E27265426AF00E21209 /* ScreenSwitchedCallbackMessage.swift */,
+				18C7365926DA4DAE004DD227 /* FinishFlowMessage.swift */,
+				18C7365B26DA4E09004DD227 /* FinishFlowMessageWithError.swift */,
 				1878F4E725EE062A0067640A /* InfoIconVisibilityMessage.swift */,
 				1878F4EB25EE066A0067640A /* InfoIconTitleMessage.swift */,
 				18807D12262699260012608C /* LocationScanningMessage.swift */,
@@ -427,6 +441,15 @@
 				1898175D245818AB00803ED5 /* OfflineView.xib */,
 			);
 			path = Offline;
+			sourceTree = "<group>";
+		};
+		18D2C58626D1453600C5DF80 /* OneTimeSearch */ = {
+			isa = PBXGroup;
+			children = (
+				18D2C58726D1455C00C5DF80 /* MileusOneTimeSearch.swift */,
+				18D2C58926D1458200C5DF80 /* MileusOneTimeSearchFlowDelegate.swift */,
+			);
+			path = OneTimeSearch;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -550,6 +573,8 @@
 				1878F4F925EE0A8D0067640A /* InfoButtonClickInjection.swift in Sources */,
 				1878F51725EE67AA0067640A /* MileusWatchdogAddress.swift in Sources */,
 				18872B7B243B024400A127D2 /* SearchView.swift in Sources */,
+				18D2C58826D1455C00C5DF80 /* MileusOneTimeSearch.swift in Sources */,
+				18D2C58A26D1458200C5DF80 /* MileusOneTimeSearchFlowDelegate.swift in Sources */,
 				1878F79325F0BC910067640A /* LocationTrackingEndpoint.swift in Sources */,
 				18543CCD2437335500363CF0 /* MileusWatchdogKit.swift in Sources */,
 				1878F4EC25EE066A0067640A /* InfoIconTitleMessage.swift in Sources */,
@@ -558,6 +583,7 @@
 				183AA7B424AC3F7F00E1CF00 /* MileusMarketValidation.swift in Sources */,
 				1878F4B725ECF9D50067640A /* OpenSearchMessage.swift in Sources */,
 				1878F50025EE18680067640A /* MileusWatchdogScheduler.swift in Sources */,
+				18C7365C26DA4E09004DD227 /* FinishFlowMessageWithError.swift in Sources */,
 				1878F4A125ECBEF30067640A /* WebView.swift in Sources */,
 				1878F50825EE3AA60067640A /* MileusWatchdogSchedulerFlowDelegate.swift in Sources */,
 				1878F49125ECBCB00067640A /* NavigationBarWebDelegate.swift in Sources */,
@@ -573,6 +599,7 @@
 				1878F4BF25ECFBF80067640A /* OpenTaxiRideScreenAndFinishMessage.swift in Sources */,
 				18A457772477E15B00EB666E /* MileusWatchdogSearchFlowDelegate.swift in Sources */,
 				18FA3E28265426AF00E21209 /* ScreenSwitchedCallbackMessage.swift in Sources */,
+				18C7365A26DA4DAE004DD227 /* FinishFlowMessage.swift in Sources */,
 				1878F77B25F0A08B0067640A /* LocationService.swift in Sources */,
 				1878F4B325ECC9E90067640A /* WebViewMessage.swift in Sources */,
 				18543CD62437352A00363CF0 /* MileusWatchdogEnvironment.swift in Sources */,
@@ -590,6 +617,7 @@
 				1878F4F025EE07700067640A /* NavigationControllerMessagesHandler.swift in Sources */,
 				18872B7D243B025300A127D2 /* SearchVM.swift in Sources */,
 				1878F4E825EE062A0067640A /* InfoIconVisibilityMessage.swift in Sources */,
+				18C73A3726DCCE73004DD227 /* MileusFlowError.swift in Sources */,
 				18543CD1243733C900363CF0 /* MileusWatchdogError.swift in Sources */,
 				1878F4BB25ECFB3F0067640A /* OpenTaxiRideMessage.swift in Sources */,
 			);

@@ -102,6 +102,7 @@ protocol MileusWatchdogSearchFlowDelegate {
     func mileusShowTaxiRide(_ mileus: MileusWatchdogSearch)
     func mileusShowTaxiRideAndFinish(_ mileus: MileusWatchdogSearch)
     func mileusDidFinish(_ mileus: MileusWatchdogSearch)
+    func mileusDidFinish(_ mileus: MileusWatchdogSearch, with error: MileusWatchdogError)
 }
 ```
 
@@ -143,6 +144,47 @@ func mileusDidFinish(_ mileus: MileusWatchdogSearch)
 ```
 
 You are responsible for closing `mileusVC`. You get `mileusVC` after calling `mileusWatchdogSearch.show(from:)`.
+
+### Start Mileus One Time Seach screen
+Special entry point for one time search. You only need to init Mileus SDK and use one of the following methods to open the one time search. You should not open one time search if backend is not ready.
+
+You have to keep a reference to `mileusOneTimeSearch` instance as long as you need it.
+``` swift
+let mileusOneTimeSearch = MileusOneTimeSearch(
+    delegate: MileusOneTimeSearchFlowDelegate, explanationDialogKey: String)
+) // throws exception (MileusWatchdogError.instanceAlreadyExists) if you have already created an instance or exception (MileusWatchdogError.sdkIsNotInitialized) if you have not initialized sdk yet.
+```
+
+Show Mileus One Time Search screen:
+``` swift
+let mileusVC = mileusOneTimeSearch.show(from: UIViewController)
+```
+
+#### One Time Search Flow Delegate
+Methods of Flow Delegate are always called on the main thread.
+
+``` swift
+protocol MileusOneTimeSearchFlowDelegate {
+    func mileusDidFinish(_ mileus: MileusOneTimeSearch)
+    func mileusDidFinish(_ mileus: MileusOneTimeSearch, with error: MileusWatchdogError)
+}
+```
+
+#### Finish
+``` swift
+func mileusDidFinish(_ mileus: MileusOneTimeSearch)
+```
+
+You are responsible for closing `mileusVC`. You get `mileusVC` after calling `mileusOneTimeSearch.show(from:)`.
+
+
+#### Finish with Error
+``` swift
+func mileusDidFinish(_ mileus: MileusMarketValidation, with error: MileusWatchdogError)
+```
+
+You are responsible to never trigger this call. You receive error with message why error has occured. 
+
 
 ### Start Mileus Market Validation screen
 Special entry point for market validation purposes. In this mode no callbacks are called. You only need to init Mileus SDK and use one of the following methods to open the market validation screen. 
@@ -272,6 +314,16 @@ class MileusWatchdogSearch {
 }
 ```
 
+#### Mileus One Time Search
+``` swift
+class MileusOneTimeSearch {
+    init(delegate: MileusOneTimeSearchFlowDelegate, 
+        explanationDialogKey: String
+    )
+    func show(from: UIViewController) -> UIViewController
+}
+```
+
 #### Mileus Market Validation
 ``` swift
 class MileusMarketValidation {
@@ -317,6 +369,15 @@ protocol MileusWatchdogSearchFlowDelegate {
     func mileusShowTaxiRide(_ mileus: MileusWatchdogSearch)
     func mileusShowTaxiRideAndFinish(_ mileus: MileusWatchdogSearch)
     func mileusDidFinish(_ mileus: MileusWatchdogSearch)
+    func mileusDidFinish(_ mileus: MileusWatchdogSearch, with error: MileusWatchdogError)
+}
+```
+
+#### One time Search Flow Delegate
+``` swift
+protocol MileusOneTimeSearchFlowDelegate {
+    func mileusDidFinish(_ mileus: MileusWatchdogSearch)
+    func mileusDidFinish(_ mileus: MileusWatchdogSearch, with error: MileusWatchdogError)
 }
 ```
 
@@ -386,6 +447,7 @@ enum MileusWatchdogError: Error {
     case instanceAlreadyExists
     case sdkIsNotInitialized
     case insufficientLocationPermission
+    case fatalInvalidState(message: String)
     case unknown
 }
 ```
