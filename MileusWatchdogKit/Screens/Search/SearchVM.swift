@@ -14,7 +14,8 @@ class SearchVM: NSObject, WebViewMessagesDelegate {
             CloseMarketValidationMessage(action: { [weak self] in self?.didFinish() }),
             LocationScanningMessage(action: { [weak self] in self?.startLocationScanning() }),
             FinishFlowMessage(action: { [weak self] in self?.didFinish() }),
-            FinishFlowMessageWithError(action: { [weak self] (error) in self?.didFinish(with: error) })
+            FinishFlowMessageWithError(action: { [weak self] (error) in self?.didFinish(with: error) }),
+            SendSMSMessage(action: { [weak self] number, body in self?.sendSMS(number: number, body: body) })
         ]
     }()
     
@@ -70,6 +71,10 @@ class SearchVM: NSObject, WebViewMessagesDelegate {
     
     func didFinish(with error: MileusFlowError) {
         search?.delegate?.mileusDidFinish(search)
+    }
+    
+    func sendSMS(number: String, body: String) {
+        search.sendSMS(to: number, with: body)
     }
     
     func openSearch(data: MileusWatchdogLabeledLocation) {

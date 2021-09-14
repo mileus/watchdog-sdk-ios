@@ -1,8 +1,8 @@
 
 import UIKit
+import MessageUI
 
-
-public final class MileusWatchdogSearch {
+public final class MileusWatchdogSearch: NSObject {
     
     private static var alreadyInitialized = false
     
@@ -75,6 +75,14 @@ public final class MileusWatchdogSearch {
         return rootVC!
     }
     
+    internal func sendSMS(to number: String, with body: String) {
+        let messageVC = MFMessageComposeViewController()
+        messageVC.body = body
+        messageVC.recipients = [number]
+        messageVC.messageComposeDelegate = self
+        rootVC?.present(messageVC, animated: true, completion: nil)
+    }
+    
     public func update(location: MileusWatchdogLocation, type: MileusWatchdogSearchType) {
         updateLocation(location: location, type: MileusWatchdogLocationType(type: type))
         searchVM?.coordinatesUpdated()
@@ -124,4 +132,20 @@ public final class MileusWatchdogSearch {
         return components.url!
     }
     
+}
+
+extension MileusWatchdogSearch: MFMessageComposeViewControllerDelegate {
+    public func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+           switch (result) {
+           case .cancelled:
+               print("Message was cancelled")
+           case .failed:
+               print("Message failed")
+           case .sent:
+               print("Message was sent")
+           default:
+               return
+           }
+           controller.dismiss(animated: true, completion: nil)
+       }
 }
