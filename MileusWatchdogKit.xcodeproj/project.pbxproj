@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		183AA7B424AC3F7F00E1CF00 /* MileusMarketValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AA7B324AC3F7F00E1CF00 /* MileusMarketValidation.swift */; };
 		183AA7B624AC3FCB00E1CF00 /* MileusMarketValidationFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183AA7B524AC3FCB00E1CF00 /* MileusMarketValidationFlowDelegate.swift */; };
+		1841494826F0F4AC00E620A5 /* SendSMSMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1841494726F0F4AC00E620A5 /* SendSMSMessage.swift */; };
 		1845AB142631AE6700C561D1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1845AB132631AE6700C561D1 /* Assets.xcassets */; };
 		1845AB182631B21C00C561D1 /* LocationServiceThrottlingDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1845AB172631B21C00C561D1 /* LocationServiceThrottlingDecorator.swift */; };
 		18543CBC2437270500363CF0 /* MileusWatchdogKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18543CB22437270500363CF0 /* MileusWatchdogKit.framework */; };
@@ -66,6 +67,7 @@
 		18C73A3726DCCE73004DD227 /* MileusFlowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C73A3626DCCE73004DD227 /* MileusFlowError.swift */; };
 		18D2C58826D1455C00C5DF80 /* MileusOneTimeSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D2C58726D1455C00C5DF80 /* MileusOneTimeSearch.swift */; };
 		18D2C58A26D1458200C5DF80 /* MileusOneTimeSearchFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D2C58926D1458200C5DF80 /* MileusOneTimeSearchFlowDelegate.swift */; };
+		18E822C926F36F64007138F1 /* SMSHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E822C826F36F64007138F1 /* SMSHandler.swift */; };
 		18FA3E28265426AF00E21209 /* ScreenSwitchedCallbackMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18FA3E27265426AF00E21209 /* ScreenSwitchedCallbackMessage.swift */; };
 /* End PBXBuildFile section */
 
@@ -82,6 +84,7 @@
 /* Begin PBXFileReference section */
 		183AA7B324AC3F7F00E1CF00 /* MileusMarketValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileusMarketValidation.swift; sourceTree = "<group>"; };
 		183AA7B524AC3FCB00E1CF00 /* MileusMarketValidationFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileusMarketValidationFlowDelegate.swift; sourceTree = "<group>"; };
+		1841494726F0F4AC00E620A5 /* SendSMSMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSMSMessage.swift; sourceTree = "<group>"; };
 		1845AB132631AE6700C561D1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1845AB172631B21C00C561D1 /* LocationServiceThrottlingDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationServiceThrottlingDecorator.swift; sourceTree = "<group>"; };
 		18543CB22437270500363CF0 /* MileusWatchdogKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MileusWatchdogKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,6 +147,7 @@
 		18C73A3626DCCE73004DD227 /* MileusFlowError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileusFlowError.swift; sourceTree = "<group>"; };
 		18D2C58726D1455C00C5DF80 /* MileusOneTimeSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileusOneTimeSearch.swift; sourceTree = "<group>"; };
 		18D2C58926D1458200C5DF80 /* MileusOneTimeSearchFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MileusOneTimeSearchFlowDelegate.swift; sourceTree = "<group>"; };
+		18E822C826F36F64007138F1 /* SMSHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SMSHandler.swift; sourceTree = "<group>"; };
 		18FA3E27265426AF00E21209 /* ScreenSwitchedCallbackMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreenSwitchedCallbackMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -335,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				1878F4B225ECC9E90067640A /* WebViewMessage.swift */,
+				1841494726F0F4AC00E620A5 /* SendSMSMessage.swift */,
 				1878F4B625ECF9D50067640A /* OpenSearchMessage.swift */,
 				1878F4BA25ECFB3F0067640A /* OpenTaxiRideMessage.swift */,
 				1878F4BE25ECFBF80067640A /* OpenTaxiRideScreenAndFinishMessage.swift */,
@@ -422,6 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				1887B7CD246136BE00AAC050 /* InputSanitizer.swift */,
+				18E822C826F36F64007138F1 /* SMSHandler.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -578,6 +584,7 @@
 				1878F79325F0BC910067640A /* LocationTrackingEndpoint.swift in Sources */,
 				18543CCD2437335500363CF0 /* MileusWatchdogKit.swift in Sources */,
 				1878F4EC25EE066A0067640A /* InfoIconTitleMessage.swift in Sources */,
+				18E822C926F36F64007138F1 /* SMSHandler.swift in Sources */,
 				18543CD3243734F900363CF0 /* MileusWatchdogSearchType.swift in Sources */,
 				183AA7B624AC3FCB00E1CF00 /* MileusMarketValidationFlowDelegate.swift in Sources */,
 				183AA7B424AC3F7F00E1CF00 /* MileusMarketValidation.swift in Sources */,
@@ -613,6 +620,7 @@
 				18543CDB2437369500363CF0 /* MileusWatchdogSearchData.swift in Sources */,
 				18872B81243B09F300A127D2 /* MainNC.swift in Sources */,
 				1878F4AF25ECC1E10067640A /* WebViewMessagesHandler.swift in Sources */,
+				1841494826F0F4AC00E620A5 /* SendSMSMessage.swift in Sources */,
 				1898175C2458189100803ED5 /* OfflineView.swift in Sources */,
 				1878F4F025EE07700067640A /* NavigationControllerMessagesHandler.swift in Sources */,
 				18872B7D243B025300A127D2 /* SearchVM.swift in Sources */,

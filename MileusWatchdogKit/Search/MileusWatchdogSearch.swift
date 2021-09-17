@@ -1,8 +1,7 @@
 
 import UIKit
 
-
-public final class MileusWatchdogSearch {
+public final class MileusWatchdogSearch: NSObject {
     
     private static var alreadyInitialized = false
     
@@ -73,6 +72,10 @@ public final class MileusWatchdogSearch {
         }
         rootVC!.navigationBar.titleTextAttributes = [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 18.0)]
         return rootVC!
+    }
+    
+    internal func sendSMS(to number: String, with body: String) {
+        SMSHandler(presenter: rootVC).sendSMS(to: number, with: body)
     }
     
     public func update(location: MileusWatchdogLocation, type: MileusWatchdogSearchType) {
