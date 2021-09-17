@@ -12,8 +12,6 @@ fileprivate struct SendSMSMessageData: Decodable {
     let body: String?
 }
 
-
-
 struct SendSMSMessage: WebViewMessage {
     
     let identifier = "getSmsTicket"
