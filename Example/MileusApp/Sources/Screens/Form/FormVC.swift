@@ -200,6 +200,16 @@ extension FormVC: MileusWatchdogSchedulerFlowDelegate {
 }
 
 extension FormVC: MileusOneTimeSearchFlowDelegate {
+    func mileusShowTaxiRide(_ mileus: MileusOneTimeSearch) {
+        showAlert(message: "Show Taxi Ride")
+    }
+    
+    func mileusShowTaxiRideAndFinish(_ mileus: MileusOneTimeSearch) {
+        closeMileus {
+            self.mileusShowTaxiRide(mileus)
+        }
+    }
+    
     func mileusDidFinish(_ mileus: MileusOneTimeSearch) {
         closeMileus(completion: nil)
     }

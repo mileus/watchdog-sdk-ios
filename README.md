@@ -19,18 +19,18 @@ Please see the [Watchdog search docs](https://docs.mileus.com/watchdog-search/) 
 
 ### Carthage
 ```
-github "mileus/watchdog-sdk-ios" ~> 2.0.0
+github "mileus/watchdog-sdk-ios" ~> 2.1.0
 ```
 
 ### Cocoapods
 ```
-pod 'MileusWatchdogKit', '~> 1.0'
+pod 'MileusWatchdogKit', '~> 2.1.0'
 ```
 
 ### Swift Package Manager
 ```
 dependencies: [
-    .package(url: "https://github.com/mileus/watchdog-sdk-ios.git", .upToNextMajor(from: "2.0.0"))
+    .package(url: "https://github.com/mileus/watchdog-sdk-ios.git", .upToNextMajor(from: "2.1.0"))
 ]
 ```
 
@@ -45,7 +45,7 @@ MileusWatchdogKit.configure(
 ```
 
 ## Migration
-### 1.0.2 -> 2.0.0
+### 1.0.2 -> 2.1.0
 #### Mileus Watchdog Search
 Update location methods have been replaced with one universal method:
 ``` swift
@@ -167,6 +167,8 @@ Methods of Flow Delegate are always called on the main thread.
 protocol MileusOneTimeSearchFlowDelegate {
     func mileusDidFinish(_ mileus: MileusOneTimeSearch)
     func mileusDidFinish(_ mileus: MileusOneTimeSearch, with error: MileusWatchdogError)
+    func mileusShowTaxiRide(_ mileus: MileusOneTimeSearch)
+    func mileusShowTaxiRideAndFinish(_ mileus: MileusOneTimeSearch)
 }
 ```
 

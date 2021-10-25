@@ -13,6 +13,7 @@ public final class MileusWatchdogSearch: NSObject {
     
     private var rootVC: UINavigationController?
     private weak var searchVM: SearchVM?
+    private var smsHandler: SMSHandler?
     
     public convenience init(delegate: MileusWatchdogSearchFlowDelegate, origin: MileusWatchdogLocation? = nil, destination: MileusWatchdogLocation? = nil) throws {
         try self.init(delegate: delegate, origin: origin, destination: destination, ignoreLocationPermission: false)
@@ -75,7 +76,10 @@ public final class MileusWatchdogSearch: NSObject {
     }
     
     internal func sendSMS(to number: String, with body: String) {
-        SMSHandler(presenter: rootVC).sendSMS(to: number, with: body)
+        smsHandler = SMSHandler(presenter: rootVC) { [weak self] in
+            self?.smsHandler = nil
+        }
+        smsHandler?.sendSMS(to: number, with: body)
     }
     
     public func update(location: MileusWatchdogLocation, type: MileusWatchdogSearchType) {
