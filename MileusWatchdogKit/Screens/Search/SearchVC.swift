@@ -3,7 +3,7 @@ import UIKit
 
 
 class SearchVC: UIViewController {
-
+    
     var viewModel: SearchVM!
     
     private var contentView: SearchView {
@@ -21,6 +21,11 @@ class SearchVC: UIViewController {
         title = NSLocalizedString("watchdog_search_title", tableName: "Localizable", bundle: Bundle.bundle(for: SearchVC.self), value: "", comment: "")
         configure()
         bind()
+     
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
+        
     }
     
     private func configure() {
