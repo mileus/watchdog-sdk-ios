@@ -5,9 +5,11 @@ import MessageUI
 internal final class SMSHandler: NSObject, MFMessageComposeViewControllerDelegate {
     
     weak var presenter: UIViewController?
+    var completionHandler: ()->()
     
-    init(presenter: UIViewController?) {
+    init(presenter: UIViewController?, completionHandler: @escaping ()->()) {
         self.presenter = presenter
+        self.completionHandler = completionHandler
     }
     
     internal func sendSMS(to number: String, with body: String) {
@@ -20,5 +22,6 @@ internal final class SMSHandler: NSObject, MFMessageComposeViewControllerDelegat
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         controller.dismiss(animated: true, completion: nil)
+        completionHandler()
     }
 }

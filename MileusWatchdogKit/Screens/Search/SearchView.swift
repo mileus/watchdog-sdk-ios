@@ -112,9 +112,15 @@ class SearchView: UIView {
 
 extension SearchView: WKNavigationDelegate {
     
+    /// If link is outside projecturl, open in safari, else allow navigation
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         if navigationAction.navigationType == .linkActivated {
-            decisionHandler(navigationAction.request.url?.absoluteString.hasPrefix(MileusWatchdogKit.environment.webURL) ?? false ? .allow : .cancel)
+            let result: WKNavigationActionPolicy = navigationAction.request.url?.absoluteString.hasPrefix(MileusWatchdogKit.environment.webURL) ?? false ? .allow : .cancel
+            
+            decisionHandler(result)
+            if result == .cancel, let url = navigationAction.request.url {
+                UIApplication.shared.open(url)
+            }
         } else {
             decisionHandler(.allow)
         }

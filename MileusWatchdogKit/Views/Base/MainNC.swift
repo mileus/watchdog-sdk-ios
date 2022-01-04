@@ -6,6 +6,13 @@ class MainNC: UINavigationController {
     
     private var infoButtonViewModel: InfoButtonViewModel?
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light
+        }
+    }
+    
     deinit {
         debugPrint("DEINIT: \(String(describing: self))")
     }

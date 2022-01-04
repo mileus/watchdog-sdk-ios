@@ -38,15 +38,15 @@ public final class MileusOneTimeSearch {
 
 extension MileusOneTimeSearch: MileusWatchdogSearchFlowDelegate {
     public func mileus(_ mileus: MileusWatchdogSearch, showSearch data: MileusWatchdogSearchData) {
-
+        
     }
     
     public func mileusShowTaxiRide(_ mileus: MileusWatchdogSearch) {
-        
+        delegate?.mileusShowTaxiRide(self)
     }
     
     public func mileusShowTaxiRideAndFinish(_ mileus: MileusWatchdogSearch) {
-        
+        delegate?.mileusShowTaxiRideAndFinish(self)
     }
     
     public func mileusDidFinish(_ mileus: MileusWatchdogSearch) {
